@@ -6,7 +6,7 @@
 	<version>1.0.3-SNAPSHOT</version>
 	<name>Annox Project</name>
 	<description>Annox is an open source project which allows you to read arbitrary Java annotations from XML resources. JAXB users may be interested in Annox annotation reader for JAXB RI which allows you to define JAXB Java/XML mappings in XML resources (instead of annotations).</description>
-	<url>https://github.com/highsource/annox</url>
+	<url>https://github.com/patrodyne/hisrc-basicjaxb-annox</url>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
