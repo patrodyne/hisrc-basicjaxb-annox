@@ -44,9 +44,9 @@
 	</contributors>
 	<licenses>
 		<license>
-			<name>BSD 2-Clause License</name>
-			<url>http://opensource.org/licenses/BSD-2-Clause</url>
-			<distribution>repo</distribution>
+			<name>BSD 3-Clause License</name>
+			<url>https://raw.githubusercontent.com/patrodyne/hisrc-basicjaxb-annox/master/LICENSE.md</url>
+			<distribution>repo or manual</distribution>
 		</license>
 	</licenses>
 	<scm>
