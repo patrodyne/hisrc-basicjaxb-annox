@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jvnet.annox</groupId>
+	<groupId>org.patrodyne.jvnet</groupId>
 	<artifactId>annox-project</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.3-SNAPSHOT</version>
@@ -16,32 +16,35 @@
 		<system>GitHub Issues</system>
 		<url>https://github.com/patrodyne/hisrc-basicjaxb-annox/issues</url>
 	</issueManagement>
+	<!-- OSS Repository Hosting <https://central.sonatype.org/publish/publish-guide/> -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<inceptionYear>2006</inceptionYear>
-	<mailingLists>
-		<mailingList>
-			<name>Users List</name>
-			<subscribe>users-subscribe@annox.java.net</subscribe>
-			<unsubscribe>users-unsubscribe@annox.java.net</unsubscribe>
-			<post>users@annox.java.net</post>
-			<archive>https://java.net/projects/annox/lists/users/archive</archive>
-		</mailingList>
-	</mailingLists>
 	<developers>
 		<developer>
+			<id>patrodyne</id>
+			<name>Rick O'Sullivan</name>
+			<email>rick.osullivan@patrodyne.org</email>
+			<roles>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+		<developer>
 			<id>highsource</id>
-			<name>Alexey Valikov</name>
-			<email>valikov@gmx.net</email>
+			<name>Aleksei Valikov</name>
+			<roles>
+				<role>architect (late)</role>
+			</roles>
 		</developer>
 	</developers>
-	<contributors>
-		<!--contributor>
-			<name></name>
-			<email></email>
-			<organization></organization>
-			<organizationUrl></organizationUrl>
-			<timezone></timezone>
-		</contributor-->
-	</contributors>
 	<licenses>
 		<license>
 			<name>BSD 3-Clause License</name>
@@ -50,9 +53,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>https://github.com/highsource/annox</url>
-		<connection>scm:git:git://github.com/highsource/annox.git</connection>
-		<developerConnection>scm:git:git@github.com:highsource/annox.git</developerConnection>
+		<connection>scm:git:git@github.com:patrodyne/hisrc-basicjaxb-annox.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/patrodyne/hisrc-basicjaxb-annox.git</developerConnection>
+		<url>https://github.com/patrodyne/hisrc-basicjaxb-annox/tree/master</url>
 	</scm>
 	<modules>
 		<module>core</module>
