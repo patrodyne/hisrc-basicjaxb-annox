@@ -1,33 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jvnet.annox</groupId>
-	<artifactId>annox-samples</artifactId>
-	<packaging>pom</packaging>
-	<name>Annox Samples</name>
 	<parent>
 		<groupId>org.jvnet.annox</groupId>
 		<artifactId>annox-project</artifactId>
 		<version>1.0.3-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+	<groupId>org.jvnet.annox</groupId>
+	<artifactId>annox-samples</artifactId>
+	<packaging>pom</packaging>
+	<name>Annox Samples</name>
 	<modules>
 		<module>po</module>
 	</modules>
 	<build>
-		<defaultGoal>install</defaultGoal>
+		<defaultGoal>package</defaultGoal>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<inherited>true</inherited>
 				<executions>
 					<execution>
 						<id>maven-assembly</id>
 						<!--phase>package</phase-->
 						<phase>none</phase>
 						<goals>
-							 <goal>attached</goal>
+							 <goal>single</goal>
 						</goals>
 						<configuration>
 							<descriptors>
@@ -40,7 +40,7 @@
 						<!--phase>package</phase-->
 						<phase>none</phase>
 						<goals>
-							 <goal>attached</goal>
+							 <goal>single</goal>
 						</goals>
 						<configuration>
 							<descriptors>
@@ -52,17 +52,16 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<inherited>true</inherited>
 				<executions>
 					<execution>
 						<id>maven-unpack</id>
 						<!--phase>pre-integration-test</phase-->
 						<phase>none</phase>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="target/test-maven-repository" />
 								<unzip src="target/${project.artifactId}-${project.version}-maven-src.zip" dest="${basedir}/target/test-maven-assembly" />
-							</tasks>
+							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
@@ -72,34 +71,32 @@
 						<id>ant-unpack</id>
 						<!--phase>pre-integration-test</phase-->
 						<phase>none</phase>
-						<configuration>
-							<tasks>
-								<unzip src="${basedir}/target/${project.artifactId}-${project.version}-ant-src.zip" dest="${basedir}/target/test-ant-assembly"/>
-							</tasks>
-						</configuration>
 						<goals>
 							<goal>run</goal>
 						</goals>
+						<configuration>
+							<target>
+								<unzip src="${basedir}/target/${project.artifactId}-${project.version}-ant-src.zip" dest="${basedir}/target/test-ant-assembly"/>
+							</target>
+						</configuration>
 					</execution>
 					<execution>
 						<id>ant-integration-test</id>
 						<!--phase>integration-test</phase-->
 						<phase>none</phase>
-						<configuration>
-							<tasks>
-								<ant dir="${basedir}/target/test-ant-assembly/${project.artifactId}-${project.version}" target="package"/>
-							</tasks>
-						</configuration>
 						<goals>
 							<goal>run</goal>
 						</goals>
+						<configuration>
+							<target>
+								<ant dir="${basedir}/target/test-ant-assembly/${project.artifactId}-${project.version}" target="package"/>
+							</target>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-invoker-plugin</artifactId>
-				<version>1.9</version>
-				<inherited>true</inherited>
 				<executions>
 					<execution>
 						<id>maven-integration-test</id>
@@ -111,14 +108,13 @@
 						<configuration>
 							<debug>true</debug>
 							<projectsDirectory>${basedir}/target/test-maven-assembly</projectsDirectory>
+							<cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.1</version>
 				<configuration>
 					<skip>true</skip>
 				</configuration>

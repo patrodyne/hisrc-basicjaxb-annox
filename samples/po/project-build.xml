@@ -1,6 +1,7 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="annox-sample-po-ant" default="install">
 	<property name="artifactId" value="annox-sample-po-ant"/>
+	<property name="build.compiler" value="extJavac"/>
 	<path id="compile.path">
 		<fileset dir="${basedir}/lib">
 			<include name="activation-*.jar"/>
@@ -8,6 +9,7 @@
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
 			<include name="jaxb-api-*.jar"/>
+			<include name="jaxb-runtime-*.jar"/>
 			<include name="jaxb-impl-*.jar"/>
 			<include name="stax-api-*.jar"/>
 		</fileset>
@@ -19,6 +21,7 @@
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
 			<include name="jaxb-api-*.jar"/>
+			<include name="jaxb-runtime-*.jar"/>
 			<include name="jaxb-impl-*.jar"/>
 			<include name="stax-api-*.jar"/>
 			<include name="junit-*.jar"/>
@@ -32,8 +35,10 @@
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
 			<include name="jaxb-api-*.jar"/>
+			<include name="jaxb-runtime-*.jar"/>
 			<include name="jaxb-impl-*.jar"/>
 			<include name="stax-api-*.jar"/>
+			<include name="junit-*.jar"/>
 		</fileset>
 	</path>
 	<target name="clean">
@@ -46,11 +51,10 @@
 	<target name="compile" depends="generate-sources">
 		<mkdir dir="${basedir}/target/classes"/>
 		<javac
+			includeantruntime="false"
 			destdir="${basedir}/target/classes" 
 			srcdir="${basedir}/src/main/java"
-			classpathref="compile.path"
-			source="1.5"
-			target="1.5">
+			classpathref="compile.path">
 		</javac>
 		<copy todir="${basedir}/target/classes">
 			<fileset dir="${basedir}/src/main/resources"/>
@@ -59,11 +63,10 @@
 	<target name="test-compile" depends="compile">
 		<mkdir dir="${basedir}/target/test-classes"/>
 		<javac
+			includeantruntime="false"
 			destdir="${basedir}/target/test-classes" 
 			srcdir="${basedir}/src/test/java"
-			classpathref="test-compile.path"
-			source="1.5"
-			target="1.5">
+			classpathref="test-compile.path">
 		</javac>
 		<copy todir="${basedir}/target/test-classes">
 			<fileset dir="${basedir}/src/test/resources"/>
@@ -96,3 +99,4 @@
 	</target>
 	<target name="install" depends="package"/>
 </project>
+<!-- vi:set tabstop=4 hardtabs=4 shiftwidth=4 noexpandtab:-->
