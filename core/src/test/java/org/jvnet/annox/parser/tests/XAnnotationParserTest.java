@@ -49,26 +49,41 @@ public class XAnnotationParserTest extends TestCase {
 		final Element element = getElement("one.xml");
 
 		final XAnnotation<?> one = parser.parse(element);
-		System.out.println(one.toString());
+		System.out.println("  one: "+one.toString());
+		
 		final A zeroResult = One.class.getAnnotation(A.class);
 		final int zeroHashCode = zeroResult.hashCode();
 		final String zeroToString = zeroResult.toString();
+		System.out.println("zeroT: "+zeroToString);
+		
 		final XAnnotation<?> two = parser.parse(zeroResult);
-		System.out.println(two.toString());
+		System.out.println("  two: "+two.toString());
 		Assert.assertEquals("Annotations should be identical.", one, two);
+		
 		final Annotation oneResult = one.getResult();
 		final int oneHashCode = oneResult.hashCode();
 		final String oneToString = oneResult.toString();
+		System.out.println(" oneT: "+oneToString);
+		
 		final Annotation twoResult = two.getResult();
 		final int twoHashCode = twoResult.hashCode();
 		final String twoToString = twoResult.toString();
+		
 		final XAnnotation<?> three = parser.parse(oneResult);
-		System.out.println(three.toString());
+		System.out.println("three: "+three.toString());
 		final XAnnotation<?> four = parser.parse(twoResult);
-		System.out.println(four.toString());
+		System.out.println(" four: "+four.toString());
 		Assert.assertEquals("Annotations should be identical.", three, four);
-		Assert.assertEquals("Annotation toStrings must have the same length",
-				zeroToString.length(), oneToString.length());
+		
+
+		// Not true in JDK 11 because the field representations are more detailed.
+		// For example: (one) charField=a becomes (zero) charField='a', etc.
+		//
+		// Assert.assertEquals("Annotation toStrings must have the same length",
+		//		zeroToString.length(), oneToString.length());
+		Assert.assertTrue(zeroResult instanceof A);
+		Assert.assertTrue(oneResult instanceof A);
+		
 		Assert.assertEquals("Annotation toStrings must have the same length",
 				oneToString.length(), twoToString.length());
 		Assert.assertEquals("Annotation hashCodes should be identical.",
