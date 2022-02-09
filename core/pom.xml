@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.patrodyne.jvnet</groupId>
-	<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
-	<packaging>jar</packaging>
-	<name>Annox Core</name>
 	<parent>
 		<groupId>org.patrodyne.jvnet</groupId>
 		<artifactId>hisrc-basicjaxb-annox-parser-project</artifactId>
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
+	<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
+	<packaging>jar</packaging>
+	<name>Annox Core</name>
 	<properties>
 		<annox.osgi.version>${project.version}</annox.osgi.version>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
@@ -69,7 +68,7 @@
 							<supportedProjectTypes>
 								<supportedProjectType>jar</supportedProjectType>
 							</supportedProjectTypes>
-							<manifestLocation>META-INF</manifestLocation>
+							<manifestLocation>${project.build.directory}/META-INF</manifestLocation>
 							<instructions>
 								<Bundle-Version>${annox.osgi.version}</Bundle-Version>
 								<Import-Package>
@@ -80,8 +79,14 @@
 									org.jvnet.annox,
 									org.jvnet.annox.annotation,
 									org.jvnet.annox.io,
+									org.jvnet.annox.japa.parser.ast.visitor,
 									org.jvnet.annox.model,
+									org.jvnet.annox.model.annotation.field,
+									org.jvnet.annox.model.annotation.value,
 									org.jvnet.annox.parser,
+									org.jvnet.annox.parser.exception,
+									org.jvnet.annox.parser.value,
+									org.jvnet.annox.parser.java.visitor,
 									org.jvnet.annox.reader,
 									org.jvnet.annox.reader.resourced,
 									org.jvnet.annox.reflect,
@@ -98,7 +103,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
-						<manifestFile>META-INF/MANIFEST.MF</manifestFile>
+						<manifestFile>${project.build.directory}/META-INF/MANIFEST.MF</manifestFile>
 					</archive>
 				</configuration>
 			</plugin>

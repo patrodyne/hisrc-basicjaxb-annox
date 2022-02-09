@@ -21,16 +21,17 @@ with the original `maven-jaxb2-plugin` name.
 | [hisrc-hyperjaxb-annox][14] | [jaxb2-annotate-plugin][24] | XJC plugin to add arbitrary Java annotations to JAXB.  |
 | [hisrc-hyperjaxb][15]       | [hyperjaxb3][25]            | Maven and XJC plugins to add JPA annotations to JAXB.  |
 
-### Graph of repositories relationships
+### Graph of repository relationships
 
 ![Patrodyne-Highsource Graph][1]
 
 ### Goals
 
-The initial goals of this fork are:
+The initial goals for this fork are:
 
 * Produce a (mostly) warning and error free build under Java 8 and Java 11.
 * Provide new build scripts to facilitate installation, deployment and release.
+* Use the SLF4J API and SimpleLogger implementation everywhere.
 * Release fresh artifacts to Maven Central in the `org.patrodyne.jvnet` group.
 
 ### Status
@@ -43,6 +44,7 @@ In progress,
 * POMs have been updated to reduce warnings and errors.
 * Changes to Java sources is in progress.
 * Verification of unit and integration tests is in progress.
+* Release to Maven Central TBD.
 
 <!-- References -->
 
@@ -56,5 +58,5 @@ In progress,
   [21]: https://github.com/highsource/annox
   [22]: https://github.com/highsource/jaxb2-basics
   [23]: https://github.com/highsource/maven-jaxb2-plugin
-  [24]: https://github.com/highsource/hyperjaxb3
-  [25]: https://github.com/highsource/jaxb2-annotate-plugin
+  [24]: https://github.com/highsource/jaxb2-annotate-plugin
+  [25]: https://github.com/highsource/hyperjaxb3
