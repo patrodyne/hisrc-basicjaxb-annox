@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.jvnet.annox</groupId>
-		<artifactId>annox-project</artifactId>
+		<groupId>org.patrodyne.jvnet</groupId>
+		<artifactId>hisrc-basicjaxb-annox-parser-project</artifactId>
 		<version>1.0.3-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.jvnet.annox</groupId>
-	<artifactId>annox-samples</artifactId>
+	<groupId>org.patrodyne.jvnet</groupId>
+	<artifactId>hisrc-basicjaxb-annox-samples</artifactId>
 	<packaging>pom</packaging>
 	<name>Annox Samples</name>
 	<modules>
