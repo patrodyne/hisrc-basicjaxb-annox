@@ -36,22 +36,25 @@ The initial goals for this fork are:
 
 ### Status
 
-In progress,
+Completed,
 
 * Obsolete build scripts have been removed.
 * New build scripts have been added.
 * POMs have been refactored with renamed artifacts.
 * POMs have been updated to reduce warnings and errors.
 * Changes to Java sources is in progress.
-* Verification of unit and integration tests is in progress.
+* Verification of unit and integration tests.
+
+In progress,
+
 * Release to Maven Central TBD.
 
 <!-- References -->
 
   [1]: https://raw.githubusercontent.com/patrodyne/hisrc-hyperjaxb/master/etc/hisrc-repositories.svg
   [2]: https://github.com/highsource
-  [11]: https://github.com/patrodyne/hisrc-hyperjaxb-annox
-  [12]: https://github.com/patrodyne/hisrc-hyperjaxb
+  [11]: https://github.com/patrodyne/hisrc-basicjaxb-annox
+  [12]: https://github.com/patrodyne/hisrc-basicjaxb
   [13]: https://github.com/patrodyne/hisrc-higherjaxb
   [14]: https://github.com/patrodyne/hisrc-hyperjaxb-annox
   [15]: https://github.com/patrodyne/hisrc-hyperjaxb
