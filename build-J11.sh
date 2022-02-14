@@ -29,3 +29,7 @@ JAVA11_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
   mvn ${BUILD_OPTS}
 # mvn ${BUILD_OPTS} install
 # mvn ${BUILD_OPTS} -Psamples package
+# mvn -DskipTests=true -Pnexus-deploy clean deploy
+# mvn -DdryRun=true release:clean
+# mvn -DdryRun=true release:prepare
+# mvn -DdryRun=true release:perform
