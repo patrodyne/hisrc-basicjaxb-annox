@@ -4,7 +4,7 @@
 
 	<groupId>org.patrodyne.jvnet</groupId>
 	<artifactId>hisrc-basicjaxb-annox-parser-project</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 
 	<name>Annox Project</name>
@@ -47,7 +47,8 @@
 		<connection>scm:git:git@github.com:patrodyne/hisrc-basicjaxb-annox.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/patrodyne/hisrc-basicjaxb-annox.git</developerConnection>
 		<url>https://github.com/patrodyne/hisrc-basicjaxb-annox/tree/master</url>
-	</scm>
+	  <tag>1.0.3</tag>
+  </scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
