@@ -45,10 +45,13 @@ The initial goals for this fork are:
 * Configured SLF4J with SimpleLogger as the log framework.
 * Changes to Java sources to resolve warnings/errors.
 * Verification of unit and integration tests.
+* Released to Maven Central
+	* [Maven Central Repository Search](https://search.maven.org/search?q=g:org.patrodyne.jvnet)
+	* [Maven Central Repository Index](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
 
 #### In Progress
 
-* Release to Maven Central TBD.
+* Planning for next release.
 
 <!-- References -->
 
