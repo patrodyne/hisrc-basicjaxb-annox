@@ -54,13 +54,13 @@ The initial goals for this fork are:
 
   [1]: https://raw.githubusercontent.com/patrodyne/hisrc-hyperjaxb/master/etc/hisrc-repositories.svg
   [2]: https://github.com/highsource
-  [11]: https://github.com/patrodyne/hisrc-basicjaxb-annox
-  [12]: https://github.com/patrodyne/hisrc-basicjaxb
-  [13]: https://github.com/patrodyne/hisrc-higherjaxb
-  [14]: https://github.com/patrodyne/hisrc-hyperjaxb-annox
-  [15]: https://github.com/patrodyne/hisrc-hyperjaxb
-  [21]: https://github.com/highsource/annox
-  [22]: https://github.com/highsource/jaxb2-basics
-  [23]: https://github.com/highsource/maven-jaxb2-plugin
-  [24]: https://github.com/highsource/jaxb2-annotate-plugin
-  [25]: https://github.com/highsource/hyperjaxb3
+  [11]: https://github.com/patrodyne/hisrc-basicjaxb-annox#readme
+  [12]: https://github.com/patrodyne/hisrc-basicjaxb#readme
+  [13]: https://github.com/patrodyne/hisrc-higherjaxb#readme
+  [14]: https://github.com/patrodyne/hisrc-hyperjaxb-annox#readme
+  [15]: https://github.com/patrodyne/hisrc-hyperjaxb#readme
+  [21]: https://github.com/highsource/annox#readme
+  [22]: https://github.com/highsource/jaxb2-basics#readme
+  [23]: https://github.com/highsource/maven-jaxb2-plugin#readme
+  [24]: https://github.com/highsource/jaxb2-annotate-plugin#readme
+  [25]: https://github.com/highsource/hyperjaxb3#readme
