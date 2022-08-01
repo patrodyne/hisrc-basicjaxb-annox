@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Usage: build-J11.sh [option(s)] [goal(s)]
 # Example: build-J11.sh clean install
@@ -18,14 +18,20 @@
 #     Step #3 unit test the shared, test and sample projects.
 #
 JAVA11_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-  if [ ! -d "${JAVA11_HOME}" ]; then
-	echo "Please configure JDK 11 home path."
-	exit 1
-  fi
-  export JAVA_HOME="${JAVA11_HOME}"
-# DEBUG_OPTS="-X -Dorg.slf4j.simpleLogger.showLogName=true"
-# BUILD_OPTS="--fail-at-end -DskipTests=false $@"
-  BUILD_OPTS="--fail-at-end $@"
-  mvn ${BUILD_OPTS}
-# mvn ${BUILD_OPTS} install
-# mvn ${BUILD_OPTS} -Psamples package
+if [ ! -d "${JAVA11_HOME}" ]; then
+  echo "Please configure JDK 11 home path."
+  exit 1
+fi
+export JAVA_HOME="${JAVA11_HOME}"
+
+BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+source ${BASEDIR}/build-INC.sh
+
+if [ $# -eq 0 ]; then
+  ${BASEDIR}/build.sh
+else
+  mvn --fail-at-end ${JVM_SYS_PROPS} "$@"
+fi
+
+# mvn ${JVM_SYS_PROPS} -DskipTests=true clean install
+# mvn ${JVM_SYS_PROPS} -Psamples package
