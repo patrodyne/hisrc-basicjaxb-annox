@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
 	<packaging>jar</packaging>
-	<name>Annox Core</name>
+	<name>HiSrc BasicJAXB Annox Core</name>
 	<properties>
 		<annox.osgi.version>${project.version}</annox.osgi.version>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
@@ -41,7 +41,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-search</artifactId>
+			<artifactId>hibernate-search-orm</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

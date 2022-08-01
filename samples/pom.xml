@@ -12,7 +12,7 @@
 	<groupId>org.patrodyne.jvnet</groupId>
 	<artifactId>hisrc-basicjaxb-annox-samples</artifactId>
 	<packaging>pom</packaging>
-	<name>Annox Samples</name>
+	<name>HiSrc BasicJAXB Annox Samples</name>
 	<modules>
 		<module>po</module>
 	</modules>
@@ -33,6 +33,7 @@
 							<descriptors>
 								<descriptor>../src/main/assembly/maven-src.xml</descriptor>
 							</descriptors>
+							<escapeString>\</escapeString>
 						</configuration>
 					</execution>
 					<execution>

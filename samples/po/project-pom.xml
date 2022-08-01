@@ -9,10 +9,10 @@
 	<artifactId>hisrc-basicjaxb-annox-samples-po-maven</artifactId>
 	<version>${project.version}</version>
 	<packaging>jar</packaging>
-	<name>Annox Samples [po:maven]</name>
+	<name>HiSrc BasicJAXB Annox Samples [po:maven]</name>
 
 	<properties>
-		<jaxb.version>2.3.1</jaxb.version>
+		<jaxb.version>${jaxb.version}</jaxb.version>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,25 +29,25 @@
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>${jaxb.version}</version>
+			<version>\${jaxb.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>${jaxb.version}</version>
+			<version>\${jaxb.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
-			<version>${jaxb.version}</version>
+			<version>\${jaxb.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

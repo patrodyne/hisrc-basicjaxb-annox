@@ -11,7 +11,7 @@
 	</parent>
 	<artifactId>hisrc-basicjaxb-annox-samples-po</artifactId>
 	<packaging>pom</packaging>
-	<name>Annox Sample [po]</name>
+	<name>HiSrc BasicJAXB Annox Sample [po]</name>
 	<dependencies>
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>

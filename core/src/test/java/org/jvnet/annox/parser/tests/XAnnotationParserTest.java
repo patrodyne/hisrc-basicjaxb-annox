@@ -9,6 +9,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import junit.framework.TestCase;
 
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Store;
 import org.junit.Assert;
 import org.jvnet.annox.model.XAnnotation;
 import org.jvnet.annox.model.annotation.field.XSingleAnnotationField;
@@ -162,11 +164,11 @@ public class XAnnotationParserTest extends TestCase {
 		final XAnnotationParser parser = XAnnotationParser.INSTANCE;
 
 		final Element element = getElement("field.xml");
-
+		
 		final XAnnotation<?> zero = parser.parse(element);
 		Assert.assertEquals("Annotations should be identical.",
 				zero.toString(),
-				"@org.hibernate.search.annotations.Field(index=TOKENIZED, store=NO)");
+				"@org.hibernate.search.annotations.Field(index=YES, store=NO)");
 
 	}
 
