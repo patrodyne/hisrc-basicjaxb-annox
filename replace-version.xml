@@ -7,7 +7,7 @@
 
 		<replace dir="${basedir}">
 			<include name="**/*pom.xml"/>
-			<replacetoken><![CDATA[version>1.0.4-SNAPSHOT</version>]]></replacetoken>
+			<replacetoken><![CDATA[version>1.0.5-SNAPSHOT</version>]]></replacetoken>
 			<replacevalue><![CDATA[version>1.0.4-SNAPSHOT</version>]]></replacevalue>
 		</replace>
 
