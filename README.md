@@ -27,22 +27,22 @@ with the original `maven-jaxb2-plugin` name.
 
 ### Releases
 
+#### GitHub Releases, Demonstrations
+
+* TBD
+
 #### Maven Central Repository
 
 * [Maven Central Repository Search](https://search.maven.org/search?q=g:org.patrodyne.jvnet)
 * [Maven Central Repository Index](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
 
-#### GitHub Zip Releases
-
-* TBD
-
 ### Goals
 
-The new goals for this fork are:
+New goals for the next release are:
 
-* Add sample projects to GitHub releases.
-* Update dependencies with newer versions *excluding* the Jakarta namespace.
 * Update dependencies with newer versions *including* the Jakarta namespace.
+* Update JUnit v4 to JUnit v5.
+* Add explorations to GitHub releases.
 
 ### Status
 
@@ -52,9 +52,13 @@ The new goals for this fork are:
 
 #### In Progress
 
-* Adding sample projects to GitHub releases.
+* Review Jakarta dependencies.
 
 ### Fork History
+
+#### Version 1.0.4
+
+* Update dependencies with newer versions *excluding* the Jakarta namespace.
 
 #### Version 1.0.3
 
