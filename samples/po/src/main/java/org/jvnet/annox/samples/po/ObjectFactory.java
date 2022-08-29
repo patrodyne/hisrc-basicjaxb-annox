@@ -1,8 +1,8 @@
 package org.jvnet.annox.samples.po;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 
+import jakarta.xml.bind.JAXBElement;
 
 public class ObjectFactory {
 

@@ -9,7 +9,6 @@
 		<version>1.0.5-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.patrodyne.jvnet</groupId>
 	<artifactId>hisrc-basicjaxb-annox-samples</artifactId>
 	<packaging>pom</packaging>
 	<name>HiSrc BasicJAXB Annox Samples</name>

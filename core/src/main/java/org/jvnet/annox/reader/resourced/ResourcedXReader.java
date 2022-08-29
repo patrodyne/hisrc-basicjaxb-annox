@@ -8,8 +8,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import javax.xml.bind.JAXBContext;
-
 import org.apache.commons.lang3.Validate;
 import org.jvnet.annox.model.XClass;
 import org.jvnet.annox.model.XConstructor;
@@ -20,6 +18,8 @@ import org.jvnet.annox.parser.XAnnotationParser;
 import org.jvnet.annox.parser.exception.AnnotationElementParseException;
 import org.jvnet.annox.reader.XReader;
 import org.jvnet.annox.reflect.AnnotatedElementException;
+
+import jakarta.xml.bind.JAXBContext;
 
 public class ResourcedXReader implements XReader {
 

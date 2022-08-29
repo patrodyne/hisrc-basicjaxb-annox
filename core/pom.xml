@@ -15,11 +15,15 @@
 	</properties>
 	<dependencies>
 
+		<dependency>
+			<groupId>jakarta.activation</groupId>
+			<artifactId>jakarta.activation-api</artifactId>
+		</dependency>
 		<!-- Replaces com.sun.xml.bind:jaxb-impl, javax.xml.bind:jaxb-api,
 		     org.glassfish.jaxb:txw2, com.sun.istack:istack-commons-runtime -->
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
@@ -40,13 +44,22 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-search-orm</artifactId>
+			<groupId>org.hibernate.search</groupId>
+			<artifactId>hibernate-search-mapper-orm</artifactId>
 			<scope>test</scope>
+			<!-- Exclude transitive references to               -->
+			<!--   org.hibernate:hibernate-core:jar:5.6.8.Final -->
+			<!--   javax.xml.bind:jaxb-api:jar:2.3.1:test       -->
+			<exclusions>
+              <exclusion>
+                <groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+              </exclusion>
+            </exclusions>
 		</dependency>
 		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
+			<groupId>org.hibernate.search</groupId>
+			<artifactId>hibernate-search-v5migrationhelper-orm</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

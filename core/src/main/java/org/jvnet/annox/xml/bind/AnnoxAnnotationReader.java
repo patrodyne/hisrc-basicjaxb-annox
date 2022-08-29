@@ -1,5 +1,7 @@
 package org.jvnet.annox.xml.bind;
 
+import static org.jvnet.annox.xml.bind.LocatableUtils.getLocatable;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;
@@ -14,12 +16,12 @@ import org.jvnet.annox.reflect.AnnotatedElementFactory;
 import org.jvnet.annox.reflect.DualAnnotatedElementFactory;
 import org.jvnet.annox.reflect.MethodAnnotatedElement;
 import org.jvnet.annox.reflect.ParameterizedAnnotatedElement;
-
-import com.sun.xml.bind.v2.model.annotation.AbstractInlineAnnotationReaderImpl;
-import com.sun.xml.bind.v2.model.annotation.Locatable;
-import com.sun.xml.bind.v2.model.annotation.LocatableAnnotation;
-import com.sun.xml.bind.v2.model.annotation.RuntimeAnnotationReader;
-import com.sun.xml.bind.v2.runtime.IllegalAnnotationException;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.glassfish.jaxb.core.v2.model.annotation.Locatable;
+import org.glassfish.jaxb.core.v2.runtime.IllegalAnnotationException;
+import org.glassfish.jaxb.runtime.v2.model.annotation.AbstractInlineAnnotationReaderImpl;
+import org.glassfish.jaxb.runtime.v2.model.annotation.LocatableAnnotation;
+import org.glassfish.jaxb.runtime.v2.model.annotation.RuntimeAnnotationReader;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class AnnoxAnnotationReader extends
@@ -41,54 +43,67 @@ public class AnnoxAnnotationReader extends
 		return annotatedElementFactory;
 	}
 
-	protected AnnotatedElement getAnnotatedElement(Field field) {
-		try {
+	protected String illegalAnnotationMsg(AnnotatedElementException aex, String loadMsg)
+	{
+		jakarta.xml.bind.annotation.XmlElementDecl foo;
+		String msg1 = aex.getClass().getSimpleName() + ": " + aex.getMessage();
+		Throwable rc = ExceptionUtils.getRootCause(aex);
+		String msg2 = rc.getClass().getSimpleName() + ": " + rc.getMessage();
+		return msg1 + "; " + msg2 + "; " + loadMsg;
+	}
+	
+	protected AnnotatedElement getAnnotatedElement(Field field)
+	{
+		try
+		{
 			return getAnnotatedElementFactory().getAnnotatedElement(field);
-		} catch (AnnotatedElementException aex) {
-			getErrorHandler().error(
-					new IllegalAnnotationException(
-							"Could not load annotated element exception for field ["
-									+ field.getName() + "].", LocatableUtils
-									.getLocatable(field)));
+		}
+		catch (AnnotatedElementException aex)
+		{
+			String msg = illegalAnnotationMsg(aex, "Loading field [" + field.getName() + "].");
+			getErrorHandler().error(new IllegalAnnotationException(msg, aex, getLocatable(field)));
 			return field;
 		}
 	}
 
-	protected ParameterizedAnnotatedElement getAnnotatedElement(Method theMethod) {
-		try {
+	protected ParameterizedAnnotatedElement getAnnotatedElement(Method theMethod)
+	{
+		try
+		{
 			return getAnnotatedElementFactory().getAnnotatedElement(theMethod);
-		} catch (AnnotatedElementException aex) {
-			getErrorHandler().error(
-					new IllegalAnnotationException(
-							"Could not load annotated element exception for method ["
-									+ theMethod.getName() + "].",
-							LocatableUtils.getLocatable(theMethod)));
+		}
+		catch (AnnotatedElementException aex)
+		{
+			String msg = illegalAnnotationMsg(aex, "Loading method [" + theMethod.getName() + "].");
+			getErrorHandler().error(new IllegalAnnotationException(msg, aex, getLocatable(theMethod)));
 			return new MethodAnnotatedElement(theMethod);
 		}
 	}
 
-	protected AnnotatedElement getAnnotatedElement(Class theClass) {
-		try {
+	protected AnnotatedElement getAnnotatedElement(Class theClass)
+	{
+		try
+		{
 			return getAnnotatedElementFactory().getAnnotatedElement(theClass);
-		} catch (AnnotatedElementException aex) {
-			getErrorHandler().error(
-					new IllegalAnnotationException(
-							"Could not load annotated element exception for class ["
-									+ theClass.getName() + "].", LocatableUtils
-									.getLocatable(theClass)));
+		}
+		catch (AnnotatedElementException aex)
+		{
+			String msg = illegalAnnotationMsg(aex, "Loading class [" + theClass.getName() + "].");
+			getErrorHandler().error(new IllegalAnnotationException(msg, aex, getLocatable(theClass)));
 			return theClass;
 		}
 	}
 
-	protected AnnotatedElement getAnnotatedElement(Package thePackage) {
-		try {
+	protected AnnotatedElement getAnnotatedElement(Package thePackage)
+	{
+		try
+		{
 			return getAnnotatedElementFactory().getAnnotatedElement(thePackage);
-		} catch (AnnotatedElementException aex) {
-			getErrorHandler().error(
-					new IllegalAnnotationException(
-							"Could not load annotated element exception for class ["
-									+ thePackage.getName() + "].",
-							LocatableUtils.getLocatable(thePackage)));
+		}
+		catch (AnnotatedElementException aex)
+		{
+			String msg = illegalAnnotationMsg(aex, "Loading package [" + thePackage.getName() + "].");
+			getErrorHandler().error(new IllegalAnnotationException(msg, aex, getLocatable(thePackage)));
 			return thePackage;
 		}
 	}

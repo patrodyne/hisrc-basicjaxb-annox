@@ -4,40 +4,34 @@
 	<property name="build.compiler" value="extJavac"/>
 	<path id="compile.path">
 		<fileset dir="${basedir}/lib">
-			<include name="activation-*.jar"/>
-			<include name="annox-*.jar"/>
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
-			<include name="jaxb-api-*.jar"/>
+			<include name="jakarta.xml.bind-api-*.jar"/>
 			<include name="jaxb-runtime-*.jar"/>
-			<include name="jaxb-impl-*.jar"/>
-			<include name="stax-api-*.jar"/>
 		</fileset>
 	</path>
 	<path id="test-compile.path">
 		<fileset dir="${basedir}/lib">
-			<include name="activation-*.jar"/>
-			<include name="annox-*.jar"/>
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
-			<include name="jaxb-api-*.jar"/>
+			<include name="hisrc-basicjaxb-annox-parser-*.jar"/>
+			<include name="jakarta.xml.bind-api-*.jar"/>
+			<include name="jaxb-core-*.jar"/>
 			<include name="jaxb-runtime-*.jar"/>
-			<include name="jaxb-impl-*.jar"/>
-			<include name="stax-api-*.jar"/>
 			<include name="junit-*.jar"/>
 		</fileset>
 		<pathelement path="${basedir}/target/classes"/>
 	</path>
 	<path id="test.path">
 		<fileset dir="${basedir}/lib">
-			<include name="activation-*.jar"/>
-			<include name="annox-*.jar"/>
 			<include name="javaparser-*.jar"/>
 			<include name="commons-lang3-*.jar"/>
-			<include name="jaxb-api-*.jar"/>
+			<include name="hisrc-basicjaxb-annox-parser-*.jar"/>
+			<include name="jakarta.activation-*.jar"/>
+			<include name="jakarta.xml.bind-api-*.jar"/>
+			<include name="jaxb-core-*.jar"/>
 			<include name="jaxb-runtime-*.jar"/>
-			<include name="jaxb-impl-*.jar"/>
-			<include name="stax-api-*.jar"/>
+			<include name="istack-commons-runtime-*.jar"/>
 			<include name="junit-*.jar"/>
 		</fileset>
 	</path>
@@ -75,6 +69,10 @@
 	<target name="test" depends="test-compile">
 		<mkdir dir="${basedir}/target/junit-reports"/>
 		<junit printsummary="yes" haltonfailure="yes">
+			<syspropertyset>
+				<!-- See src/test/resources/jvmsystem.properties -->
+				<propertyref prefix="TBD"/>
+			</syspropertyset>
 			<classpath>
 				<pathelement location="${basedir}/target/classes"/>
 				<pathelement location="${basedir}/target/test-classes"/>
