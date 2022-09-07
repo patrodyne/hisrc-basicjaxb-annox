@@ -1,15 +1,18 @@
 package org.jvnet.annox.parser.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.model.XAnnotation;
 import org.jvnet.annox.parser.XAnnotationParser;
 import org.jvnet.annox.parser.exception.AnnotationExpressionParseException;
 import org.jvnet.annox.parser.exception.AnnotationStringParseException;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
-import junit.framework.TestCase;
 
-public class JAXBDemoTest extends TestCase {
+public class JAXBDemoTest {
 
+	@Test
 	public void testXMLRootElement() throws AnnotationStringParseException,
 			AnnotationExpressionParseException {
 		@SuppressWarnings("unchecked")

@@ -1,14 +1,15 @@
 package org.jvnet.annox.util.tests;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 
-import org.junit.Assert;
-import junit.framework.TestCase;
-
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.util.ArrayUtils;
 
-public class ArrayUtilsTest extends TestCase {
+public class ArrayUtilsTest {
 
+	@Test
 	public void testToObjectArray() throws Exception {
 
 		final int[] ein = null;
@@ -22,8 +23,8 @@ public class ArrayUtilsTest extends TestCase {
 		final int[] deux = ArrayUtils.asPrimitiveArray(two);
 		final int[] troi = ArrayUtils.asPrimitiveArray(three);
 
-		Assert.assertTrue("Wrong value.", Arrays.equals(ein, un));
-		Assert.assertTrue("Wrong value.", Arrays.equals(zwei, deux));
-		Assert.assertTrue("Wrong value.", Arrays.equals(drei, troi));
+		assertTrue(Arrays.equals(ein, un), "Wrong value.");
+		assertTrue(Arrays.equals(zwei, deux), "Wrong value.");
+		assertTrue(Arrays.equals(drei, troi), "Wrong value.");
 	}
 }

@@ -2,6 +2,8 @@
 #
 # build.sh: Display a menu of build actions for this ANT project.
 #
+# See: https://github.com/patrodyne/hisrc-hyperjaxb/blob/master/etc/BUILD_TOOLS.md
+#
 # Reference: https://ant.apache.org/manual/index.html
 #            https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 
@@ -9,6 +11,9 @@ BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 BUILDER="output ant"
 FGTITLE="$(basename $(pwd))"
 BGTITLE="$(date --rfc-3339=sec) $(pwd)"
+
+# export ANT_OPTS="-Dcom.sun.tools.internal.xjc.Options.findServices=true"
+export ANT_OPTS="-Dcom.sun.tools.xjc.Options.findServices=true"
 
 menu_options()
 {
@@ -32,7 +37,7 @@ menu_actions()
 	if [ $? -eq 0 ]; then
 		case "${ACTION}" in
 			"a)")	${BUILDER} -diagnostics ;;
-			"b)")	${BUILDER} -projecthelp ;;
+			"b)")	${BUILDER} -projecthelp -verbose ;;
 			"c)")	${BUILDER} clean ;;
 			"d)")	${BUILDER} generate-sources ;;
 			"e)")	${BUILDER} compile ;;
@@ -100,7 +105,7 @@ required()
 		echo "Please install whiptail!"
 		exit 1
 	fi
-	for CMD in mvn vim
+	for CMD in ant vim
 	do
 		if ! iscmd "${CMD}"; then
 			error "Please install ${CMD}"

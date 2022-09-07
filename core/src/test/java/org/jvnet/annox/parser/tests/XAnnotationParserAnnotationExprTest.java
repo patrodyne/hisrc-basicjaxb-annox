@@ -1,5 +1,7 @@
 package org.jvnet.annox.parser.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -7,16 +9,13 @@ import java.lang.annotation.Annotation;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
 import org.jvnet.annox.model.XAnnotation;
 import org.jvnet.annox.parser.XAnnotationParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class XAnnotationParserAnnotationExprTest extends TestCase {
+public class XAnnotationParserAnnotationExprTest {
 
 	public Element getElement(final String resourceName) throws Exception {
 		InputStream is = null;
@@ -66,18 +65,13 @@ public class XAnnotationParserAnnotationExprTest extends TestCase {
 		System.out.println(one.toString());
 		System.out.println(two.toString());
 		System.out.println(three.toString());
-		Assert.assertEquals("Annotations should be identical.", one, two);
-		Assert.assertEquals("Annotations should be identical.", two, three);
-		Assert.assertEquals("Annotations should be identical.",
-				one.getResult(), two.getResult());
-		Assert.assertEquals("Annotations should be identical.",
-				two.getResult(), three.getResult());
-		Assert.assertEquals("Annotations should be identical.", annotation,
-				one.getResult());
-		Assert.assertEquals("Annotations should be identical.", annotation,
-				two.getResult());
-		Assert.assertEquals("Annotations should be identical.", annotation,
-				three.getResult());
+		assertEquals(one, two, "Annotations should be identical.");
+		assertEquals(two, three, "Annotations should be identical.");
+		assertEquals(one.getResult(), two.getResult(), "Annotations should be identical.");
+		assertEquals(two.getResult(), three.getResult(), "Annotations should be identical.");
+		assertEquals(annotation, one.getResult(), "Annotations should be identical.");
+		assertEquals(annotation, two.getResult(), "Annotations should be identical.");
+		assertEquals(annotation, three.getResult(), "Annotations should be identical.");
 	}
 
 	public void testOne() throws Exception {

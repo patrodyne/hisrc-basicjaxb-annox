@@ -1,18 +1,19 @@
 package org.jvnet.annox.util.tests;
 
-import org.junit.Assert;
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.util.ClassUtils;
 import org.jvnet.annox.util.ReflectionUtils;
 
-public class ReflectionUtilsTest extends TestCase {
+public class ReflectionUtilsTest {
 
-	public static class Test {
-		public Test() {
+	public static class TestMe {
+		public TestMe() {
 		}
 
-		public Test(String x) {
+		public TestMe(String x) {
 		}
 
 		public void one() {
@@ -43,36 +44,26 @@ public class ReflectionUtilsTest extends TestCase {
 		}
 	}
 
+	@Test
 	public void testGetMethod() throws Exception {
 
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "one",
-				ClassUtils.forNames(null)));
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "two",
-				ClassUtils.forNames(null)));
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "two",
-				ClassUtils.forNames("")));
-		Assert.assertEquals(ReflectionUtils.getMethod(Test.class, "two",
-				ClassUtils.forNames("")), ReflectionUtils.getMethod(Test.class,
-				"two", ClassUtils.forNames("")));
-
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "two",
-				ClassUtils.forNames("java.lang.String")));
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "three",
-				ClassUtils.forNames("java.lang.String[]")));
-		Assert.assertNotNull(ReflectionUtils.getMethod(Test.class, "four",
-				ClassUtils.forNames("java.lang.String, int, char[]")));
-
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "one", ClassUtils.forNames(null)));
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "two", ClassUtils.forNames(null)));
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "two", ClassUtils.forNames("")));
+		assertEquals(ReflectionUtils.getMethod(TestMe.class, "two", ClassUtils.forNames("")), ReflectionUtils.getMethod(TestMe.class, "two", ClassUtils.forNames("")));
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "two", ClassUtils.forNames("java.lang.String")));
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "three", ClassUtils.forNames("java.lang.String[]")));
+		assertNotNull(ReflectionUtils.getMethod(TestMe.class, "four", ClassUtils.forNames("java.lang.String, int, char[]")));
 	}
 
+	@Test
 	public void testGetConstructor() throws Exception {
 
-		ReflectionUtils.getConstructor(Test.class, null);
-		ReflectionUtils
-				.getConstructor(Test.class, ClassUtils.EMPTY_CLASS_ARRAY);
-		ReflectionUtils.getConstructor(Test.class, ClassUtils.forNames(null));
-		ReflectionUtils.getConstructor(Test.class, ClassUtils.forNames(""));
-		ReflectionUtils.getConstructor(Test.class, ClassUtils
-				.forNames("java.lang.String"));
+		ReflectionUtils.getConstructor(TestMe.class, null);
+		ReflectionUtils.getConstructor(TestMe.class, ClassUtils.EMPTY_CLASS_ARRAY);
+		ReflectionUtils.getConstructor(TestMe.class, ClassUtils.forNames(null));
+		ReflectionUtils.getConstructor(TestMe.class, ClassUtils.forNames(""));
+		ReflectionUtils.getConstructor(TestMe.class, ClassUtils.forNames("java.lang.String"));
 
 	}
 }

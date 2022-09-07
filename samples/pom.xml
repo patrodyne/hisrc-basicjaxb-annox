@@ -12,6 +12,9 @@
 	<artifactId>hisrc-basicjaxb-annox-samples</artifactId>
 	<packaging>pom</packaging>
 	<name>HiSrc BasicJAXB Annox Samples</name>
+	<properties>
+		<ant-atleast.version>1.10.4</ant-atleast.version>
+	</properties>
 	<modules>
 		<module>po</module>
 	</modules>
@@ -46,6 +49,7 @@
 							<descriptors>
 								<descriptor>../src/main/assembly/ant-src.xml</descriptor>
 							</descriptors>
+							<escapeString>\</escapeString>
 						</configuration>
 					</execution>
 				</executions>

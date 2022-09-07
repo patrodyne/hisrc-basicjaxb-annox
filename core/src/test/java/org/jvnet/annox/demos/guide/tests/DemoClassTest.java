@@ -1,17 +1,19 @@
 package org.jvnet.annox.demos.guide.tests;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.lang.reflect.AnnotatedElement;
 
-import junit.framework.TestCase;
-
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.demos.guide.Comment;
 import org.jvnet.annox.demos.guide.DemoClass;
 import org.jvnet.annox.reflect.AnnotatedElementFactory;
 import org.jvnet.annox.reflect.DualAnnotatedElementFactory;
 import org.jvnet.annox.reflect.ParameterizedAnnotatedElement;
 
-public class DemoClassTest extends TestCase {
+public class DemoClassTest {
 
+	@Test
 	public void testDemoClassAnnotations() throws Exception {
 
 		final AnnotatedElementFactory aef = new DualAnnotatedElementFactory();

@@ -1,7 +1,9 @@
 package org.jvnet.annox.model.test;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.model.XAnnotation;
 import org.jvnet.annox.model.annotation.field.XAnnotationField;
 import org.jvnet.annox.parser.XGenericFieldParser;
@@ -24,7 +26,7 @@ public class AnnotationWithIntegerFieldTest {
 				AnnotationWithIntegerField.class, integerField, integerFields);
 
 		AnnotationWithIntegerField result = annotation.getResult();
-		Assert.assertEquals(42, result.integerField());
-		Assert.assertArrayEquals(new int[] { 37, 73 }, result.integerFields());
+		assertEquals(42, result.integerField());
+		assertArrayEquals(new int[] { 37, 73 }, result.integerFields());
 	}
 }

@@ -1,14 +1,16 @@
 package org.jvnet.annox.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-import org.junit.Assert;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class ProxyTest extends TestCase {
+public class ProxyTest {
 
+  @Test
   public void testProxy() throws Exception {
 	  
 
@@ -23,7 +25,7 @@ public class ProxyTest extends TestCase {
         new Class[]{ A.class },
         handler);
 
-    Assert.assertEquals("Wrong value.", "a", a.stringField());
+    assertEquals("a", a.stringField(), "Wrong value.");
   }
   
   public static interface A {

@@ -1,16 +1,18 @@
 package org.jvnet.annox.demos.guide.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.AnnotatedElement;
 
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.demos.guide.MyAnnotation;
 import org.jvnet.annox.demos.guide.MyClass;
 import org.jvnet.annox.reflect.AnnotatedElementFactory;
 import org.jvnet.annox.reflect.DualAnnotatedElementFactory;
 
-import junit.framework.TestCase;
+public class MyClassTest {
 
-public class MyClassTest extends TestCase {
-
+	@Test
 	public void testNormal() throws Exception {
 		final AnnotatedElement myClass = MyClass.class;
 		final AnnotatedElement myField = MyClass.class.getDeclaredField("myField");
@@ -21,6 +23,7 @@ public class MyClassTest extends TestCase {
 		assertEquals("My field", myFieldAnnotation.printName());
 	}
 	
+	@Test
 	public void testAnnox() throws Exception {
 		
 		final AnnotatedElementFactory aef = new DualAnnotatedElementFactory();

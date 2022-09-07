@@ -2,16 +2,19 @@ package org.jvnet.annox.parser.tests;
 
 import japa.parser.ast.expr.AnnotationExpr;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.List;
 
-import junit.framework.TestCase;
-
+import org.junit.jupiter.api.Test;
 import org.jvnet.annox.japa.parser.AnnotationExprParser;
 import org.jvnet.annox.model.XAnnotation;
 import org.jvnet.annox.parser.XAnnotationParser;
 
-public class JavaTypeParserTest extends TestCase {
+public class JavaTypeParserTest {
 
+	@Test
 	public void testParse() throws Exception {
 
 		final String text = "@org.jvnet.annox.parser.tests.A("
