@@ -12,6 +12,7 @@
 	<properties>
 		<annox.osgi.version>${project.version}</annox.osgi.version>
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<root.basedir>${basedir}/..</root.basedir>
 	</properties>
 	<dependencies>
 

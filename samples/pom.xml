@@ -14,6 +14,7 @@
 	<name>HiSrc BasicJAXB Annox Samples</name>
 	<properties>
 		<ant-atleast.version>1.10.4</ant-atleast.version>
+		<root.basedir>${basedir}/..</root.basedir>
 	</properties>
 	<modules>
 		<module>po</module>

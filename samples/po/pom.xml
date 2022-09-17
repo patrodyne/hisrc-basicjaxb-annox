@@ -27,6 +27,9 @@
 			<artifactId>jaxb-runtime</artifactId>
 		</dependency>
 	</dependencies>
+	<properties>
+		<root.basedir>${basedir}/../..</root.basedir>
+	</properties>
 	<build>
 		<defaultGoal>package</defaultGoal>
 		<plugins>
