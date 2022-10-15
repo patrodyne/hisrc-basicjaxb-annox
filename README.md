@@ -78,7 +78,7 @@ New goals for the next release are:
 
 #### In Progress
 
-* Reviewing
+* Rename packages, namespaces and properties.
 
 ### Fork History
 
