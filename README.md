@@ -40,9 +40,6 @@ with the original `maven-jaxb2-plugin` name.
 
 New goals for the next release are:
 
-* Update dependencies with newer versions *including* the Jakarta namespace.
-* Convert DOS line endings to Unix newlines.
-* Update JUnit v4 to JUnit v5.
 * Rename packages:
     * BasicJAXB Annotations
         * `OLD: org.jvnet.annox`
