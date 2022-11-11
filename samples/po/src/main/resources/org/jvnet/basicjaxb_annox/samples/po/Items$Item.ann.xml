@@ -1,0 +1,17 @@
+<class xmlns="http://jvnet.org/basicjaxb/xjc/annox" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox" xmlns:jaxb="http://jvnet.org/basicjaxb/xjc/annox/jakarta.xml.bind.annotation">
+	
+	<jaxb:XmlAccessorType value="FIELD"/>
+	<jaxb:XmlType name="" propOrder="productName quantity usPrice comment shipDate"/>
+	<field name="productName">
+		<jaxb:XmlElement required="true"/>
+	</field>
+	<field name="usPrice">
+		<jaxb:XmlElement name="USPrice" required="true"/>
+	</field>
+	<field name="shipDate">
+		<jaxb:XmlSchemaType name="date"/>
+	</field>
+	<field name="partNum">
+		<jaxb:XmlAttribute required="true"/>
+	</field>
+</class>

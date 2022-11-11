@@ -1,0 +1,3 @@
+<annox:annotate
+	xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+	annox:class="org.jvnet.basicjaxb_annox.parser.tests.H"/>

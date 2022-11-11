@@ -1,0 +1,5 @@
+<annox:annotate
+	xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+	annox:class="org.hibernate.search.annotations.Field"
+	index="YES"
+	store="NO"/>

@@ -1,0 +1,18 @@
+<package
+	xmlns="http://jvnet.org/basicjaxb/xjc/annox"
+	xmlns:g="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.demos.guide">
+	<g:Comment>
+		<value>Annotation for the org.jvnet.basicjaxb_annox.demos.guide package.</value>
+	</g:Comment>
+	<class name="DemoClass">
+		<g:Comment>
+			<value>Annotation for the DemoClass class.</value>
+		</g:Comment>
+		<field name="value">
+			<g:Comment>
+				<value>Annotation for the value field.</value>
+			</g:Comment>
+		</field>	
+		<!-- ... -->
+	</class>
+</package>

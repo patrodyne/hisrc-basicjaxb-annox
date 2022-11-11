@@ -1,0 +1,5 @@
+<annox:annotate xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+	annox:class="org.jvnet.basicjaxb_annox.parser.tests.M">
+	<annox:annotate annox:class="org.jvnet.basicjaxb_annox.parser.tests.K">k kay</annox:annotate>
+	<annox:annotate annox:class="org.jvnet.basicjaxb_annox.parser.tests.K">K KAY</annox:annotate>
+</annox:annotate>

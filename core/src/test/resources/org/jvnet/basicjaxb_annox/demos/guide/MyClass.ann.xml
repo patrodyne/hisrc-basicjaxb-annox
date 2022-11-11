@@ -1,0 +1,9 @@
+<class xmlns="http://jvnet.org/basicjaxb/xjc/annox"
+	xmlns:g="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.demos.guide">
+	<!-- Just like @MyAnnotation(printName = "My annotated class") -->
+	<g:MyAnnotation printName="My annotated class"/>
+	<field name="myField">
+		<!-- Just like @MyAnnotation(printName = "My annotated field") -->
+		<g:MyAnnotation printName="My annotated field"/>
+	</field>
+</class>

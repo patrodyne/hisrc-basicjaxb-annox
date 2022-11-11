@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.patrodyne.jvnet</groupId>
 		<artifactId>hisrc-basicjaxb-annox-parser-project</artifactId>
-		<version>1.0.5-SNAPSHOT</version>
+		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
 	<packaging>jar</packaging>
@@ -90,22 +90,22 @@
 									org.apache.commons.lang3.builder;version="3.2.1"
 								</Import-Package>
 								<Export-Package>
-									org.jvnet.annox,
-									org.jvnet.annox.annotation,
-									org.jvnet.annox.io,
-									org.jvnet.annox.japa.parser.ast.visitor,
-									org.jvnet.annox.model,
-									org.jvnet.annox.model.annotation.field,
-									org.jvnet.annox.model.annotation.value,
-									org.jvnet.annox.parser,
-									org.jvnet.annox.parser.exception,
-									org.jvnet.annox.parser.value,
-									org.jvnet.annox.parser.java.visitor,
-									org.jvnet.annox.reader,
-									org.jvnet.annox.reader.resourced,
-									org.jvnet.annox.reflect,
-									org.jvnet.annox.util,
-									org.jvnet.annox.xml.bind
+									org.jvnet.basicjaxb_annox,
+									org.jvnet.basicjaxb_annox.annotation,
+									org.jvnet.basicjaxb_annox.io,
+									org.jvnet.basicjaxb_annox.japa.parser.ast.visitor,
+									org.jvnet.basicjaxb_annox.model,
+									org.jvnet.basicjaxb_annox.model.annotation.field,
+									org.jvnet.basicjaxb_annox.model.annotation.value,
+									org.jvnet.basicjaxb_annox.parser,
+									org.jvnet.basicjaxb_annox.parser.exception,
+									org.jvnet.basicjaxb_annox.parser.value,
+									org.jvnet.basicjaxb_annox.parser.java.visitor,
+									org.jvnet.basicjaxb_annox.reader,
+									org.jvnet.basicjaxb_annox.reader.resourced,
+									org.jvnet.basicjaxb_annox.reflect,
+									org.jvnet.basicjaxb_annox.util,
+									org.jvnet.basicjaxb_annox.xml.bind
 								</Export-Package>
 								<Bundle-RequiredExecutionEnvironment>J2SE-1.5</Bundle-RequiredExecutionEnvironment>
 							</instructions>
