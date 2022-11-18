@@ -38,16 +38,20 @@ with the original `maven-jaxb2-plugin` name.
 
 ### Goals
 
-* New goals for the next release are:
+New goals for the next release are:
 
-* Update version to 2.0.0 due to jakarta and other name changes.
+* In review.
 
 ### Status
 
-#### Completed
+* Up to date.
+
+### Fork History
+
+#### Version 2.0.0
 
 * Update dependencies with newer versions *including* the Jakarta namespace.
-* Replace 'eclipse-only' lifecyle profile with 'm2e' XML directive.
+* Replace _eclipse-only_ lifecyle profile with _m2e_ XML directive.
 * Convert DOS line endings to Unix newlines.
 * Update JUnit v4 to JUnit v5.
 * Rename packages:
@@ -76,8 +80,7 @@ with the original `maven-jaxb2-plugin` name.
     * HyperJAXB Persistence
         * `OLD: http://hyperjaxb3.jvnet.org/ejb/schemas/customizations`
         * `NEW: http://jvnet.org/hyperjaxb/jpa`
-
-### Fork History
+* Update version to 2.0.0 due to Jakarta EE and other name changes.
 
 #### Version 1.0.4
 
