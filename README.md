@@ -40,11 +40,13 @@ with the original `maven-jaxb2-plugin` name.
 
 New goals for the next release are:
 
-* In review.
+* Clean up Java compiler _lint_ warnings.
 
 ### Status
 
-* Up to date.
+#### In Progress
+
+* Clean up Java compiler _lint_ warnings.
 
 ### Fork History
 
