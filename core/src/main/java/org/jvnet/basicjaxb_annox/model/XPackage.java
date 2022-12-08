@@ -7,15 +7,19 @@ import org.apache.commons.lang3.Validate;
  * 
  * @author Aleksei Valikov
  */
-public class XPackage extends XAnnotatedElement<Package> {
-
+public class XPackage extends XAnnotatedElement<Package>
+{
 	/**
-	 * VOID package.
+	 * VOID package. Signals that package could not be found.
 	 */
-	public static final XPackage VOID = new XPackage(
-			Package.getPackage("java.lang"), XAnnotation.EMPTY_ARRAY,
-			XClass.EMPTY_ARRAY);
-
+	public static final XPackage VOID;
+	static
+	{
+		// Deprecated: Package voidPackage = Package.getPackage("java.lang");
+		Package voidPackage = java.lang.Package.class.getPackage();
+		VOID = new XPackage(voidPackage, XAnnotation.EMPTY_ARRAY, XClass.EMPTY_ARRAY);
+	}
+	
 	/**
 	 * Annotated classes.
 	 */
@@ -24,13 +28,11 @@ public class XPackage extends XAnnotatedElement<Package> {
 	/**
 	 * Constructs an annotated package.
 	 * 
-	 * @param targetPackage
-	 *            target package.
-	 * @param xannotations
-	 *            package annotations, may be <code>null</code>.
+	 * @param targetPackage target package.
+	 * @param xannotations package annotations, may be <code>null</code>.
 	 */
-	public XPackage(Package targetPackage, XAnnotation<?>[] xannotations,
-			XClass[] xclasses) {
+	public XPackage(Package targetPackage, XAnnotation<?>[] xannotations, XClass[] xclasses)
+	{
 		super(targetPackage, xannotations);
 		Validate.noNullElements(xclasses);
 		this.classes = xclasses;
@@ -41,7 +43,8 @@ public class XPackage extends XAnnotatedElement<Package> {
 	 * 
 	 * @return Target package.
 	 */
-	public Package getPackage() {
+	public Package getPackage()
+	{
 		return getAnnotatedElement();
 	}
 
@@ -50,8 +53,8 @@ public class XPackage extends XAnnotatedElement<Package> {
 	 * 
 	 * @return Annotated classes of the package.
 	 */
-	public XClass[] getClasses() {
+	public XClass[] getClasses()
+	{
 		return classes;
 	}
-
 }

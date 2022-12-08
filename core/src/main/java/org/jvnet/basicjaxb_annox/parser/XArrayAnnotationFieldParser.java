@@ -1,10 +1,5 @@
 package org.jvnet.basicjaxb_annox.parser;
 
-import japa.parser.ast.Node;
-import japa.parser.ast.expr.AnnotationExpr;
-import japa.parser.ast.expr.ArrayInitializerExpr;
-import japa.parser.ast.expr.Expression;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
 import java.text.MessageFormat;
@@ -23,6 +18,9 @@ import org.jvnet.basicjaxb_annox.parser.java.visitor.ExpressionVisitor;
 import org.jvnet.basicjaxb_annox.parser.value.XAnnotationValueParser;
 import org.jvnet.basicjaxb_annox.util.AnnotationElementUtils;
 import org.w3c.dom.Element;
+
+import japa.parser.ast.expr.ArrayInitializerExpr;
+import japa.parser.ast.expr.Expression;
 
 public class XArrayAnnotationFieldParser<T, V> extends
 		XAnnotationFieldParser<T[], V[]> {

@@ -45,7 +45,6 @@ public class AnnoxAnnotationReader extends
 
 	protected String illegalAnnotationMsg(AnnotatedElementException aex, String loadMsg)
 	{
-		jakarta.xml.bind.annotation.XmlElementDecl foo;
 		String msg1 = aex.getClass().getSimpleName() + ": " + aex.getMessage();
 		Throwable rc = ExceptionUtils.getRootCause(aex);
 		String msg2 = rc.getClass().getSimpleName() + ": " + rc.getMessage();

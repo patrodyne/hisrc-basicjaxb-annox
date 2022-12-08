@@ -31,20 +31,28 @@ with the original `maven-jaxb2-plugin` name.
 
 * TBD
 
-#### Maven Central Repository
+#### Maven Repositories
 
-* [Maven Central Repository Search](https://search.maven.org/search?q=g:org.patrodyne.jvnet)
-* [Maven Central Repository Index](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
+* Search
+	* [MVN Repository](https://mvnrepository.com/artifact/org.patrodyne.jvnet?sort=popular)
+	* [Central Repository](https://search.maven.org/search?q=g:org.patrodyne.jvnet)
+* Index
+	* [Central Repository](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
 
 ### Goals
 
 New goals for the next release are:
 
 * Clean up Java compiler _lint_ warnings.
+* Recheck Dependency Management for newer versions.
 
 ### Status
 
 #### In Progress
+
+* Recheck Dependency Management for newer versions.
+
+#### Completed
 
 * Clean up Java compiler _lint_ warnings.
 

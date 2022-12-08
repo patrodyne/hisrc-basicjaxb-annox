@@ -8,13 +8,11 @@ import org.apache.commons.lang3.Validate;
 /**
  * Defines an annotated element.
  * 
- * @param <T>
- *            type of the annotated element.
+ * @param <T> type of the annotated element.
  * @author Aleksei Valikov
  */
-public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated
-		implements AnnotatedElement {
-
+public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated implements AnnotatedElement
+{
 	/**
 	 * Target annotated element.
 	 */
@@ -23,15 +21,13 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated
 	/**
 	 * Constructs an annotated element.
 	 * 
-	 * @param annotatedElement
-	 *            target annotated element.
-	 * @param xannotations
-	 *            element annotations.
+	 * @param annotatedElement target annotated element.
+	 * @param xannotations element annotations.
 	 */
-	public XAnnotatedElement(T annotatedElement, XAnnotation<?>[] xannotations) {
+	public XAnnotatedElement(T annotatedElement, XAnnotation<?>[] xannotations)
+	{
 		super(xannotations);
-		Validate.notNull(annotatedElement,
-				"Annotated element must not be null.");
+		Validate.notNull(annotatedElement, "Annotated element must not be null.");
 		this.annotatedElement = annotatedElement;
 	}
 
@@ -40,23 +36,27 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated
 	 * 
 	 * @return Target annotated element.
 	 */
-	public T getAnnotatedElement() {
+	public T getAnnotatedElement()
+	{
 		return annotatedElement;
 	}
 
-	public boolean isAnnotationPresent(
-			Class<? extends Annotation> annotationClass) {
-		for (final XAnnotation<?> xannotation : getXAnnotations()) {
-			if (annotationClass.equals(xannotation.getAnnotationClass())) {
+	public boolean isAnnotationPresent(Class<? extends Annotation> annotationClass)
+	{
+		for (final XAnnotation<?> xannotation : getXAnnotations())
+		{
+			if (annotationClass.equals(xannotation.getAnnotationClass()))
 				return true;
-			}
 		}
 		return false;
 	}
 
-	public <X extends Annotation> X getAnnotation(Class<X> annotationClass) {
-		for (final XAnnotation<?> xannotation : getXAnnotations()) {
-			if (annotationClass.equals(xannotation.getAnnotationClass())) {
+	public <X extends Annotation> X getAnnotation(Class<X> annotationClass)
+	{
+		for (final XAnnotation<?> xannotation : getXAnnotations())
+		{
+			if (annotationClass.equals(xannotation.getAnnotationClass()))
+			{
 				@SuppressWarnings("unchecked")
 				final X result = (X) xannotation.getResult();
 				return result;
@@ -65,8 +65,8 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated
 		return null;
 	}
 
-	public Annotation[] getDeclaredAnnotations() {
+	public Annotation[] getDeclaredAnnotations()
+	{
 		throw new UnsupportedOperationException();
 	}
-
 }

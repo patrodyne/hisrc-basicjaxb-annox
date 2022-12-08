@@ -79,6 +79,7 @@
 							<goal>manifest</goal>
 						</goals>
 						<configuration>
+							<supportIncrementalBuild>true</supportIncrementalBuild>
 							<supportedProjectTypes>
 								<supportedProjectType>jar</supportedProjectType>
 							</supportedProjectTypes>
@@ -86,8 +87,8 @@
 							<instructions>
 								<Bundle-Version>${annox.osgi.version}</Bundle-Version>
 								<Import-Package>
-									org.apache.commons.lang3;version="3.2.1",
-									org.apache.commons.lang3.builder;version="3.2.1"
+									org.apache.commons.lang3;version="${commons-lang3.version}",
+									org.apache.commons.lang3.builder;version="${commons-lang3.version}"
 								</Import-Package>
 								<Export-Package>
 									org.jvnet.basicjaxb_annox,
@@ -107,7 +108,7 @@
 									org.jvnet.basicjaxb_annox.util,
 									org.jvnet.basicjaxb_annox.xml.bind
 								</Export-Package>
-								<Bundle-RequiredExecutionEnvironment>J2SE-1.5</Bundle-RequiredExecutionEnvironment>
+								<Bundle-RequiredExecutionEnvironment>${osgi-reenv}</Bundle-RequiredExecutionEnvironment>
 							</instructions>
 						</configuration>
 					</execution>
