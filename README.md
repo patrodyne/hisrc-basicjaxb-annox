@@ -48,13 +48,10 @@ New goals for the next release are:
 
 ### Status
 
-#### In Progress
-
-* Recheck Dependency Management for newer versions.
-
 #### Completed
 
 * Clean up Java compiler _lint_ warnings.
+* Recheck Dependency Management for newer versions.
 
 ### Fork History
 

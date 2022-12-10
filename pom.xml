@@ -71,11 +71,11 @@
 		<activation-api.version>2.1.0</activation-api.version>
 		<activation-imp.version>1.0.0</activation-imp.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
-		<hibernate.version>6.1.5.Final</hibernate.version>
+		<hibernate.version>6.1.7.Final</hibernate.version>
 		<jaxb-api.version>3.0.1</jaxb-api.version>
 		<jaxb-imp.version>3.0.2</jaxb-imp.version>
-		<junit-jupiter.version>5.9.0</junit-jupiter.version>
-		<junit-platform.version>1.9.0</junit-platform.version>
+		<junit-jupiter.version>5.9.1</junit-jupiter.version>
+		<junit-platform.version>1.9.1</junit-platform.version>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 		<osgi-reenv>J2SE-1.8</osgi-reenv>
