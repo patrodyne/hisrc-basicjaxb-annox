@@ -45,6 +45,9 @@ New goals for the next release are:
 
 * Clean up Java compiler _lint_ warnings.
 * Recheck Dependency Management for newer versions.
+* Configure menu, log and Maven options from build-CFG.sh.
+* Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
+* Moved 'samples' folder to new 'assembly' folder and restored int. testing.
 
 ### Status
 
@@ -52,6 +55,9 @@ New goals for the next release are:
 
 * Clean up Java compiler _lint_ warnings.
 * Recheck Dependency Management for newer versions.
+* Configure menu, log and Maven options from build-CFG.sh.
+* Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
+* Moved 'samples' folder to new 'assembly' folder and restored int. testing.
 
 ### Fork History
 

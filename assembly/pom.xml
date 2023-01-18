@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.patrodyne.jvnet</groupId>
@@ -9,15 +11,16 @@
 		<version>2.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>hisrc-basicjaxb-annox-samples</artifactId>
+	<artifactId>hisrc-basicjaxb-annox-assembly</artifactId>
 	<packaging>pom</packaging>
-	<name>HiSrc BasicJAXB Annox Samples</name>
+	<name>HiSrc BasicJAXB Annox Assembly</name>
 	<properties>
 		<ant-atleast.version>1.10.4</ant-atleast.version>
+		<hisrc-basicjaxb-annox-parser.version>2.0.0</hisrc-basicjaxb-annox-parser.version>
 		<root.basedir>${basedir}/..</root.basedir>
 	</properties>
 	<modules>
-		<module>po</module>
+		<module>samples</module>
 	</modules>
 	<build>
 		<defaultGoal>package</defaultGoal>
@@ -34,7 +37,7 @@
 						</goals>
 						<configuration>
 							<descriptors>
-								<descriptor>../src/main/assembly/maven-src.xml</descriptor>
+								<descriptor>../../src/main/assembly/mvn-src.xml</descriptor>
 							</descriptors>
 							<escapeString>\</escapeString>
 						</configuration>
@@ -48,7 +51,7 @@
 						</goals>
 						<configuration>
 							<descriptors>
-								<descriptor>../src/main/assembly/ant-src.xml</descriptor>
+								<descriptor>../../src/main/assembly/ant-src.xml</descriptor>
 							</descriptors>
 							<escapeString>\</escapeString>
 						</configuration>
@@ -64,8 +67,9 @@
 						<phase>none</phase>
 						<configuration>
 							<target>
-								<mkdir dir="target/test-maven-repository" />
-								<unzip src="target/${project.artifactId}-${project.version}-maven-src.zip" dest="${basedir}/target/test-maven-assembly" />
+								<mkdir dir="${project.build.directory}/test-maven-repository" />
+								<unzip src="${project.build.directory}/${project.build.finalName}-mvn-src.zip" dest="${project.build.directory}/test-maven-assembly" />
+								<chmod dir="${project.build.directory}/test-maven-assembly" perm="ug+x" includes="**/*.sh"/>
 							</target>
 						</configuration>
 						<goals>
@@ -81,7 +85,8 @@
 						</goals>
 						<configuration>
 							<target>
-								<unzip src="${basedir}/target/${project.artifactId}-${project.version}-ant-src.zip" dest="${basedir}/target/test-ant-assembly"/>
+								<unzip src="${project.build.directory}/${project.build.finalName}-ant-src.zip" dest="${project.build.directory}/test-ant-assembly" />
+								<chmod dir="${project.build.directory}/test-ant-assembly" perm="ug+x" includes="**/*.sh"/>
 							</target>
 						</configuration>
 					</execution>
@@ -94,7 +99,7 @@
 						</goals>
 						<configuration>
 							<target>
-								<ant dir="${basedir}/target/test-ant-assembly/${project.artifactId}-${project.version}" target="package"/>
+								<ant dir="${project.build.directory}/test-ant-assembly/${project.build.finalName}" target="package"/>
 							</target>
 						</configuration>
 					</execution>
@@ -112,14 +117,21 @@
 						</goals>
 						<configuration>
 							<debug>true</debug>
-							<projectsDirectory>${basedir}/target/test-maven-assembly</projectsDirectory>
-							<cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+							<projectsDirectory>${project.build.directory}/test-maven-assembly</projectsDirectory>
+							<!-- Note: Cloning is required to filter of parent/child POMs. -->
+							<cloneProjectsTo>${project.build.directory}/test-maven-assembly-it</cloneProjectsTo>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<skip>true</skip>
 				</configuration>

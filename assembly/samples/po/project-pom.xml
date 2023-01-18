@@ -6,8 +6,8 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.patrodyne.jvnet</groupId>
-	<artifactId>hisrc-basicjaxb-annox-samples-po-maven</artifactId>
-	<version>${project.version}</version>
+	<artifactId>${project.artifactId}</artifactId>
+	<version>${hisrc-basicjaxb-annox-parser.version}</version>
 	<packaging>jar</packaging>
 	<name>HiSrc BasicJAXB Annox Samples [po:maven]</name>
 
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
-			<version>${project.version}</version>
+			<version>${hisrc-basicjaxb-annox-parser.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -69,7 +69,7 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>3.0.0</version>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
