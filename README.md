@@ -48,6 +48,7 @@ New goals for the next release are:
 * Configure menu, log and Maven options from build-CFG.sh.
 * Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
 * Moved 'samples' folder to new 'assembly' folder and restored int. testing.
+* Compile sources and generate classes for Java release v11.
 
 ### Status
 
@@ -58,6 +59,7 @@ New goals for the next release are:
 * Configure menu, log and Maven options from build-CFG.sh.
 * Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
 * Moved 'samples' folder to new 'assembly' folder and restored int. testing.
+* Compile sources and generate classes for Java release v11.
 
 ### Fork History
 
