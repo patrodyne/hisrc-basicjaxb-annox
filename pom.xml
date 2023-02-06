@@ -82,6 +82,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<root.basedir>${basedir}</root.basedir>
+		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
 
 	<dependencyManagement>
@@ -164,6 +165,22 @@
 				<artifactId>javaparser</artifactId>
 				<version>1.0.11</version>
 			</dependency>
+			<!-- SLF4J -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-simple</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -232,6 +249,10 @@
 					<version>3.0.0-M5</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>3.0.0-M8</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-jxr-plugin</artifactId>
 					<version>3.1.1</version>
 				</plugin>
@@ -282,6 +303,11 @@
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.2</version>
+				<configuration>
+					<excludes>
+						<exclude>**/.placeholder</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -335,7 +361,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.3.1</version> 
+				<version>3.4.1</version> 
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -343,6 +369,10 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+							<doclint>all,-missing</doclint>
+							<failOnError>false</failOnError>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -355,6 +385,28 @@
 						<ignoredUnusedDeclaredDependency>javax.transaction:jta:jar:</ignoredUnusedDeclaredDependency>
 					</ignoredUnusedDeclaredDependencies>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>enforce-java-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>${maven.compiler.source}</version>
+								</requireJavaVersion>
+								<requireMavenVersion>
+									<version>3.1</version>
+								</requireMavenVersion>
+							</rules>    
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -19,6 +19,11 @@
 #
 if [ ! -d "${JAVA_HOME}" ]; then
 	echo "Please configure Java home path."
+	echo "Debian:"
+	echo "  apt-cache search openjdk"
+	echo "  sudo apt-get install openjdk-XX-jdk"
+	echo "  sudo apt-get install openjdk-XX-source"
+	echo "  sudo update-java-alternatives --set java-1.XX.0-openjdk-amd64"
 	exit 1
 fi
 
@@ -28,7 +33,8 @@ source ${BASEDIR}/build-INC.sh
 if [ $# -eq 0 ]; then
   ${BASEDIR}/build.sh
 else
-  mvn --fail-at-end ${JVM_SYS_PROPS} "$@"
+  source ${BASEDIR}/build-CFG.sh
+  mvn ${JVM_SYS_PROPS} "$@"
 fi
 
 # mvn -DskipTests=true clean install
