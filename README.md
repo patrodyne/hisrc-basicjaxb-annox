@@ -49,6 +49,7 @@ New goals for the next release are:
 * Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
 * Moved 'samples' folder to new 'assembly' folder and restored int. testing.
 * Compile sources and generate classes for Java release v11 using JDK 17.
+* Replaced `maven.compiler.source/target="11"` with `maven.compiler.release="11"`.
 
 ### Status
 
@@ -60,6 +61,7 @@ New goals for the next release are:
 * Include JVM system arguments from 'src/test/resources/jvmsystem.arguments'.
 * Moved 'samples' folder to new 'assembly' folder and restored int. testing.
 * Compile sources and generate classes for Java release v11 using JDK 17.
+* Replaced `maven.compiler.source/target="11"` with `maven.compiler.release="11"`.
 
 ### Fork History
 

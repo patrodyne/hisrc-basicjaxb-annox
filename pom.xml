@@ -76,8 +76,7 @@
 		<jaxb-imp.version>3.0.2</jaxb-imp.version>
 		<junit-jupiter.version>5.9.1</junit-jupiter.version>
 		<junit-platform.version>1.9.1</junit-platform.version>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.release>11</maven.compiler.release>
 		<osgi-reenv>J2SE-1.8</osgi-reenv>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -398,7 +397,7 @@
 						<configuration>
 							<rules>
 								<requireJavaVersion>
-									<version>${maven.compiler.source}</version>
+									<version>${maven.compiler.release}</version>
 								</requireJavaVersion>
 								<requireMavenVersion>
 									<version>3.1</version>
