@@ -21,7 +21,6 @@
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>

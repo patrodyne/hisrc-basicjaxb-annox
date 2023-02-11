@@ -12,6 +12,7 @@
 	<name>HiSrc BasicJAXB Annox Samples [po:maven]</name>
 
 	<properties>
+		<hisrc-basicjaxb-annox-parser.version>${hisrc-basicjaxb-annox-parser.version}</hisrc-basicjaxb-annox-parser.version>
 		<jaxb-api.version>${jaxb-api.version}</jaxb-api.version>
 		<jaxb-imp.version>${jaxb-imp.version}</jaxb-imp.version>
 		<junit-jupiter.version>${junit-jupiter.version}</junit-jupiter.version>
@@ -25,7 +26,7 @@
 		<dependency>
 			<groupId>org.patrodyne.jvnet</groupId>
 			<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
-			<version>${hisrc-basicjaxb-annox-parser.version}</version>
+			<version>\${hisrc-basicjaxb-annox-parser.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

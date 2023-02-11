@@ -22,6 +22,15 @@
 	<modules>
 		<module>samples</module>
 	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.patrodyne.jvnet</groupId>
+				<artifactId>hisrc-basicjaxb-annox-parser</artifactId>
+				<version>${hisrc-basicjaxb-annox-parser.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<defaultGoal>package</defaultGoal>
 		<plugins>
