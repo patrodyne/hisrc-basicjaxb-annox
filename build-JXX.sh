@@ -4,7 +4,7 @@
 # Example: build-JXX.sh clean install
 #
 # Profile Id: none - default, install common jars to local repository.
-# Profile Id: samples - package sample plus default projects.
+# Profile Id: assembly - assemble (zip) explorer, samples projects.
 # Profile Id: all - package the above plus templates and tutorials.
 #
 # How to build and test:
