@@ -39,5 +39,5 @@ else
   mvn ${JVM_SYS_PROPS} "$@"
 fi
 
-# mvn ${JVM_SYS_PROPS} -DskipTests=true clean install
-# mvn ${JVM_SYS_PROPS} -Passembly package
+# ./build-J11.sh ${JVM_SYS_PROPS} -DskipTests=true clean install
+# ./build-J11.sh ${JVM_SYS_PROPS} -Passembly package
