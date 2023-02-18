@@ -32,6 +32,7 @@
 			<include name="jaxb-runtime-*.jar"/>
 			<include name="junit-jupiter-api*.jar"/>
 			<include name="apiguardian-api-*.jar"/>
+			<include name="slf4j-api-*.jar"/>
 		</fileset>
 		<pathelement path="\${basedir}/target/classes"/>
 	</path>
@@ -49,6 +50,8 @@
 			<include name="jaxb-runtime-*.jar"/>
 			<include name="istack-commons-runtime-*.jar"/>
 			<include name="junit-jupiter-api*.jar"/>
+			<include name="slf4j-*.jar"/>
+			<include name="txw2-*.jar"/>
 		</fileset>
 	</path>
 

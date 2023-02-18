@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	Generated from org.jvnet.basicjaxb_annox.reader.resourced.NPackage context
+	using jakarta.xml.bind.SchemaOutputResolver.
+-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://jvnet.org/basicjaxb/xjc/annox"
+	targetNamespace="http://jvnet.org/basicjaxb/xjc/annox"
+>
+
+  <xs:element name="class" type="tns:classType"/>
+  <xs:element name="constructor" type="tns:constructorType"/>
+  <xs:element name="field" type="tns:fieldType"/>
+  <xs:element name="method" type="tns:methodType"/>
+  <xs:element name="package" type="tns:packageType"/>
+  <xs:element name="parameter" type="tns:parameterType"/>
+
+  <xs:complexType name="packageType">
+    <xs:sequence>
+      <xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="classType">
+    <xs:sequence>
+      <xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="fieldType">
+    <xs:sequence>
+      <xs:any processContents="skip" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="constructorType">
+    <xs:sequence>
+      <xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="arguments" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="parameterType">
+    <xs:sequence>
+      <xs:any processContents="skip" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="index" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="methodType">
+    <xs:sequence>
+      <xs:any processContents="lax" namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="arguments" type="xs:string"/>
+  </xs:complexType>
+
+</xs:schema>

@@ -20,6 +20,7 @@
 		<maven-min.version>${maven-min.version}</maven-min.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<slf4j.version>${slf4j.version}</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -59,6 +60,19 @@
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>\${junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -129,6 +143,7 @@
 				<executions>
 					<execution>
 						<id>enforce-java-maven</id>
+						<?m2e ignore?>
 						<goals>
 							<goal>enforce</goal>
 						</goals>

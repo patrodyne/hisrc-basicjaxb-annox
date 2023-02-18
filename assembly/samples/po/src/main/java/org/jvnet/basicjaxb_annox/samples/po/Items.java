@@ -6,80 +6,40 @@ import java.util.List;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
-public class Items {
-
+public class Items
+{
 	protected List<Items.Item> item;
-
-	public List<Items.Item> getItem() {
-		if (item == null) {
+	public List<Items.Item> getItem()
+	{
+		if (item == null)
 			item = new ArrayList<Items.Item>();
-		}
 		return this.item;
 	}
 
-	
-	public static class Item {
-
-		
+	public static class Item
+	{
 		protected String productName;
+		public String getProductName() { return productName; }
+		public void setProductName(String value) { this.productName = value; }
 
 		protected int quantity;
+		public int getQuantity() { return quantity; }
+		public void setQuantity(int value) { this.quantity = value; }
 
 		protected BigDecimal usPrice;
+		public BigDecimal getUSPrice() { return usPrice; }
+		public void setUSPrice(BigDecimal value) { this.usPrice = value; }
 
 		protected String comment;
+		public String getComment() { return comment; }
+		public void setComment(String value) { this.comment = value; }
 
 		protected XMLGregorianCalendar shipDate;
+		public XMLGregorianCalendar getShipDate() { return shipDate; }
+		public void setShipDate(XMLGregorianCalendar value) { this.shipDate = value; }
 
 		protected String partNum;
-
-		public String getProductName() {
-			return productName;
-		}
-
-		public void setProductName(String value) {
-			this.productName = value;
-		}
-
-		public int getQuantity() {
-			return quantity;
-		}
-
-		public void setQuantity(int value) {
-			this.quantity = value;
-		}
-
-		public BigDecimal getUSPrice() {
-			return usPrice;
-		}
-
-		public void setUSPrice(BigDecimal value) {
-			this.usPrice = value;
-		}
-
-		public String getComment() {
-			return comment;
-		}
-
-		public void setComment(String value) {
-			this.comment = value;
-		}
-
-		public XMLGregorianCalendar getShipDate() {
-			return shipDate;
-		}
-
-		public void setShipDate(XMLGregorianCalendar value) {
-			this.shipDate = value;
-		}
-
-		public String getPartNum() {
-			return partNum;
-		}
-
-		public void setPartNum(String value) {
-			this.partNum = value;
-		}
+		public String getPartNum() { return partNum; }
+		public void setPartNum(String value) { this.partNum = value; }
 	}
 }
