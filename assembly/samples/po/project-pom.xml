@@ -9,7 +9,7 @@
 	<artifactId>${project.artifactId}</artifactId>
 	<version>${hisrc-basicjaxb-annox-parser.version}</version>
 	<packaging>jar</packaging>
-	<name>HiSrc BasicJAXB Annox Samples [po:maven]</name>
+	<name>${project.name}</name>
 
 	<properties>
 		<hisrc-basicjaxb-annox-parser.version>${hisrc-basicjaxb-annox-parser.version}</hisrc-basicjaxb-annox-parser.version>
@@ -142,8 +142,8 @@
 				<version>${maven-enforcer-plugin.version}</version>
 				<executions>
 					<execution>
-						<id>enforce-java-maven</id>
 						<?m2e ignore?>
+						<id>enforce-java-maven</id>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
