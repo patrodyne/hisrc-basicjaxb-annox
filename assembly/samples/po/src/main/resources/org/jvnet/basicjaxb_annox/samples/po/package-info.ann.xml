@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <package
 	xmlns="http://jvnet.org/basicjaxb/xjc/annox"
 	xmlns:jaxb="http://jvnet.org/basicjaxb/xjc/annox/jakarta.xml.bind.annotation"
 	xmlns:adap="http://jvnet.org/basicjaxb/xjc/annox/jakarta.xml.bind.annotation.adapters"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://jvnet.org/basicjaxb/xjc/annox file:../../../../../annox.xsd"
+	xsi:schemaLocation="http://jvnet.org/basicjaxb/xjc/annox https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/download/2.1.0/annox.xsd"
 >
 
 	<adap:XmlJavaTypeAdapters>

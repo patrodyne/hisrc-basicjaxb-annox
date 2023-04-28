@@ -1,6 +1,9 @@
 <class
 	xmlns="http://jvnet.org/basicjaxb/xjc/annox"
-	xmlns:g="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.demos.guide">
+	xmlns:g="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.demos.guide"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jvnet.org/basicjaxb/xjc/annox https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/download/2.1.0/annox.xsd"
+>
 	<g:Comment>
 		<value>Annotation for the DemoGuide class.</value>
 	</g:Comment>
