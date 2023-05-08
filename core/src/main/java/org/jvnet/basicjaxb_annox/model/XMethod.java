@@ -82,6 +82,7 @@ public class XMethod extends XMember<Method> implements
 		return getMember();
 	}
 
+	@Override
 	public Annotation[][] getParameterAnnotations() {
 		final XParameter[] xparameters = getParameters();
 		final Annotation[][] parameterAnnotations = new Annotation[xparameters.length][];

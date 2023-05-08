@@ -14,22 +14,27 @@ public final class MethodAnnotatedElement implements
 		this.method = method;
 	}
 
+	@Override
 	public <T extends Annotation> T getAnnotation(Class<T> annotationClass) {
 		return method.<T> getAnnotation(annotationClass);
 	}
 
+	@Override
 	public Annotation[] getAnnotations() {
 		return method.getAnnotations();
 	}
 
+	@Override
 	public Annotation[] getDeclaredAnnotations() {
 		return method.getDeclaredAnnotations();
 	}
 
+	@Override
 	public Annotation[][] getParameterAnnotations() {
 		return method.getParameterAnnotations();
 	}
 
+	@Override
 	public boolean isAnnotationPresent(
 			Class<? extends Annotation> annotationClass) {
 		return method.isAnnotationPresent(annotationClass);

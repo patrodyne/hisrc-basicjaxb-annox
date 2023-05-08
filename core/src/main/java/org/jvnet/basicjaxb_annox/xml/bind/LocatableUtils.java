@@ -12,10 +12,12 @@ public class LocatableUtils {
 			return null;
 		} else {
 			return new Locatable() {
+				@Override
 				public Locatable getUpstream() {
 					return null;
 				}
 
+				@Override
 				public Location getLocation() {
 					return new Location() {
 						@Override
@@ -33,10 +35,12 @@ public class LocatableUtils {
 			return null;
 		} else {
 			return new Locatable() {
+				@Override
 				public Locatable getUpstream() {
 					return getLocatable(theClass.getPackage());
 				}
 
+				@Override
 				public Location getLocation() {
 					return new Location() {
 						@Override
@@ -54,10 +58,12 @@ public class LocatableUtils {
 			return null;
 		} else {
 			return new Locatable() {
+				@Override
 				public Locatable getUpstream() {
 					return getLocatable(theMember.getDeclaringClass());
 				}
 
+				@Override
 				public Location getLocation() {
 					return new Location() {
 						@Override

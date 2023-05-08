@@ -48,6 +48,7 @@ public class XAnnotationArrayAnnotationFieldParser<A extends Annotation>
 		return construct(name, xannotations, type);
 	}
 
+	@Override
 	public XAnnotationField<A[]> parse(Annotation annotation, String name,
 			Class<?> type) throws NoSuchAnnotationFieldException {
 		final A[] value = getAnnotationFieldValue(annotation, name);
@@ -119,6 +120,7 @@ public class XAnnotationArrayAnnotationFieldParser<A extends Annotation>
 		return construct(name, xannotations, type);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public XAnnotationField<A[]> construct(String name, final A[] annotations,
 			Class<?> type) {

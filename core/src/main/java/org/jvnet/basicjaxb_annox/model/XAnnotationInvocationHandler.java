@@ -34,6 +34,7 @@ public final class XAnnotationInvocationHandler implements InvocationHandler
 		this.memberValues = Collections.unmodifiableMap(draft);
 	}
 
+	@Override
 	public Object invoke(Object proxy, Method method, Object[] args)
 	{
 		String member = method.getName();

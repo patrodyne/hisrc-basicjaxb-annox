@@ -41,6 +41,7 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated im
 		return annotatedElement;
 	}
 
+	@Override
 	public boolean isAnnotationPresent(Class<? extends Annotation> annotationClass)
 	{
 		for (final XAnnotation<?> xannotation : getXAnnotations())
@@ -51,6 +52,7 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated im
 		return false;
 	}
 
+	@Override
 	public <X extends Annotation> X getAnnotation(Class<X> annotationClass)
 	{
 		for (final XAnnotation<?> xannotation : getXAnnotations())
@@ -65,6 +67,7 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated im
 		return null;
 	}
 
+	@Override
 	public Annotation[] getDeclaredAnnotations()
 	{
 		throw new UnsupportedOperationException();

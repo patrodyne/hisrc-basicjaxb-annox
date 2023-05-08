@@ -27,6 +27,7 @@ public class ResourcedAnnotatedElementFactory implements
 		return xreader;
 	}
 
+	@Override
 	public AnnotatedElement getAnnotatedElement(
 			AnnotatedElement annotatedElement) throws AnnotatedElementException {
 		Validate.notNull(annotatedElement);
@@ -49,12 +50,14 @@ public class ResourcedAnnotatedElementFactory implements
 		}
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(
 			@SuppressWarnings("rawtypes") Constructor constructor) throws AnnotatedElementException {
 		Validate.notNull(constructor);
 		return getXReader().getXConstructor(constructor);
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(Method method)
 			throws AnnotatedElementException {
 		Validate.notNull(method);

@@ -22,6 +22,7 @@ public class DualAnnotatedElementFactory implements AnnotatedElementFactory {
 				new DirectAnnotatedElementFactory());
 	}
 
+	@Override
 	public AnnotatedElement getAnnotatedElement(
 			AnnotatedElement annotatedElement) throws AnnotatedElementException {
 		final AnnotatedElement primaryAnnotatedElement = primary
@@ -33,6 +34,7 @@ public class DualAnnotatedElementFactory implements AnnotatedElementFactory {
 		}
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(
 			@SuppressWarnings("rawtypes") Constructor annotatedElement) throws AnnotatedElementException {
 		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary
@@ -44,6 +46,7 @@ public class DualAnnotatedElementFactory implements AnnotatedElementFactory {
 		}
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(
 			Method annotatedElement) throws AnnotatedElementException {
 		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary

@@ -97,6 +97,7 @@ public class ResourcedXReader implements XReader {
 		return nxconverter;
 	}
 
+	@Override
 	public XPackage getXPackage(Package thePackage)
 			throws AnnotatedElementException {
 		// Check cache
@@ -135,6 +136,7 @@ public class ResourcedXReader implements XReader {
 		}
 	}
 
+	@Override
 	public XClass getXClass(Class<?> theClass) throws AnnotatedElementException {
 		Validate.notNull(theClass);
 		// Check direct class cache
@@ -197,11 +199,13 @@ public class ResourcedXReader implements XReader {
 		}
 	}
 
+	@Override
 	public XField getXField(Field theField) throws AnnotatedElementException {
 		Validate.notNull(theField);
 		return getXField(theField.getDeclaringClass(), theField);
 	}
 
+	@Override
 	public XField getXField(Class<?> theClass, Field theField)
 			throws AnnotatedElementException {
 		Validate.notNull(theClass);
@@ -219,6 +223,7 @@ public class ResourcedXReader implements XReader {
 		}
 	}
 
+	@Override
 	public XConstructor getXConstructor(Constructor<?> theConstructor)
 			throws AnnotatedElementException {
 		Validate.notNull(theConstructor);
@@ -226,6 +231,7 @@ public class ResourcedXReader implements XReader {
 				theConstructor);
 	}
 
+	@Override
 	public XConstructor getXConstructor(Class<?> theClass,
 			Constructor<?> theConstructor) throws AnnotatedElementException {
 		Validate.notNull(theClass);
@@ -243,6 +249,7 @@ public class ResourcedXReader implements XReader {
 		}
 	}
 
+	@Override
 	public XMethod getXMethod(Method theMethod)
 			throws AnnotatedElementException {
 		Validate.notNull(theMethod);
@@ -250,6 +257,7 @@ public class ResourcedXReader implements XReader {
 
 	}
 
+	@Override
 	public XMethod getXMethod(Class<?> theClass, Method theMethod)
 			throws AnnotatedElementException {
 		Validate.notNull(theClass);

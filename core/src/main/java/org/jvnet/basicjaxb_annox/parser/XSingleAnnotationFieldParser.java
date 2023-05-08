@@ -49,12 +49,14 @@ public class XSingleAnnotationFieldParser<T, V> extends
 		}
 	}
 
+	@Override
 	public XAnnotationField<T> parse(Annotation annotation, String name,
 			Class<?> type) throws NoSuchAnnotationFieldException {
 		final V value = this.<V> getAnnotationFieldValue(annotation, name);
 		return construct(name, value, type);
 	}
 
+	@Override
 	public final XAnnotationField<T> construct(String name, V value,
 			Class<?> type) {
 		final XAnnotationValue<T> fieldValue = this.annotationValueParser.construct(value, type);

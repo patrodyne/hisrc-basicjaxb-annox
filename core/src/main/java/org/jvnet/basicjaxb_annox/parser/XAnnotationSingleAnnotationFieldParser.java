@@ -50,6 +50,7 @@ public class XAnnotationSingleAnnotationFieldParser<A extends Annotation>
 		final AnnotationExpr element = annotationElement.accept(
 				new AbstractGenericExpressionVisitor<AnnotationExpr, Void>() {
 
+					@Override
 					public AnnotationExpr visitDefault(AnnotationExpr n,
 							Void arg) {
 						return n;

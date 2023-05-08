@@ -16,6 +16,7 @@ public class NestedIOException extends IOException {
 		initCause(cause);
 	}
 
+	@Override
 	public String getMessage() {
 		return buildMessage(super.getMessage(), getCause());
 	}

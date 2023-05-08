@@ -12,16 +12,19 @@ public class DirectAnnotatedElementFactory implements AnnotatedElementFactory {
 		return INSTANCE;
 	}
 
+	@Override
 	public AnnotatedElement getAnnotatedElement(
 			AnnotatedElement annotatedElement) throws AnnotatedElementException {
 		return annotatedElement;
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(final Method method)
 			throws AnnotatedElementException {
 		return new MethodAnnotatedElement(method);
 	}
 
+	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(
 			@SuppressWarnings("rawtypes") final Constructor constructor) throws AnnotatedElementException {
 		return new ConstructorAnnotatedElement(constructor);

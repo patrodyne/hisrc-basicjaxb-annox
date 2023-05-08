@@ -107,6 +107,7 @@ public class AnnoxAnnotationReader extends
 		}
 	}
 
+	@Override
 	public <A extends Annotation> A getFieldAnnotation(Class<A> annotation,
 			Field field, Locatable srcPos) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
@@ -114,18 +115,21 @@ public class AnnoxAnnotationReader extends
 				.getAnnotation(annotation), srcPos);
 	}
 
+	@Override
 	public boolean hasFieldAnnotation(
 			Class<? extends Annotation> annotationType, Field field) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
 		return annotatedElement.isAnnotationPresent(annotationType);
 	}
 
+	@Override
 	public boolean hasClassAnnotation(Class clazz,
 			Class<? extends Annotation> annotationType) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(clazz);
 		return annotatedElement.isAnnotationPresent(annotationType);
 	}
 
+	@Override
 	public Annotation[] getAllFieldAnnotations(Field field, Locatable srcPos) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
 		Annotation[] r = annotatedElement.getAnnotations();
@@ -135,6 +139,7 @@ public class AnnoxAnnotationReader extends
 		return r;
 	}
 
+	@Override
 	public <A extends Annotation> A getMethodAnnotation(Class<A> annotation,
 			Method method, Locatable srcPos) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
@@ -142,12 +147,14 @@ public class AnnoxAnnotationReader extends
 				.getAnnotation(annotation), srcPos);
 	}
 
+	@Override
 	public boolean hasMethodAnnotation(Class<? extends Annotation> annotation,
 			Method method) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
 		return annotatedElement.isAnnotationPresent(annotation);
 	}
 
+	@Override
 	public Annotation[] getAllMethodAnnotations(Method method, Locatable srcPos) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
 		Annotation[] r = annotatedElement.getAnnotations();
@@ -157,6 +164,7 @@ public class AnnoxAnnotationReader extends
 		return r;
 	}
 
+	@Override
 	public <A extends Annotation> A getMethodParameterAnnotation(
 			Class<A> annotation, Method method, int paramIndex, Locatable srcPos) {
 		final ParameterizedAnnotatedElement annotatedElement = getAnnotatedElement(method);
@@ -171,6 +179,7 @@ public class AnnoxAnnotationReader extends
 		return null;
 	}
 
+	@Override
 	public <A extends Annotation> A getClassAnnotation(Class<A> a, Class clazz,
 			Locatable srcPos) {
 		final AnnotatedElement annotatedElement = getAnnotatedElement(clazz);
@@ -178,6 +187,7 @@ public class AnnoxAnnotationReader extends
 				srcPos);
 	}
 
+	@Override
 	public Class getClassValue(Annotation a, String name) {
 		try {
 			return (Class) a.annotationType().getMethod(name).invoke(a);
@@ -192,6 +202,7 @@ public class AnnoxAnnotationReader extends
 		}
 	}
 
+	@Override
 	public Class[] getClassArrayValue(Annotation a, String name) {
 		try {
 			return (Class[]) a.annotationType().getMethod(name).invoke(a);
@@ -206,12 +217,14 @@ public class AnnoxAnnotationReader extends
 		}
 	}
 
+	@Override
 	protected String fullName(Method m) {
 		return m.getDeclaringClass().getName() + '#' + m.getName();
 	}
 
 	private final Map<Class<? extends Annotation>, Map<Package, Annotation>> packageCache = new HashMap<Class<? extends Annotation>, Map<Package, Annotation>>();
 
+	@Override
 	public <A extends Annotation> A getPackageAnnotation(Class<A> a,
 			Class clazz, Locatable srcPos) {
 		Package p = clazz.getPackage();
