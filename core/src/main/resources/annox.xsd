@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	HiSrc BasicJAXB Annox XML Schema for '*.ann.xml' instances.
+	BasicJAXB XML Annotations for JAXB: 'SomeClass.ann.xml' instances.
+
+	When you provide this XML binding resource in the same package as
+	its associated 'SomeClass.java' file, then AnnoxAnnotationReader
+	from the 'org.jvnet.basicjaxb_annox.xml.bind' package can be
+	used to apply the JAXB annotations (using this schema) to 'SomeClass'
+	in place of the '@Xml*' inline counterparts. This provides a way
+	to customize your JAXB classes without modifying the source code
+	directly.
 -->
 <xs:schema version="1.0"
 	attributeFormDefault="unqualified"

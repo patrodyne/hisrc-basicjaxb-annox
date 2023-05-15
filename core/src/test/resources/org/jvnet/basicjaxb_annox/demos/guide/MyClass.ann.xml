@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	BasicJAXB XML Annotations for JAXB: 'SomeClass.ann.xml'.
+
+	When you provide this XML binding resource in the same package as
+	its associated 'SomeClass.java' file, then AnnoxAnnotationReader
+	from the 'org.jvnet.basicjaxb_annox.xml.bind' package can be
+	used to apply the JAXB annotations (shown below) to 'SomeClass'
+	in place of the '@Xml*' inline counterparts. This provides a way
+	to customize your JAXB classes without modifying the source code
+	directly.
+-->
 <class
 	xmlns="http://jvnet.org/basicjaxb/xjc/annox"
 	xmlns:g="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.demos.guide"
