@@ -18,6 +18,7 @@
 			<name>BSD 3-Clause License</name>
 			<url>https://raw.githubusercontent.com/patrodyne/hisrc-basicjaxb-annox/master/LICENSE.md</url>
 			<distribution>repo or manual</distribution>
+			<comments>HiSrc BasicJAXB Annox Project license is the 3-clause BSD license which is compatible with GPL. HiSrc BasicJAXB Annox Project license does not require you to include any acknowledgments for HiSrc BasicJAXB Annox Project in advertising materials for your software.</comments>
 		</license>
 	</licenses>
 
@@ -76,7 +77,7 @@
 		<maven-dependency-plugin.version>3.5.0</maven-dependency-plugin.version>
 		<maven-deploy-plugin.version>3.0.0</maven-deploy-plugin.version>
 		<maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
-		<maven-failsafe-plugin.version>3.0.0-M8</maven-failsafe-plugin.version>
+		<maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
 		<maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
 		<maven-install-plugin.version>3.1.0</maven-install-plugin.version>
 		<maven-invoker-plugin.version>3.4.0</maven-invoker-plugin.version>
@@ -88,19 +89,19 @@
 		<maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
 		<maven-site-plugin.version>3.12.1</maven-site-plugin.version>
 		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-		<maven-surefire-plugin.version>3.0.0-M8</maven-surefire-plugin.version>
-		<maven-surefire-report-plugin.version>3.0.0-M8</maven-surefire-report-plugin.version>
+		<maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+		<maven-surefire-report-plugin.version>3.1.2</maven-surefire-report-plugin.version>
 		<nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
 		<versions-maven-plugin.version>2.14.2</versions-maven-plugin.version>
 
-		<activation-api.version>2.1.1</activation-api.version>
+		<activation-api.version>2.1.2</activation-api.version>
 		<activation-imp.version>2.0.0</activation-imp.version>
-		<commons-lang3.version>3.12.0</commons-lang3.version>
-		<hibernate.version>6.1.8.Final</hibernate.version>
+		<commons-lang3.version>3.13.0</commons-lang3.version>
+		<hibernate.version>6.2.0.Final</hibernate.version>
 		<jaxb-api.version>4.0.0</jaxb-api.version>
-		<jaxb-imp.version>4.0.2</jaxb-imp.version>
-		<junit-jupiter.version>5.9.2</junit-jupiter.version>
-		<junit-platform.version>1.9.2</junit-platform.version>
+		<jaxb-imp.version>4.0.3</jaxb-imp.version>
+		<junit-jupiter.version>5.10.0</junit-jupiter.version>
+		<junit-platform.version>1.10.0</junit-platform.version>
 		<maven.compiler.release>11</maven.compiler.release>
 		<maven-min.version>3.8.4</maven-min.version>
 		<osgi-reenv>J2SE-1.8</osgi-reenv>
@@ -144,7 +145,7 @@
 			<dependency>
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
-				<version>2.11.0</version>
+				<version>2.13.0</version>
 			</dependency>
 			<dependency>
 				<groupId>jakarta.xml.bind</groupId>
@@ -262,12 +263,57 @@
 					<version>${maven-assembly-plugin.version}</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven-clean-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${maven-dependency-plugin.version}</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${maven-deploy-plugin.version}</version>
+					<!-- Disable in favor of nexus-staging-maven-plugin -->
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${maven-install-plugin.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-invoker-plugin</artifactId>
 					<version>${maven-invoker-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+					<configuration>
+						<excludes>
+							<exclude>**/.placeholder</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>${maven-site-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<argLine>${env.JVM_SYS_ARGS}</argLine>
+						<systemPropertiesFile>${root.basedir}/src/test/resources/jvmsystem.properties</systemPropertiesFile>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-report-plugin</artifactId>
@@ -337,44 +383,21 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>${maven-clean-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>${maven-resources-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin.version}</version>
-				<configuration>
-					<excludes>
-						<exclude>**/.placeholder</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven-surefire-plugin.version}</version>
-				<configuration>
-					<argLine>${env.JVM_SYS_ARGS}</argLine>
-					<systemPropertiesFile>${root.basedir}/src/test/resources/jvmsystem.properties</systemPropertiesFile>
-				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-install-plugin</artifactId>
-				<version>${maven-install-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>${maven-deploy-plugin.version}</version>
-				<!-- Disable in favor of nexus-staging-maven-plugin -->
-				<configuration>
-					<skip>true</skip>
-				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>
@@ -387,7 +410,6 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>${maven-site-plugin.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
@@ -434,8 +456,8 @@
 				<version>${maven-enforcer-plugin.version}</version>
 				<executions>
 					<execution>
-						<id>enforce-java-maven</id>
 						<?m2e ignore?>
+						<id>enforce-java-maven</id>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -447,6 +469,9 @@
 								<requireMavenVersion>
 									<version>${maven-min.version}</version>
 								</requireMavenVersion>
+								<requirePluginVersions>
+									<message>Best Practice is to always define plugin versions!</message>
+								</requirePluginVersions>
 							</rules>    
 						</configuration>
 					</execution>
