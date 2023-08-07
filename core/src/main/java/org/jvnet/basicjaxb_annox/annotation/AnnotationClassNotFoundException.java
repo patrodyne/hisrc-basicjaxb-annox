@@ -1,6 +1,6 @@
 package org.jvnet.basicjaxb_annox.annotation;
 
-import org.apache.commons.lang3.Validate;
+import static java.util.Objects.requireNonNull;
 
 public class AnnotationClassNotFoundException extends Exception {
 
@@ -10,7 +10,7 @@ public class AnnotationClassNotFoundException extends Exception {
 
 	public AnnotationClassNotFoundException(String className, Throwable cause) {
 		super("Annotation class [" + className + "] could not be found.", cause);
-		Validate.notNull(className);
+		requireNonNull(className);
 		this.className = className;
 	}
 

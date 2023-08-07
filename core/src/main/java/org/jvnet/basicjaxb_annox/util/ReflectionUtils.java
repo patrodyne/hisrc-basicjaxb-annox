@@ -1,16 +1,16 @@
 package org.jvnet.basicjaxb_annox.util;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import org.apache.commons.lang3.Validate;
 
 public class ReflectionUtils {
 
 	public static Constructor<?> getConstructor(Class<?> theClass,
 			Class<?>[] parameterTypes) throws NoSuchMethodException {
-		Validate.notNull(theClass);
+		requireNonNull(theClass);
 		if (parameterTypes == null) {
 			try {
 				return theClass
@@ -39,8 +39,8 @@ public class ReflectionUtils {
 
 	public static Method getMethod(Class<?> theClass, String methodName,
 			Class<?>[] parameterTypes) throws NoSuchMethodException {
-		Validate.notNull(theClass);
-		Validate.notNull(methodName);
+		requireNonNull(theClass);
+		requireNonNull(methodName);
 		if (parameterTypes == null) {
 			try {
 				return theClass.getMethod(methodName,

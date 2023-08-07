@@ -1,17 +1,18 @@
 package org.jvnet.basicjaxb_annox.parser.java.visitor;
 
-import japa.parser.ast.Node;
+import static java.util.Objects.requireNonNull;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.japa.parser.ast.visitor.AbstractGenericExpressionVisitor;
 import org.jvnet.basicjaxb_annox.parser.exception.ValueParseException;
+
+import japa.parser.ast.Node;
 
 public class ExpressionVisitor<V> extends
 		AbstractGenericExpressionVisitor<V, Void> {
 	protected final Class<?> targetClass;
 
 	public ExpressionVisitor(Class<?> targetClass) {
-		Validate.notNull(targetClass);
+		requireNonNull(targetClass);
 		this.targetClass = targetClass;
 	}
 

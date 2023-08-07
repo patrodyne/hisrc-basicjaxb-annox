@@ -1,5 +1,7 @@
 package org.jvnet.basicjaxb_annox.model;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.annotation.Annotation;
 import java.lang.annotation.IncompleteAnnotationException;
 import java.lang.reflect.AccessibleObject;
@@ -14,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
 
 public final class XAnnotationInvocationHandler implements InvocationHandler
@@ -24,7 +25,7 @@ public final class XAnnotationInvocationHandler implements InvocationHandler
 
 	public XAnnotationInvocationHandler(XAnnotation<?> annotation)
 	{
-		Validate.notNull(annotation);
+		requireNonNull(annotation);
 		this.type = annotation.getAnnotationClass();
 		final Map<String, Object> draft = new HashMap<String, Object>();
 		

@@ -1,6 +1,6 @@
 package org.jvnet.basicjaxb_annox.model.annotation.value;
 
-import org.apache.commons.lang3.Validate;
+import static java.util.Objects.requireNonNull;
 
 public class XEnumByNameAnnotationValue<E extends Enum<E>> extends
 		XDynamicAnnotationValue<E> {
@@ -11,8 +11,8 @@ public class XEnumByNameAnnotationValue<E extends Enum<E>> extends
 
 	public XEnumByNameAnnotationValue(XClassByNameAnnotationValue<E> enumClass,
 			String name) {
-		this.enumByNameAnnotationValue = Validate.notNull(enumClass);
-		this.name = Validate.notNull(name);
+		this.enumByNameAnnotationValue = requireNonNull(enumClass);
+		this.name = requireNonNull(name);
 		this.enumName = enumClass.getClassName() + "." + name;
 	}
 

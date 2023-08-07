@@ -1,5 +1,7 @@
 package org.jvnet.basicjaxb_annox.util;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +50,7 @@ public class ClassUtils {
 
 	@SuppressWarnings("rawtypes")
 	public static Class primitiveToWrapper(Class cls) {
-		Validate.notNull(cls);
+		requireNonNull(cls);
 		if (cls.isPrimitive()) {
 			return primitiveWrapperMap.get(cls);
 		} else {
@@ -58,7 +60,7 @@ public class ClassUtils {
 
 	@SuppressWarnings("rawtypes")
 	public static Class wrapperToPrimitive(Class cls) {
-		Validate.notNull(cls);
+		requireNonNull(cls);
 		final Class<?> primitiveClass = wrapperPrimitiveMap.get(cls);
 		if (primitiveClass != null) {
 			return primitiveClass;
@@ -69,7 +71,7 @@ public class ClassUtils {
 
 	@SuppressWarnings("rawtypes")
 	public static Class wrapperArrayToPrimitiveArray(Class cls) {
-		Validate.notNull(cls);
+		requireNonNull(cls);
 		Validate.isTrue(cls.isArray());
 
 		final Class<?> componentType = cls.getComponentType();

@@ -1,11 +1,12 @@
 package org.jvnet.basicjaxb_annox.reflect;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.reader.XReader;
 import org.jvnet.basicjaxb_annox.reader.resourced.ResourcedXReader;
 
@@ -15,7 +16,7 @@ public class ResourcedAnnotatedElementFactory implements
 	private final XReader xreader;
 
 	public ResourcedAnnotatedElementFactory(XReader xreader) {
-		Validate.notNull(xreader);
+		requireNonNull(xreader);
 		this.xreader = xreader;
 	}
 
@@ -30,7 +31,7 @@ public class ResourcedAnnotatedElementFactory implements
 	@Override
 	public AnnotatedElement getAnnotatedElement(
 			AnnotatedElement annotatedElement) throws AnnotatedElementException {
-		Validate.notNull(annotatedElement);
+		requireNonNull(annotatedElement);
 		if (annotatedElement instanceof Package) {
 			return getXReader().getXPackage((Package) annotatedElement);
 		} else if (annotatedElement instanceof Class<?>) {
@@ -53,14 +54,14 @@ public class ResourcedAnnotatedElementFactory implements
 	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(
 			@SuppressWarnings("rawtypes") Constructor constructor) throws AnnotatedElementException {
-		Validate.notNull(constructor);
+		requireNonNull(constructor);
 		return getXReader().getXConstructor(constructor);
 	}
 
 	@Override
 	public ParameterizedAnnotatedElement getAnnotatedElement(Method method)
 			throws AnnotatedElementException {
-		Validate.notNull(method);
+		requireNonNull(method);
 		return getXReader().getXMethod(method);
 	}
 }

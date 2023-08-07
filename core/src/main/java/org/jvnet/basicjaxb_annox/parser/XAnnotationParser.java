@@ -1,13 +1,6 @@
 package org.jvnet.basicjaxb_annox.parser;
 
-import japa.parser.ParseException;
-import japa.parser.ast.Node;
-import japa.parser.ast.expr.AnnotationExpr;
-import japa.parser.ast.expr.Expression;
-import japa.parser.ast.expr.MarkerAnnotationExpr;
-import japa.parser.ast.expr.MemberValuePair;
-import japa.parser.ast.expr.NormalAnnotationExpr;
-import japa.parser.ast.expr.SingleMemberAnnotationExpr;
+import static java.util.Objects.requireNonNull;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -33,6 +26,15 @@ import org.jvnet.basicjaxb_annox.parser.exception.AnnotationElementParseExceptio
 import org.jvnet.basicjaxb_annox.parser.exception.AnnotationExpressionParseException;
 import org.jvnet.basicjaxb_annox.parser.exception.AnnotationStringParseException;
 import org.w3c.dom.Element;
+
+import japa.parser.ParseException;
+import japa.parser.ast.Node;
+import japa.parser.ast.expr.AnnotationExpr;
+import japa.parser.ast.expr.Expression;
+import japa.parser.ast.expr.MarkerAnnotationExpr;
+import japa.parser.ast.expr.MemberValuePair;
+import japa.parser.ast.expr.NormalAnnotationExpr;
+import japa.parser.ast.expr.SingleMemberAnnotationExpr;
 
 public class XAnnotationParser {
 
@@ -60,7 +62,7 @@ public class XAnnotationParser {
 	}
 
 	public XAnnotation<?> parse(final Annotation annotation) {
-		Validate.notNull(annotation, "Annotation must not be null.");
+		requireNonNull(annotation, "Annotation must not be null.");
 
 		final Class<? extends Annotation> annotationClass = annotation
 				.annotationType();
@@ -89,7 +91,7 @@ public class XAnnotationParser {
 	@SuppressWarnings("unchecked")
 	public XAnnotation<?> parse(final Element annotationElement)
 			throws AnnotationElementParseException {
-		Validate.notNull(annotationElement,
+		requireNonNull(annotationElement,
 				"Annotation element must not be null.");
 
 		final String name = annotationElement.getLocalName();
@@ -219,7 +221,7 @@ public class XAnnotationParser {
 	@SuppressWarnings("unchecked")
 	public XAnnotation<?> parse(final AnnotationExpr annotationElement)
 			throws AnnotationExpressionParseException {
-		Validate.notNull(annotationElement,
+		requireNonNull(annotationElement,
 				"Annotation expression must not be null.");
 		final String className = annotationElement.getName().toString();
 

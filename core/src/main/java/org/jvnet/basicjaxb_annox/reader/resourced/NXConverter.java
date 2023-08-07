@@ -1,12 +1,13 @@
 package org.jvnet.basicjaxb_annox.reader.resourced;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.model.XAnnotation;
 import org.jvnet.basicjaxb_annox.model.XClass;
 import org.jvnet.basicjaxb_annox.model.XConstructor;
@@ -212,7 +213,7 @@ public class NXConverter {
 
 	public XParameter convertNParameter(Class<?> parameterType,
 			NParameter nparameter) throws AnnotationElementParseException {
-		Validate.notNull(parameterType);
+		requireNonNull(parameterType);
 		final XAnnotation<?>[] annotations = nparameter == null ? XAnnotation.EMPTY_ARRAY
 				: parseAnnotations(nparameter.content);
 		return new XParameter(parameterType, annotations);

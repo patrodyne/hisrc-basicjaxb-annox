@@ -1,5 +1,7 @@
 package org.jvnet.basicjaxb_annox.model.annotation.value;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -15,8 +17,7 @@ public class XArrayClassAnnotationValue<A, I> extends
 	public XArrayClassAnnotationValue(
 			XClassByNameAnnotationValue<I> itemClassByNameAnnotationValue,
 			int dimension) {
-		this.itemClassByNameAnnotationValue = Validate
-				.notNull(itemClassByNameAnnotationValue);
+		this.itemClassByNameAnnotationValue = requireNonNull(itemClassByNameAnnotationValue);
 		Validate.isTrue(dimension > 0);
 		this.dimension = dimension;
 		String arrayClassName = itemClassByNameAnnotationValue.getClassName();

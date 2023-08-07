@@ -1,10 +1,9 @@
 package org.jvnet.basicjaxb_annox.parser;
 
-import japa.parser.ast.expr.Expression;
+import static java.util.Objects.requireNonNull;
 
 import java.lang.annotation.Annotation;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.annotation.NoSuchAnnotationFieldException;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XSingleAnnotationField;
@@ -17,6 +16,8 @@ import org.jvnet.basicjaxb_annox.parser.value.XAnnotationValueParser;
 import org.jvnet.basicjaxb_annox.util.AnnotationElementUtils;
 import org.w3c.dom.Element;
 
+import japa.parser.ast.expr.Expression;
+
 public class XSingleAnnotationFieldParser<T, V> extends
 		XAnnotationFieldParser<T, V> {
 
@@ -24,16 +25,16 @@ public class XSingleAnnotationFieldParser<T, V> extends
 	
 	public XSingleAnnotationFieldParser(
 			XAnnotationValueParser<T, V> annotationValueParser) {
-		Validate.notNull(annotationValueParser);
+		requireNonNull(annotationValueParser);
 		this.annotationValueParser = annotationValueParser;
 	}
 
 	@Override
 	public XAnnotationField<T> parse(Element element, String name, Class<?> type)
 			throws AnnotationElementParseException {
-		Validate.notNull(element, "Element must not be null.");
-		Validate.notNull(name, "Field name must not be null.");
-		Validate.notNull(type, "Type must not be null.");
+		requireNonNull(element, "Element must not be null.");
+		requireNonNull(name, "Field name must not be null.");
+		requireNonNull(type, "Type must not be null.");
 		final String draft = AnnotationElementUtils
 				.getFieldValue(element, name);
 

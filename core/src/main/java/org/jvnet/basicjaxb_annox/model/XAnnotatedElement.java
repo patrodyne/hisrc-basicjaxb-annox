@@ -1,9 +1,9 @@
 package org.jvnet.basicjaxb_annox.model;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
-
-import org.apache.commons.lang3.Validate;
 
 /**
  * Defines an annotated element.
@@ -27,7 +27,7 @@ public class XAnnotatedElement<T extends AnnotatedElement> extends XAnnotated im
 	public XAnnotatedElement(T annotatedElement, XAnnotation<?>[] xannotations)
 	{
 		super(xannotations);
-		Validate.notNull(annotatedElement, "Annotated element must not be null.");
+		requireNonNull(annotatedElement, "Annotated element must not be null.");
 		this.annotatedElement = annotatedElement;
 	}
 

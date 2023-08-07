@@ -1,6 +1,7 @@
 package org.jvnet.basicjaxb_annox.model.annotation.field;
 
-import org.apache.commons.lang3.Validate;
+import static java.util.Objects.requireNonNull;
+
 import org.jvnet.basicjaxb_annox.model.XAnnotationFieldVisitor;
 
 /**
@@ -80,7 +81,7 @@ public abstract class XAnnotationField<T> {
 	 *            name of the field.
 	 */
 	public XAnnotationField(final String name) {
-		Validate.notNull(name, "Field name must not be null.");
+		requireNonNull(name, "Field name must not be null.");
 		this.name = name;
 	}
 }

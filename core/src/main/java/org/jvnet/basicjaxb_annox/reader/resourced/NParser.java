@@ -1,9 +1,10 @@
 package org.jvnet.basicjaxb_annox.reader.resourced;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.io.NestedIOException;
 
 import jakarta.xml.bind.JAXBContext;
@@ -14,7 +15,7 @@ public class NParser {
 	private final JAXBContext context;
 
 	public NParser(JAXBContext context) {
-		Validate.notNull(context);
+		requireNonNull(context);
 		this.context = context;
 	}
 
@@ -31,7 +32,7 @@ public class NParser {
 	}
 
 	public NPackage parseNPackage(InputStream is) throws IOException {
-		Validate.notNull(is);
+		requireNonNull(is);
 		try {
 			final Object result = getContext().createUnmarshaller().unmarshal(
 					is);
@@ -43,7 +44,7 @@ public class NParser {
 	}
 
 	public NClass parseNClass(InputStream is) throws IOException {
-		Validate.notNull(is);
+		requireNonNull(is);
 		try {
 			final Object result = getContext().createUnmarshaller().unmarshal(
 					is);

@@ -1,13 +1,13 @@
 package org.jvnet.basicjaxb_annox.model.annotation.value;
 
-import org.apache.commons.lang3.Validate;
+import static java.util.Objects.requireNonNull;
 
 public abstract class XStaticAnnotationValue<T> extends XAnnotationValue<T> {
 
 	private final T value;
 
 	public XStaticAnnotationValue(T value) {
-		Validate.notNull(value);
+		requireNonNull(value);
 		this.value = value;
 	}
 

@@ -1,12 +1,13 @@
 package org.jvnet.basicjaxb_annox.parser;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;
 import java.text.MessageFormat;
 import java.util.List;
 
 import org.apache.commons.lang3.ClassUtils;
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.annotation.NoSuchAnnotationFieldException;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XArrayAnnotationField;
@@ -29,7 +30,7 @@ public class XArrayAnnotationFieldParser<T, V> extends
 
 	public XArrayAnnotationFieldParser(
 			XAnnotationValueParser<T, V> annotationValueParser) {
-		this.annotationValueParser = Validate.notNull(annotationValueParser);
+		this.annotationValueParser = requireNonNull(annotationValueParser);
 	}
 
 	@Override

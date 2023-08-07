@@ -1,14 +1,16 @@
 package org.jvnet.basicjaxb_annox.reader.resourced;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.Objects;
 import java.util.WeakHashMap;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.model.XClass;
 import org.jvnet.basicjaxb_annox.model.XConstructor;
 import org.jvnet.basicjaxb_annox.model.XField;
@@ -58,7 +60,7 @@ public class ResourcedXReader implements XReader {
 	}
 
 	public ResourcedXReader(final ClassLoader classLoader) {
-		Validate.notNull(classLoader);
+		requireNonNull(classLoader);
 		this.nparser = new NParser();
 		this.classLoader = classLoader;
 		this.nxconverter = new NXConverter(new XAnnotationParser(
@@ -67,9 +69,9 @@ public class ResourcedXReader implements XReader {
 
 	public ResourcedXReader(final ClassLoader classLoader,
 			final JAXBContext context, final XAnnotationParser xannotationParser) {
-		Validate.notNull(classLoader);
-		Validate.notNull(context);
-		Validate.notNull(xannotationParser);
+		requireNonNull(classLoader);
+		requireNonNull(context);
+		requireNonNull(xannotationParser);
 		this.classLoader = classLoader;
 		this.nparser = new NParser(context);
 		this.nxconverter = new NXConverter(xannotationParser, classLoader);
@@ -77,9 +79,9 @@ public class ResourcedXReader implements XReader {
 
 	public ResourcedXReader(final ClassLoader classLoader,
 			final NParser nparser, NXConverter nxconverter) {
-		Validate.notNull(classLoader);
-		Validate.notNull(nparser);
-		Validate.notNull(nxconverter);
+		requireNonNull(classLoader);
+		requireNonNull(nparser);
+		requireNonNull(nxconverter);
 		this.classLoader = classLoader;
 		this.nparser = nparser;
 		this.nxconverter = nxconverter;
@@ -138,7 +140,7 @@ public class ResourcedXReader implements XReader {
 
 	@Override
 	public XClass getXClass(Class<?> theClass) throws AnnotatedElementException {
-		Validate.notNull(theClass);
+		Objects.requireNonNull(theClass);
 		// Check direct class cache
 		final XClass one = classes.get(theClass);
 		if (one != null && one != XClass.VOID) {
@@ -201,15 +203,15 @@ public class ResourcedXReader implements XReader {
 
 	@Override
 	public XField getXField(Field theField) throws AnnotatedElementException {
-		Validate.notNull(theField);
+		Objects.requireNonNull(theField);
 		return getXField(theField.getDeclaringClass(), theField);
 	}
 
 	@Override
 	public XField getXField(Class<?> theClass, Field theField)
 			throws AnnotatedElementException {
-		Validate.notNull(theClass);
-		Validate.notNull(theField);
+		Objects.requireNonNull(theClass);
+		Objects.requireNonNull(theField);
 		final XClass xclass = getXClass(theClass);
 		if (xclass == null) {
 			return null;
@@ -226,7 +228,7 @@ public class ResourcedXReader implements XReader {
 	@Override
 	public XConstructor getXConstructor(Constructor<?> theConstructor)
 			throws AnnotatedElementException {
-		Validate.notNull(theConstructor);
+		Objects.requireNonNull(theConstructor);
 		return getXConstructor(theConstructor.getDeclaringClass(),
 				theConstructor);
 	}
@@ -234,8 +236,8 @@ public class ResourcedXReader implements XReader {
 	@Override
 	public XConstructor getXConstructor(Class<?> theClass,
 			Constructor<?> theConstructor) throws AnnotatedElementException {
-		Validate.notNull(theClass);
-		Validate.notNull(theConstructor);
+		Objects.requireNonNull(theClass);
+		Objects.requireNonNull(theConstructor);
 		final XClass xclass = getXClass(theClass);
 		if (xclass == null) {
 			return null;
@@ -252,7 +254,7 @@ public class ResourcedXReader implements XReader {
 	@Override
 	public XMethod getXMethod(Method theMethod)
 			throws AnnotatedElementException {
-		Validate.notNull(theMethod);
+		Objects.requireNonNull(theMethod);
 		return getXMethod(theMethod.getDeclaringClass(), theMethod);
 
 	}
@@ -260,8 +262,8 @@ public class ResourcedXReader implements XReader {
 	@Override
 	public XMethod getXMethod(Class<?> theClass, Method theMethod)
 			throws AnnotatedElementException {
-		Validate.notNull(theClass);
-		Validate.notNull(theMethod);
+		Objects.requireNonNull(theClass);
+		Objects.requireNonNull(theMethod);
 		final XClass xclass = getXClass(theClass);
 		if (xclass == null) {
 			return null;

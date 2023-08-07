@@ -1,6 +1,6 @@
 package org.jvnet.basicjaxb_annox.model;
 
-import org.apache.commons.lang3.Validate;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Defines an annotated method or constructor parameter.
@@ -24,7 +24,7 @@ public class XParameter extends XAnnotated {
 	 */
 	public XParameter(Class<?> type, XAnnotation<?>[] xannotations) {
 		super(xannotations);
-		Validate.notNull(type, "Parameter type must not be null.");
+		requireNonNull(type, "Parameter type must not be null.");
 		this.type = type;
 	}
 

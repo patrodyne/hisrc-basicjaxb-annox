@@ -1,5 +1,11 @@
 package org.jvnet.basicjaxb_annox.japa.parser;
 
+import static java.util.Objects.requireNonNull;
+
+import java.io.StringReader;
+import java.text.MessageFormat;
+import java.util.List;
+
 import japa.parser.JavaParser;
 import japa.parser.ParseException;
 import japa.parser.ast.CompilationUnit;
@@ -7,16 +13,10 @@ import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.TypeDeclaration;
 import japa.parser.ast.expr.AnnotationExpr;
 
-import java.io.StringReader;
-import java.text.MessageFormat;
-import java.util.List;
-
-import org.apache.commons.lang3.Validate;
-
 public class AnnotationExprParser {
 
 	public List<AnnotationExpr> parse(String text) throws ParseException {
-		Validate.notNull(text);
+		requireNonNull(text);
 		final String classText = text + "\n" + "public class Dummy{}";
 		final StringReader reader = new StringReader(classText);
 		final CompilationUnit compilationUnit = JavaParser.parse(reader, true);

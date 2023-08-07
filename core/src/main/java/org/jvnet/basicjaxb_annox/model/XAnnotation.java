@@ -1,5 +1,7 @@
 package org.jvnet.basicjaxb_annox.model;
 
+import static java.util.Objects.requireNonNull;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -12,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.Validate;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
 import org.jvnet.basicjaxb_annox.parser.XGenericFieldParser;
 
@@ -64,7 +65,7 @@ public class XAnnotation<A extends Annotation> {
 	public XAnnotation(final Class<A> annotationClass,
 			final XAnnotationField<?>... fields)
 			throws IllegalArgumentException {
-		Validate.notNull(annotationClass, "Annotation class must not be null.");
+		requireNonNull(annotationClass, "Annotation class must not be null.");
 		this.annotationClass = annotationClass;
 		final List<XAnnotationField<?>> fieldsList = Collections
 				.unmodifiableList(toFieldsList(fields));

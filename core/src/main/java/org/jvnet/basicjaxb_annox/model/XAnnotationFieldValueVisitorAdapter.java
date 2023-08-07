@@ -30,7 +30,7 @@
 //
 //	public XAnnotationFieldValueVisitorAdapter(
 //			XAnnotationFieldValueVisitor<T> fieldValueVisitor) {
-//		Validate.notNull(fieldValueVisitor);
+//		Objects.requireNonNull(fieldValueVisitor);
 //		this.fieldValueVisitor = fieldValueVisitor;
 //	};
 //
