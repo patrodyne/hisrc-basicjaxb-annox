@@ -4,12 +4,14 @@ Parse XML Schema to find Java annotation declarations.
 
 ## Description
 
-This repository is a fork of [Annox][21]. The original project was developed by the admirable
-Alexey Valikov (a.k.a. [Highsource][2]). This repository contains Java projects to build Maven artifact(s)
-related to the Java Architecture for XML Binding (JAXB) framework. It is one of a family of repositories
-forked from [Highsource][2] that provide tools for JAXB and JPA processing. Repo and artifact names have
-been changed to reflect the familial connection between the repositories and to fix a conformance issue
-with the original `maven-jaxb2-plugin` name.
+This repository is a fork of [Annox][21]. The original project was developed by
+the admirable Alexey Valikov (a.k.a. [Highsource][2]). This repository contains
+Java projects to build Maven artifact(s) related to the Java Architecture for
+XML Binding (JAXB) framework. It is one of a family of repositories forked from
+[Highsource][2] that provide tools for JAXB and JPA processing. Repo and
+artifact names have been changed to reflect the familial connection between the
+repositories and to fix a conformance issue with the original
+`maven-jaxb2-plugin` name.
 
 ### List of repositories in this family
 
@@ -29,6 +31,7 @@ with the original `maven-jaxb2-plugin` name.
 
 #### GitHub Releases, Demonstrations
 
+* [HiSrc BasicJAXB Annox v2.1.1, Samples][32]
 * [HiSrc BasicJAXB Annox v2.1.0, Samples][31]
 
 #### Maven Repositories
@@ -54,6 +57,14 @@ New goals for the next release are:
 * Review in progress.
 
 ### Fork History
+
+#### Version 2.1.1
+
+* Improved [`annox.xsd`][3] for `*.ann.xml` instances.
+* Read JVM properties from `main` or `test`.
+* Added system property: [`xml.catalog.verbosity`][4].
+* Update Maven plugin and dependency versions.
+* Resolved deprecated method(s).
 
 #### Version 2.1.0
 
@@ -118,6 +129,8 @@ New goals for the next release are:
 
   [1]: https://raw.githubusercontent.com/patrodyne/hisrc-hyperjaxb/master/etc/hisrc-repositories.svg
   [2]: https://github.com/highsource
+  [3]: https://github.com/patrodyne/hisrc-basicjaxb-annox/blob/master/core/src/main/resources/annox.xsd
+  [4]: https://xerces.apache.org/xml-commons/components/resolver/resolver-article.html
   [11]: https://github.com/patrodyne/hisrc-basicjaxb-annox#readme
   [12]: https://github.com/patrodyne/hisrc-basicjaxb#readme
   [13]: https://github.com/patrodyne/hisrc-higherjaxb#readme
@@ -129,3 +142,4 @@ New goals for the next release are:
   [24]: https://github.com/highsource/jaxb2-annotate-plugin#readme
   [25]: https://github.com/highsource/hyperjaxb3#readme
   [31]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.0
+  [32]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.1
