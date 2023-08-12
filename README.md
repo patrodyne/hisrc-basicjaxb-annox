@@ -38,7 +38,7 @@ repositories and to fix a conformance issue with the original
 
 * Search
 	* [MVN Repository](https://mvnrepository.com/artifact/org.patrodyne.jvnet?sort=popular)
-	* [Central Repository](https://central.sonatype.com/search?q=org.patrodyne.jvnet%20hisrc-basicjaxb-annox&sort=name)
+	* [Central Repository](https://central.sonatype.com/search?q=org.patrodyne.jvnet+hisrc-basicjaxb-annox&sort=name)
 * Index
 	* [Central Repository](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
 

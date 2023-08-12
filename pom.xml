@@ -471,6 +471,7 @@
 								</requireMavenVersion>
 								<requirePluginVersions>
 									<message>Best Practice is to always define plugin versions!</message>
+									<banSnapshots>false</banSnapshots>
 								</requirePluginVersions>
 							</rules>    
 						</configuration>
