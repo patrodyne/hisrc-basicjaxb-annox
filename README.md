@@ -42,6 +42,10 @@ repositories and to fix a conformance issue with the original
 * Index
 	* [Central Repository](https://repo1.maven.org/maven2/org/patrodyne/jvnet/)
 
+#### JavaDoc
+
+* [hisrc-basicjaxb-annox-parser][40]
+
 ### Goals
 
 New goals for the next release are:
@@ -143,3 +147,5 @@ New goals for the next release are:
   [25]: https://github.com/highsource/hyperjaxb3/tree/0.6.2#readme
   [31]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.0
   [32]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.1
+  [40]: https://javadoc.io/doc/org.patrodyne.jvnet/hisrc-basicjaxb-annox-parser/latest/index.html
+
