@@ -35,6 +35,7 @@ repositories and to fix a conformance issue with the original
 
 #### GitHub Releases, Demonstrations
 
+* [HiSrc BasicJAXB Annox v2.2.0, Samples][33]
 * [HiSrc BasicJAXB Annox v2.1.1, Samples][32]
 * [HiSrc BasicJAXB Annox v2.1.0, Samples][31]
 
@@ -68,7 +69,6 @@ New goals for the next release are:
 
 #### Version 2.2.0
 
-* Replaced old 'maven-compat' layer with Maven Resolver/Aether.
 * Update Maven plugin and dependency versions.
 * Build with JDK 21 and Java 11 compatibility.
 
@@ -158,5 +158,6 @@ New goals for the next release are:
   [25]: https://github.com/highsource/hyperjaxb3/tree/0.6.2#readme
   [31]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.0
   [32]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.1
+  [33]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.2.0
   [40]: https://javadoc.io/doc/org.patrodyne.jvnet/hisrc-basicjaxb-annox-parser/latest/index.html
 
