@@ -97,7 +97,7 @@
 		<activation-api.version>2.1.2</activation-api.version>
 		<activation-imp.version>2.0.0</activation-imp.version>
 		<commons-lang3.version>3.14.0</commons-lang3.version>
-		<hibernate.version>7.0.0.Final</hibernate.version>
+		<hibernate-search.version>7.0.0.Final</hibernate-search.version>
 		<jaxb-api.version>4.0.1</jaxb-api.version>
 		<jaxb-imp.version>4.0.4</jaxb-imp.version>
 		<junit-jupiter.version>5.10.1</junit-jupiter.version>
@@ -165,12 +165,12 @@
 			<dependency>
 				<groupId>org.hibernate.search</groupId>
 				<artifactId>hibernate-search-mapper-orm</artifactId>
-				<version>${hibernate.version}</version>
+				<version>${hibernate-search.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate.search</groupId>
 				<artifactId>hibernate-search-v5migrationhelper-orm</artifactId>
-				<version>${hibernate.version}</version>
+				<version>${hibernate-search.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.code.javaparser</groupId>
