@@ -98,6 +98,7 @@
 		<activation-imp.version>2.0.0</activation-imp.version>
 		<commons-lang3.version>3.14.0</commons-lang3.version>
 		<hibernate-search.version>7.1.0.Final</hibernate-search.version>
+		<javaparser.version>1.0.11</javaparser.version>
 		<jaxb-api.version>4.0.2</jaxb-api.version>
 		<jaxb-imp.version>4.0.5</jaxb-imp.version>
 		<junit-jupiter.version>5.10.2</junit-jupiter.version>
@@ -175,7 +176,7 @@
 			<dependency>
 				<groupId>com.google.code.javaparser</groupId>
 				<artifactId>javaparser</artifactId>
-				<version>1.0.11</version>
+				<version>${javaparser.version}</version>
 			</dependency>
 			<!-- SLF4J -->
 			<dependency>
@@ -428,8 +429,23 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
+							<additionalOptions>
+								<additionalOption>--link-modularity-mismatch=info</additionalOption>
+							</additionalOptions>
+							<detectLinks>true</detectLinks>
 							<doclint>all,-missing</doclint>
 							<failOnError>false</failOnError>
+							<links>
+								<link>https://javadoc.io/doc/jakarta.activation/jakarta.activation-api/${activation-api.version}/</link>
+								<link>https://javadoc.io/doc/jakarta.xml.bind/jakarta.xml.bind-api/${jaxb-api.version}/</link>
+								<link>https://javadoc.io/doc/org.glassfish.jaxb/jaxb-core/${jaxb-imp.version}/</link>
+								<link>https://javadoc.io/doc/org.glassfish.jaxb/jaxb-runtime/${jaxb-imp.version}/</link>
+								<link>https://javadoc.io/doc/org.glassfish.jaxb/jaxb-xjc/${jaxb-imp.version}/</link>
+								<link>https://javadoc.io/doc/com.google.code.javaparser/javaparser/${javaparser.version}/</link>
+								<link>https://javadoc.io/doc/org.hibernate.search/hibernate-search-mapper-orm/${hibernate-search.version}/</link>
+								<link>https://javadoc.io/doc/org.junit.jupiter/junit-jupiter-api/${junit-jupiter.version}/</link>
+							</links>
+							<quiet>false</quiet>
 						</configuration>
 					</execution>
 				</executions>
