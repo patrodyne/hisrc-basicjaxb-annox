@@ -17,7 +17,7 @@
 	</fileSets>
 	<files>
 		<file>
-			<source>${basedir}/../../project-ant-build.sh</source>
+			<source>${root.basedir}/assembly/project-ant-build.sh</source>
 			<destName>build.sh</destName>
 			<filtered>false</filtered>
 			<fileMode>0774</fileMode>
