@@ -10,11 +10,11 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "class")
 @XmlType(name = "classType")
-@XmlSeeAlso( { NField.class, NConstructor.class, NMethod.class })
-public class NClass {
+@XmlSeeAlso({ NField.class, NConstructor.class, NMethod.class })
+public class NClass
+{
 	@XmlAttribute
 	public String name;
 	@XmlAnyElement(lax = true)
 	public List<Object> content;
-
 }

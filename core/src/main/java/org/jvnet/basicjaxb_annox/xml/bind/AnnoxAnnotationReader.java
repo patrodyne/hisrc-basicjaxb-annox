@@ -24,22 +24,25 @@ import org.glassfish.jaxb.runtime.v2.model.annotation.LocatableAnnotation;
 import org.glassfish.jaxb.runtime.v2.model.annotation.RuntimeAnnotationReader;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class AnnoxAnnotationReader extends
-		AbstractInlineAnnotationReaderImpl<Type, Class, Field, Method>
-		implements RuntimeAnnotationReader {
-
+public class AnnoxAnnotationReader
+	extends AbstractInlineAnnotationReaderImpl<Type, Class, Field, Method>
+	implements RuntimeAnnotationReader
+{
 	private AnnotatedElementFactory annotatedElementFactory;
 
-	public AnnoxAnnotationReader() {
+	public AnnoxAnnotationReader()
+	{
 		this(new DualAnnotatedElementFactory());
 	}
 
-	public AnnoxAnnotationReader(AnnotatedElementFactory annotatedElementFactory) {
+	public AnnoxAnnotationReader(AnnotatedElementFactory annotatedElementFactory)
+	{
 		super();
 		this.annotatedElementFactory = annotatedElementFactory;
 	}
 
-	public AnnotatedElementFactory getAnnotatedElementFactory() {
+	public AnnotatedElementFactory getAnnotatedElementFactory()
+	{
 		return annotatedElementFactory;
 	}
 
@@ -50,7 +53,7 @@ public class AnnoxAnnotationReader extends
 		String msg2 = rc.getClass().getSimpleName() + ": " + rc.getMessage();
 		return msg1 + "; " + msg2 + "; " + loadMsg;
 	}
-	
+
 	protected AnnotatedElement getAnnotatedElement(Field field)
 	{
 		try
@@ -108,145 +111,167 @@ public class AnnoxAnnotationReader extends
 	}
 
 	@Override
-	public <A extends Annotation> A getFieldAnnotation(Class<A> annotation,
-			Field field, Locatable srcPos) {
+	public <A extends Annotation> A getFieldAnnotation(Class<A> annotation, Field field, Locatable srcPos)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
-		return LocatableAnnotation.create(annotatedElement
-				.getAnnotation(annotation), srcPos);
+		return LocatableAnnotation.create(annotatedElement.getAnnotation(annotation), srcPos);
 	}
 
 	@Override
-	public boolean hasFieldAnnotation(
-			Class<? extends Annotation> annotationType, Field field) {
+	public boolean hasFieldAnnotation(Class<? extends Annotation> annotationType, Field field)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
 		return annotatedElement.isAnnotationPresent(annotationType);
 	}
 
 	@Override
-	public boolean hasClassAnnotation(Class clazz,
-			Class<? extends Annotation> annotationType) {
+	public boolean hasClassAnnotation(Class clazz, Class<? extends Annotation> annotationType)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(clazz);
 		return annotatedElement.isAnnotationPresent(annotationType);
 	}
 
 	@Override
-	public Annotation[] getAllFieldAnnotations(Field field, Locatable srcPos) {
+	public Annotation[] getAllFieldAnnotations(Field field, Locatable srcPos)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(field);
 		Annotation[] r = annotatedElement.getAnnotations();
-		for (int i = 0; i < r.length; i++) {
+		
+		for ( int i = 0; i < r.length; i++ )
 			r[i] = LocatableAnnotation.create(r[i], srcPos);
-		}
+		
 		return r;
 	}
 
 	@Override
-	public <A extends Annotation> A getMethodAnnotation(Class<A> annotation,
-			Method method, Locatable srcPos) {
+	public <A extends Annotation> A getMethodAnnotation(Class<A> annotation, Method method, Locatable srcPos)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
-		return LocatableAnnotation.create(annotatedElement
-				.getAnnotation(annotation), srcPos);
+		return LocatableAnnotation.create(annotatedElement.getAnnotation(annotation), srcPos);
 	}
 
 	@Override
-	public boolean hasMethodAnnotation(Class<? extends Annotation> annotation,
-			Method method) {
+	public boolean hasMethodAnnotation(Class<? extends Annotation> annotation, Method method)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
 		return annotatedElement.isAnnotationPresent(annotation);
 	}
 
 	@Override
-	public Annotation[] getAllMethodAnnotations(Method method, Locatable srcPos) {
+	public Annotation[] getAllMethodAnnotations(Method method, Locatable srcPos)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(method);
 		Annotation[] r = annotatedElement.getAnnotations();
-		for (int i = 0; i < r.length; i++) {
+		
+		for ( int i = 0; i < r.length; i++ )
 			r[i] = LocatableAnnotation.create(r[i], srcPos);
-		}
+		
 		return r;
 	}
 
 	@Override
-	public <A extends Annotation> A getMethodParameterAnnotation(
-			Class<A> annotation, Method method, int paramIndex, Locatable srcPos) {
+	public <A extends Annotation> A getMethodParameterAnnotation(Class<A> annotation, Method method, int paramIndex,
+		Locatable srcPos)
+	{
 		final ParameterizedAnnotatedElement annotatedElement = getAnnotatedElement(method);
-
 		Annotation[] pa = annotatedElement.getParameterAnnotations()[paramIndex];
-		for (Annotation a : pa) {
-			if (a.annotationType() == annotation) {
+		
+		for ( Annotation a : pa )
+		{
+			if ( a.annotationType() == annotation )
+			{
 				final A typedA = (A) a;
 				return LocatableAnnotation.create(typedA, srcPos);
 			}
 		}
+		
 		return null;
 	}
 
 	@Override
-	public <A extends Annotation> A getClassAnnotation(Class<A> a, Class clazz,
-			Locatable srcPos) {
+	public <A extends Annotation> A getClassAnnotation(Class<A> a, Class clazz, Locatable srcPos)
+	{
 		final AnnotatedElement annotatedElement = getAnnotatedElement(clazz);
-		return LocatableAnnotation.create(annotatedElement.getAnnotation(a),
-				srcPos);
+		return LocatableAnnotation.create(annotatedElement.getAnnotation(a), srcPos);
 	}
 
 	@Override
-	public Class getClassValue(Annotation a, String name) {
-		try {
+	public Class getClassValue(Annotation a, String name)
+	{
+		try
+		{
 			return (Class) a.annotationType().getMethod(name).invoke(a);
-		} catch (IllegalAccessException e) {
+		}
+		catch (IllegalAccessException e)
+		{
 			// impossible
 			throw new IllegalAccessError(e.getMessage());
-		} catch (InvocationTargetException e) {
+		}
+		catch (InvocationTargetException e)
+		{
 			// impossible
 			throw new InternalError(e.getMessage());
-		} catch (NoSuchMethodException e) {
+		}
+		catch (NoSuchMethodException e)
+		{
 			throw new NoSuchMethodError(e.getMessage());
 		}
 	}
 
 	@Override
-	public Class[] getClassArrayValue(Annotation a, String name) {
-		try {
+	public Class[] getClassArrayValue(Annotation a, String name)
+	{
+		try
+		{
 			return (Class[]) a.annotationType().getMethod(name).invoke(a);
-		} catch (IllegalAccessException e) {
+		}
+		catch (IllegalAccessException e)
+		{
 			// impossible
 			throw new IllegalAccessError(e.getMessage());
-		} catch (InvocationTargetException e) {
+		}
+		catch (InvocationTargetException e)
+		{
 			// impossible
 			throw new InternalError(e.getMessage());
-		} catch (NoSuchMethodException e) {
+		}
+		catch (NoSuchMethodException e)
+		{
 			throw new NoSuchMethodError(e.getMessage());
 		}
 	}
 
 	@Override
-	protected String fullName(Method m) {
+	protected String fullName(Method m)
+	{
 		return m.getDeclaringClass().getName() + '#' + m.getName();
 	}
 
-	private final Map<Class<? extends Annotation>, Map<Package, Annotation>> packageCache = new HashMap<Class<? extends Annotation>, Map<Package, Annotation>>();
+	private final Map<Class<? extends Annotation>, Map<Package, Annotation>> packageCache =
+		new HashMap<Class<? extends Annotation>, Map<Package, Annotation>>();
 
 	@Override
-	public <A extends Annotation> A getPackageAnnotation(Class<A> a,
-			Class clazz, Locatable srcPos) {
+	public <A extends Annotation> A getPackageAnnotation(Class<A> a, Class clazz, Locatable srcPos)
+	{
 		Package p = clazz.getPackage();
-		if (p == null)
+		if ( p == null )
 			return null;
-
+		
 		AnnotatedElement annotatedElement = getAnnotatedElement(p);
-
 		Map<Package, Annotation> cache = packageCache.get(a);
-		if (cache == null) {
+		if ( cache == null )
+		{
 			cache = new HashMap<Package, Annotation>();
 			packageCache.put(a, cache);
 		}
-
-		if (cache.containsKey(p))
+		
+		if ( cache.containsKey(p) )
 			return (A) cache.get(p);
-		else {
-			A ann = LocatableAnnotation.create(annotatedElement
-					.getAnnotation(a), srcPos);
+		else
+		{
+			A ann = LocatableAnnotation.create(annotatedElement.getAnnotation(a), srcPos);
 			cache.put(p, ann);
 			return ann;
 		}
 	}
-
 }

@@ -86,9 +86,9 @@ import japa.parser.ast.type.VoidType;
 import japa.parser.ast.type.WildcardType;
 import japa.parser.ast.visitor.GenericVisitor;
 
-public abstract class AbstractGenericExpressionVisitor<R, A> implements
-		GenericVisitor<R, A> {
-
+public abstract class AbstractGenericExpressionVisitor<R, A>
+	implements GenericVisitor<R, A>
+{
 	public abstract R visitDefault(Node n, A arg);
 
 	public R visitDefault(Expression n, A arg)
@@ -100,12 +100,12 @@ public abstract class AbstractGenericExpressionVisitor<R, A> implements
 	{
 		return visitDefault((Expression) n, arg);
 	}
-	
+
 	public R visitDefault(StringLiteralExpr n, A arg)
 	{
 		return visitDefault((LiteralExpr) n, arg);
 	}
-	
+
 	public R visitDefault(IntegerLiteralExpr n, A arg)
 	{
 		return visitDefault((StringLiteralExpr) n, arg);
@@ -115,7 +115,7 @@ public abstract class AbstractGenericExpressionVisitor<R, A> implements
 	{
 		return visitDefault((IntegerLiteralExpr) n, arg);
 	}
-	
+
 	public R visitDefault(LongLiteralExpr n, A arg)
 	{
 		return visitDefault((StringLiteralExpr) n, arg);
@@ -126,416 +126,493 @@ public abstract class AbstractGenericExpressionVisitor<R, A> implements
 		return visitDefault((LongLiteralExpr) n, arg);
 	}
 
-	public R visitDefault(NameExpr n, A arg) {
+	public R visitDefault(NameExpr n, A arg)
+	{
 		return visitDefault((Expression) n, arg);
 	}
-	
 
 	@Override
-	public R visit(CompilationUnit n, A arg) {
+	public R visit(CompilationUnit n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(PackageDeclaration n, A arg) {
+	public R visit(PackageDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ImportDeclaration n, A arg) {
+	public R visit(ImportDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(TypeParameter n, A arg) {
+	public R visit(TypeParameter n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(LineComment n, A arg) {
+	public R visit(LineComment n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(BlockComment n, A arg) {
+	public R visit(BlockComment n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ClassOrInterfaceDeclaration n, A arg) {
+	public R visit(ClassOrInterfaceDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EnumDeclaration n, A arg) {
+	public R visit(EnumDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EmptyTypeDeclaration n, A arg) {
+	public R visit(EmptyTypeDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EnumConstantDeclaration n, A arg) {
+	public R visit(EnumConstantDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(AnnotationDeclaration n, A arg) {
+	public R visit(AnnotationDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(AnnotationMemberDeclaration n, A arg) {
+	public R visit(AnnotationMemberDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(FieldDeclaration n, A arg) {
+	public R visit(FieldDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(VariableDeclarator n, A arg) {
+	public R visit(VariableDeclarator n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(VariableDeclaratorId n, A arg) {
+	public R visit(VariableDeclaratorId n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ConstructorDeclaration n, A arg) {
+	public R visit(ConstructorDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(MethodDeclaration n, A arg) {
+	public R visit(MethodDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(Parameter n, A arg) {
+	public R visit(Parameter n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EmptyMemberDeclaration n, A arg) {
+	public R visit(EmptyMemberDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(InitializerDeclaration n, A arg) {
+	public R visit(InitializerDeclaration n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(JavadocComment n, A arg) {
+	public R visit(JavadocComment n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ClassOrInterfaceType n, A arg) {
+	public R visit(ClassOrInterfaceType n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(PrimitiveType n, A arg) {
+	public R visit(PrimitiveType n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ReferenceType n, A arg) {
+	public R visit(ReferenceType n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(VoidType n, A arg) {
+	public R visit(VoidType n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(WildcardType n, A arg) {
+	public R visit(WildcardType n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ArrayAccessExpr n, A arg) {
+	public R visit(ArrayAccessExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ArrayCreationExpr n, A arg) {
+	public R visit(ArrayCreationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ArrayInitializerExpr n, A arg) {
+	public R visit(ArrayInitializerExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(AssignExpr n, A arg) {
+	public R visit(AssignExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(BinaryExpr n, A arg) {
+	public R visit(BinaryExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(CastExpr n, A arg) {
+	public R visit(CastExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ClassExpr n, A arg) {
+	public R visit(ClassExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ConditionalExpr n, A arg) {
+	public R visit(ConditionalExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EnclosedExpr n, A arg) {
+	public R visit(EnclosedExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(FieldAccessExpr n, A arg) {
+	public R visit(FieldAccessExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(InstanceOfExpr n, A arg) {
+	public R visit(InstanceOfExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(StringLiteralExpr n, A arg) {
+	public R visit(StringLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(IntegerLiteralExpr n, A arg) {
+	public R visit(IntegerLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(LongLiteralExpr n, A arg) {
+	public R visit(LongLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(IntegerLiteralMinValueExpr n, A arg) {
+	public R visit(IntegerLiteralMinValueExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(LongLiteralMinValueExpr n, A arg) {
+	public R visit(LongLiteralMinValueExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(CharLiteralExpr n, A arg) {
+	public R visit(CharLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(DoubleLiteralExpr n, A arg) {
+	public R visit(DoubleLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(BooleanLiteralExpr n, A arg) {
+	public R visit(BooleanLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(NullLiteralExpr n, A arg) {
+	public R visit(NullLiteralExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(MethodCallExpr n, A arg) {
+	public R visit(MethodCallExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(NameExpr n, A arg) {
+	public R visit(NameExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ObjectCreationExpr n, A arg) {
+	public R visit(ObjectCreationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(QualifiedNameExpr n, A arg) {
+	public R visit(QualifiedNameExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ThisExpr n, A arg) {
+	public R visit(ThisExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(SuperExpr n, A arg) {
+	public R visit(SuperExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(UnaryExpr n, A arg) {
+	public R visit(UnaryExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(VariableDeclarationExpr n, A arg) {
+	public R visit(VariableDeclarationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(MarkerAnnotationExpr n, A arg) {
+	public R visit(MarkerAnnotationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(SingleMemberAnnotationExpr n, A arg) {
+	public R visit(SingleMemberAnnotationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
-	
 	public R visitDefault(AnnotationExpr n, A arg)
 	{
 		return visitDefault((Expression) n, arg);
 	}
-	
-	
+
 	@Override
-	public R visit(NormalAnnotationExpr n, A arg) {
+	public R visit(NormalAnnotationExpr n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(MemberValuePair n, A arg) {
+	public R visit(MemberValuePair n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ExplicitConstructorInvocationStmt n, A arg) {
+	public R visit(ExplicitConstructorInvocationStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(TypeDeclarationStmt n, A arg) {
+	public R visit(TypeDeclarationStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(AssertStmt n, A arg) {
+	public R visit(AssertStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(BlockStmt n, A arg) {
+	public R visit(BlockStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(LabeledStmt n, A arg) {
+	public R visit(LabeledStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(EmptyStmt n, A arg) {
+	public R visit(EmptyStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ExpressionStmt n, A arg) {
+	public R visit(ExpressionStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(SwitchStmt n, A arg) {
+	public R visit(SwitchStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(SwitchEntryStmt n, A arg) {
+	public R visit(SwitchEntryStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(BreakStmt n, A arg) {
+	public R visit(BreakStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ReturnStmt n, A arg) {
+	public R visit(ReturnStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(IfStmt n, A arg) {
+	public R visit(IfStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(WhileStmt n, A arg) {
+	public R visit(WhileStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ContinueStmt n, A arg) {
+	public R visit(ContinueStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(DoStmt n, A arg) {
+	public R visit(DoStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ForeachStmt n, A arg) {
+	public R visit(ForeachStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ForStmt n, A arg) {
+	public R visit(ForStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(ThrowStmt n, A arg) {
+	public R visit(ThrowStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(SynchronizedStmt n, A arg) {
+	public R visit(SynchronizedStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(TryStmt n, A arg) {
+	public R visit(TryStmt n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
 	@Override
-	public R visit(CatchClause n, A arg) {
-		return visitDefault(n, arg);
-	}
-	
-	@Override
-	public R visit(MultiTypeParameter n, A arg) {
+	public R visit(CatchClause n, A arg)
+	{
 		return visitDefault(n, arg);
 	}
 
+	@Override
+	public R visit(MultiTypeParameter n, A arg)
+	{
+		return visitDefault(n, arg);
+	}
 }

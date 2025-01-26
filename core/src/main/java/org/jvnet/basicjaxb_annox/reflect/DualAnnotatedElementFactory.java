@@ -4,57 +4,53 @@ import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-public class DualAnnotatedElementFactory implements AnnotatedElementFactory {
-
+public class DualAnnotatedElementFactory implements AnnotatedElementFactory
+{
 	private AnnotatedElementFactory primary;
-
 	private AnnotatedElementFactory secondary;
 
-	public DualAnnotatedElementFactory(AnnotatedElementFactory primary,
-			AnnotatedElementFactory secondary) {
+	public DualAnnotatedElementFactory(AnnotatedElementFactory primary, AnnotatedElementFactory secondary)
+	{
 		super();
 		this.primary = primary;
 		this.secondary = secondary;
 	}
 
-	public DualAnnotatedElementFactory() {
-		this(new ResourcedAnnotatedElementFactory(),
-				new DirectAnnotatedElementFactory());
+	public DualAnnotatedElementFactory()
+	{
+		this(new ResourcedAnnotatedElementFactory(), new DirectAnnotatedElementFactory());
 	}
 
 	@Override
-	public AnnotatedElement getAnnotatedElement(
-			AnnotatedElement annotatedElement) throws AnnotatedElementException {
-		final AnnotatedElement primaryAnnotatedElement = primary
-				.getAnnotatedElement(annotatedElement);
-		if (primaryAnnotatedElement != null) {
+	public AnnotatedElement getAnnotatedElement(AnnotatedElement annotatedElement)
+		throws AnnotatedElementException
+	{
+		final AnnotatedElement primaryAnnotatedElement = primary.getAnnotatedElement(annotatedElement);
+		if ( primaryAnnotatedElement != null )
 			return primaryAnnotatedElement;
-		} else {
+		else
 			return secondary.getAnnotatedElement(annotatedElement);
-		}
 	}
 
 	@Override
-	public ParameterizedAnnotatedElement getAnnotatedElement(
-			@SuppressWarnings("rawtypes") Constructor annotatedElement) throws AnnotatedElementException {
-		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary
-				.getAnnotatedElement(annotatedElement);
-		if (primaryAnnotatedElement != null) {
+	public ParameterizedAnnotatedElement getAnnotatedElement(@SuppressWarnings("rawtypes") Constructor annotatedElement)
+		throws AnnotatedElementException
+	{
+		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary.getAnnotatedElement(annotatedElement);
+		if ( primaryAnnotatedElement != null )
 			return primaryAnnotatedElement;
-		} else {
+		else
 			return secondary.getAnnotatedElement(annotatedElement);
-		}
 	}
 
 	@Override
-	public ParameterizedAnnotatedElement getAnnotatedElement(
-			Method annotatedElement) throws AnnotatedElementException {
-		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary
-				.getAnnotatedElement(annotatedElement);
-		if (primaryAnnotatedElement != null) {
+	public ParameterizedAnnotatedElement getAnnotatedElement(Method annotatedElement)
+		throws AnnotatedElementException
+	{
+		final ParameterizedAnnotatedElement primaryAnnotatedElement = primary.getAnnotatedElement(annotatedElement);
+		if ( primaryAnnotatedElement != null )
 			return primaryAnnotatedElement;
-		} else {
+		else
 			return secondary.getAnnotatedElement(annotatedElement);
-		}
 	}
 }

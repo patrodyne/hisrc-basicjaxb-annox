@@ -21,54 +21,58 @@ import org.jvnet.basicjaxb_annox.util.ClassUtils;
 import org.jvnet.basicjaxb_annox.util.ReflectionUtils;
 import org.w3c.dom.Element;
 
-public class NXConverter {
-
+public class NXConverter
+{
 	private final XAnnotationParser xannotationParser;
-
 	private final ClassLoader classLoader;
 
-	public NXConverter() {
-		this(XAnnotationParser.INSTANCE, Thread.currentThread()
-				.getContextClassLoader());
+	public NXConverter()
+	{
+		this(XAnnotationParser.INSTANCE, Thread.currentThread().getContextClassLoader());
 	}
 
-	public NXConverter(XAnnotationParser xannotationParser,
-			ClassLoader classLoader) {
+	public NXConverter(XAnnotationParser xannotationParser, ClassLoader classLoader)
+	{
 		this.xannotationParser = xannotationParser;
-		if (classLoader != null) {
+		if ( classLoader != null )
 			this.classLoader = classLoader;
-		} else {
-			final ClassLoader contextClassLoader = Thread.currentThread()
-					.getContextClassLoader();
-			if (contextClassLoader != null) {
+		else
+		{
+			final ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+			if ( contextClassLoader != null )
 				this.classLoader = contextClassLoader;
-			} else {
+			else
 				this.classLoader = NXConverter.class.getClassLoader();
-			}
 		}
 	}
 
-	protected XAnnotationParser getXAnnotationParser() {
+	protected XAnnotationParser getXAnnotationParser()
+	{
 		return this.xannotationParser;
 	}
 
-	protected ClassLoader getClassLoader() {
+	protected ClassLoader getClassLoader()
+	{
 		return this.classLoader;
 	}
 
 	public XPackage convertNPackage(Package thePackage, NPackage npackage)
-			throws ClassNotFoundException, NoSuchFieldException,
-			NoSuchMethodException, AnnotationElementParseException {
+		throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException, AnnotationElementParseException
+	{
 		final List<XClass> classes = new LinkedList<XClass>();
 		List<Element> annotationElements = null;
-		if (npackage.content != null) {
-			for (Object item : npackage.content) {
-				if (item instanceof Element) {
-					if (annotationElements == null) {
+		if ( npackage.content != null )
+		{
+			for ( Object item : npackage.content )
+			{
+				if ( item instanceof Element )
+				{
+					if ( annotationElements == null )
 						annotationElements = new LinkedList<Element>();
-					}
 					annotationElements.add((Element) item);
-				} else if (item instanceof NClass) {
+				}
+				else if ( item instanceof NClass )
+				{
 					final NClass nclass = (NClass) item;
 					final Class<?> theClass = getClass(thePackage, nclass.name);
 					classes.add(convertNClass(theClass, nclass));
@@ -81,129 +85,129 @@ public class NXConverter {
 	}
 
 	public XClass convertNClass(Class<?> theClass, NClass nclass)
-			throws ClassNotFoundException, NoSuchFieldException,
-			NoSuchMethodException, AnnotationElementParseException {
-
+		throws ClassNotFoundException, NoSuchFieldException, NoSuchMethodException, AnnotationElementParseException
+	{
 		List<Element> content = null;
 		final List<XField> xfields = new LinkedList<XField>();
 		final List<XConstructor> xconstructors = new LinkedList<XConstructor>();
 		final List<XMethod> xmethods = new LinkedList<XMethod>();
-		if (nclass.content != null) {
-			for (Object item : nclass.content) {
-				if (item instanceof Element) {
-					if (content == null) {
+		if ( nclass.content != null )
+		{
+			for ( Object item : nclass.content )
+			{
+				if ( item instanceof Element )
+				{
+					if ( content == null )
 						content = new LinkedList<Element>();
-					}
 					content.add((Element) item);
-				} else if (item instanceof NField) {
-					xfields.add(convertNField(theClass, (NField) item));
-				} else if (item instanceof NConstructor) {
-					xconstructors.add(convertNConstructor(theClass,
-							(NConstructor) item));
-				} else if (item instanceof NMethod) {
-					xmethods.add(convertNMethod(theClass, (NMethod) item));
 				}
+				else if ( item instanceof NField )
+					xfields.add(convertNField(theClass, (NField) item));
+				else if ( item instanceof NConstructor )
+					xconstructors.add(convertNConstructor(theClass, (NConstructor) item));
+				else if ( item instanceof NMethod )
+					xmethods.add(convertNMethod(theClass, (NMethod) item));
 			}
 		}
 		final XAnnotation<?>[] annotations = parseAnnotations(content);
 		final XField[] fields = xfields.toArray(new XField[xfields.size()]);
-		final XConstructor[] constructors = xconstructors
-				.toArray(new XConstructor[xconstructors.size()]);
-		final XMethod[] methods = xmethods
-				.toArray(new XMethod[xmethods.size()]);
+		final XConstructor[] constructors = xconstructors.toArray(new XConstructor[xconstructors.size()]);
+		final XMethod[] methods = xmethods.toArray(new XMethod[xmethods.size()]);
 		return new XClass(theClass, annotations, fields, constructors, methods);
 	}
 
 	public XField convertNField(Class<?> theClass, NField nfield)
-			throws NoSuchFieldException, AnnotationElementParseException {
+		throws NoSuchFieldException, AnnotationElementParseException
+	{
 		// TODO check nfield
 		final Field field = getField(theClass, nfield.name);
 		final XAnnotation<?>[] annotations = parseAnnotations(nfield.content);
 		return new XField(field, annotations);
 	}
 
-	public XConstructor convertNConstructor(Class<?> theClass,
-			NConstructor nconstructor) throws ClassNotFoundException,
-			NoSuchMethodException,
-
-			AnnotationElementParseException {
+	public XConstructor convertNConstructor(Class<?> theClass, NConstructor nconstructor)
+		throws ClassNotFoundException, NoSuchMethodException, AnnotationElementParseException
+	{
 		// TODO check nconstructor
-		final Constructor<?> theConstructor = getConstructor(theClass,
-				parseArguments(nconstructor.arguments));
-
+		final Constructor<?> theConstructor = getConstructor(theClass, parseArguments(nconstructor.arguments));
 		List<Element> elements = null;
 		List<NParameter> nparameters = null;
-		if (nconstructor.content != null) {
-			for (Object item : nconstructor.content) {
-				if (item instanceof Element) {
-					if (elements == null) {
+		if ( nconstructor.content != null )
+		{
+			for ( Object item : nconstructor.content )
+			{
+				if ( item instanceof Element )
+				{
+					if ( elements == null )
 						elements = new LinkedList<Element>();
-					}
 					elements.add((Element) item);
-				} else if (item instanceof NParameter) {
-					if (nparameters == null) {
+				}
+				else if ( item instanceof NParameter )
+				{
+					if ( nparameters == null )
 						nparameters = new LinkedList<NParameter>();
-					}
 					nparameters.add((NParameter) item);
-				} else {
+				}
+				else
+				{
 					// TODO
 				}
 			}
 		}
-
 		final XAnnotation<?>[] xannotations = parseAnnotations(elements);
-		final XParameter[] xparameters = convertNParameters(theConstructor
-				.getParameterTypes(), nparameters);
+		final XParameter[] xparameters = convertNParameters(theConstructor.getParameterTypes(), nparameters);
 		return new XConstructor(theConstructor, xannotations, xparameters);
 	}
 
 	public XMethod convertNMethod(Class<?> theClass, NMethod nmethod)
-			throws ClassNotFoundException, NoSuchMethodException,
-			AnnotationElementParseException {
+		throws ClassNotFoundException, NoSuchMethodException, AnnotationElementParseException
+	{
 		// Check nmethod
-		final Method method = getMethod(theClass, nmethod.name,
-				parseArguments(nmethod.arguments));
-
+		final Method method = getMethod(theClass, nmethod.name, parseArguments(nmethod.arguments));
 		List<Element> elements = null;
 		List<NParameter> nparameters = null;
-		if (nmethod.content != null) {
-			for (Object item : nmethod.content) {
-				if (item instanceof Element) {
-					if (elements == null) {
+		if ( nmethod.content != null )
+		{
+			for ( Object item : nmethod.content )
+			{
+				if ( item instanceof Element )
+				{
+					if ( elements == null )
 						elements = new LinkedList<Element>();
-					}
 					elements.add((Element) item);
-				} else if (item instanceof NParameter) {
-					if (nparameters == null) {
+				}
+				else if ( item instanceof NParameter )
+				{
+					if ( nparameters == null )
 						nparameters = new LinkedList<NParameter>();
-					}
 					nparameters.add((NParameter) item);
-				} else {
+				}
+				else
+				{
 					// TODO
 				}
 			}
 		}
-
 		final XAnnotation<?>[] xannotations = parseAnnotations(elements);
-		final XParameter[] xparameters = convertNParameters(method
-				.getParameterTypes(), nparameters);
+		final XParameter[] xparameters = convertNParameters(method.getParameterTypes(), nparameters);
 		return new XMethod(method, xannotations, xparameters);
 	}
 
-	public XParameter[] convertNParameters(Class<?>[] parameterTypes,
-			List<NParameter> nparameters)
-			throws AnnotationElementParseException {
+	public XParameter[] convertNParameters(Class<?>[] parameterTypes, List<NParameter> nparameters)
+		throws AnnotationElementParseException
+	{
 		final NParameter[] nparametersArray = new NParameter[parameterTypes.length];
-		if (nparameters != null) {
-			for (NParameter nparameter : nparameters) {
+		if ( nparameters != null )
+		{
+			for ( NParameter nparameter : nparameters )
+			{
 				// TODO
 				nparametersArray[nparameter.index] = nparameter;
 			}
 		}
-
 		final XParameter[] xparameters = new XParameter[parameterTypes.length];
-
-		for (int index = 0; index < parameterTypes.length; index++) {
+		for ( int index = 0; index < parameterTypes.length; index++ )
+		{
 			final Class<?> parameterType = parameterTypes[index];
 			final NParameter nparameter = nparametersArray[index];
 			xparameters[index] = convertNParameter(parameterType, nparameter);
@@ -211,51 +215,55 @@ public class NXConverter {
 		return xparameters;
 	}
 
-	public XParameter convertNParameter(Class<?> parameterType,
-			NParameter nparameter) throws AnnotationElementParseException {
+	public XParameter convertNParameter(Class<?> parameterType, NParameter nparameter)
+		throws AnnotationElementParseException
+	{
 		requireNonNull(parameterType);
 		final XAnnotation<?>[] annotations = nparameter == null ? XAnnotation.EMPTY_ARRAY
-				: parseAnnotations(nparameter.content);
+																: parseAnnotations(nparameter.content);
 		return new XParameter(parameterType, annotations);
 	}
 
 	protected Class<?> getClass(Package thePackage, String name)
-			throws ClassNotFoundException {
+		throws ClassNotFoundException
+	{
 		final String className = thePackage.getName() + "." + name;
 		return ClassUtils.forName(className, true, getClassLoader());
 	}
 
 	protected Field getField(Class<?> theClass, String name)
-			throws NoSuchFieldException {
+		throws NoSuchFieldException
+	{
 		return ReflectionUtils.getField(theClass, name);
-
 	}
 
-	protected Constructor<?> getConstructor(Class<?> theClass,
-			Class<?>[] arguments) throws NoSuchMethodException {
+	protected Constructor<?> getConstructor(Class<?> theClass, Class<?>[] arguments)
+		throws NoSuchMethodException
+	{
 		return ReflectionUtils.getConstructor(theClass, arguments);
 	}
 
-	protected Method getMethod(Class<?> theClass, String name,
-			Class<?>[] arguments) throws NoSuchMethodException {
+	protected Method getMethod(Class<?> theClass, String name, Class<?>[] arguments)
+		throws NoSuchMethodException
+	{
 		return ReflectionUtils.getMethod(theClass, name, arguments);
 	}
 
 	protected XAnnotation<?>[] parseAnnotations(List<Element> elements)
-			throws AnnotationElementParseException {
-		if (elements == null || elements.isEmpty()) {
+		throws AnnotationElementParseException
+	{
+		if ( elements == null || elements.isEmpty() )
 			return XAnnotation.EMPTY_ARRAY;
-		} else {
-			final Element[] annotationElements = elements
-					.toArray(new Element[elements.size()]);
+		else
+		{
+			final Element[] annotationElements = elements.toArray(new Element[elements.size()]);
 			return getXAnnotationParser().parse(annotationElements);
-
 		}
 	}
 
 	protected Class<?>[] parseArguments(String arguments)
-			throws ClassNotFoundException {
+		throws ClassNotFoundException
+	{
 		return ClassUtils.forNames(arguments, true, getClassLoader());
 	}
-
 }

@@ -2,29 +2,34 @@ package org.jvnet.basicjaxb_annox.annotation;
 
 import java.lang.annotation.Annotation;
 
-public class NoSuchAnnotationFieldException extends Exception {
-
+public class NoSuchAnnotationFieldException extends Exception
+{
 	private static final long serialVersionUID = 1L;
 
 	private final Class<? extends Annotation> annotationType;
 
 	private final String name;
 
-	public NoSuchAnnotationFieldException(
-			final Class<? extends Annotation> annotationType,
-			final String name, Throwable cause) {
+	public NoSuchAnnotationFieldException
+	(
+		final Class<? extends Annotation> annotationType,
+		final String name, Throwable cause
+	)
+	{
 		super("No such annotation field [" + name + "] in annotation class ["
-				+ (annotationType == null ? "null" : annotationType.getName())
-				+ "].", cause);
+			+ (annotationType == null ? "null" : annotationType.getName())
+			+ "].", cause);
 		this.annotationType = annotationType;
 		this.name = name;
 	}
 
-	public Class<? extends Annotation> getAnnotationType() {
+	public Class<? extends Annotation> getAnnotationType()
+	{
 		return annotationType;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 }

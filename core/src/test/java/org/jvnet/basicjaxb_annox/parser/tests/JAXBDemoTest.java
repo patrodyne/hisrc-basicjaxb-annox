@@ -1,6 +1,7 @@
 package org.jvnet.basicjaxb_annox.parser.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.jvnet.basicjaxb_annox.parser.XAnnotationParser.INSTANCE;
 
 import org.junit.jupiter.api.Test;
 import org.jvnet.basicjaxb_annox.model.XAnnotation;
@@ -13,14 +14,16 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class JAXBDemoTest {
 
 	@Test
-	public void testXMLRootElement() throws AnnotationStringParseException,
-			AnnotationExpressionParseException {
+	public void testXMLRootElement()
+		throws AnnotationStringParseException, AnnotationExpressionParseException
+	{
 		@SuppressWarnings("unchecked")
 
 		// Parse annotation from the string
-		XAnnotation<XmlRootElement> xannotation =
-			(XAnnotation<XmlRootElement>) XAnnotationParser.INSTANCE.parse
-				("@jakarta.xml.bind.annotation.XmlRootElement(name=\"foo\")");
+		XAnnotation<XmlRootElement> xannotation = (XAnnotation<XmlRootElement>) INSTANCE.parse
+		(
+			"@jakarta.xml.bind.annotation.XmlRootElement(name=\"foo\")"
+		);
 
 		// Create an instance of the annotation 
 		XmlRootElement xmlRootElement = xannotation.getResult();

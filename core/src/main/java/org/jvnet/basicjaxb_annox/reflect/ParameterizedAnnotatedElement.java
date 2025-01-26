@@ -3,8 +3,8 @@ package org.jvnet.basicjaxb_annox.reflect;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 
-public interface ParameterizedAnnotatedElement extends AnnotatedElement {
-
+public interface ParameterizedAnnotatedElement extends AnnotatedElement
+{
 	/**
 	 * Returns an array of arrays that represent the annotations on the formal
 	 * parameters, in declaration order, of the method represented by this
@@ -19,5 +19,4 @@ public interface ParameterizedAnnotatedElement extends AnnotatedElement {
 	 *         parameters, in declaration order.
 	 */
 	public Annotation[][] getParameterAnnotations();
-
 }

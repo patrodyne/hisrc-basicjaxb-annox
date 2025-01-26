@@ -11,10 +11,10 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "parameter")
 @XmlType(name = "parameterType")
-public class NParameter {
+public class NParameter
+{
 	@XmlAttribute
 	public int index;
 	@XmlAnyElement
 	public List<Element> content;
-
 }

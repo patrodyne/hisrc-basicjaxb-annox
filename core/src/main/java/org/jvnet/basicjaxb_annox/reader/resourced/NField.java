@@ -11,10 +11,10 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "field")
 @XmlType(name = "fieldType")
-public class NField {
+public class NField
+{
 	@XmlAttribute
 	public String name;
 	@XmlAnyElement
 	public List<Element> content;
-
 }

@@ -12,10 +12,11 @@ import org.jvnet.basicjaxb_annox.japa.parser.AnnotationExprParser;
 import org.jvnet.basicjaxb_annox.model.XAnnotation;
 import org.jvnet.basicjaxb_annox.parser.XAnnotationParser;
 
-public class JavaTypeParserTest {
-
+public class JavaTypeParserTest
+{
 	@Test
-	public void testParse() throws Exception {
+	public void testParse() throws Exception
+	{
 
 		final String text = "@org.jvnet.basicjaxb_annox.parser.tests.A("
 				+ "booleanField = false,\n"
@@ -44,16 +45,12 @@ public class JavaTypeParserTest {
 				+ "annotationArrayField = { @org.jvnet.basicjaxb_annox.parser.tests.B.C, @org.jvnet.basicjaxb_annox.parser.tests.B.C }))";
 
 		final AnnotationExprParser parser = new AnnotationExprParser();
-
 		List<AnnotationExpr> annotations = parser.parse(text);
-
 		assertEquals(1, annotations.size());
 
 		final AnnotationExpr annotationExpr = annotations.get(0);
-
 		final XAnnotationParser xAnnotationParser = new XAnnotationParser();
 		XAnnotation<?> xannotation = xAnnotationParser.parse(annotationExpr);
 		assertNotNull(xannotation);
-
 	}
 }

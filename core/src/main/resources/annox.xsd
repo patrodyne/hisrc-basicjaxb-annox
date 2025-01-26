@@ -17,6 +17,8 @@
 	xmlns:tns="http://jvnet.org/basicjaxb/xjc/annox"
 	targetNamespace="http://jvnet.org/basicjaxb/xjc/annox"
 >
+	
+	<!-- HiSrc BasicJAXB Annox -->
 
 	<xs:element name="package">
 		<xs:complexType>
@@ -70,6 +72,54 @@
 		</xs:sequence>
 		<xs:attribute name="index" type="xs:int" use="required"/>
 	</xs:complexType>
+	
+	<!-- HiSrc HyperJAXB Annox -->
+	
+	<xs:element name="annotate">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="target" type="tns:annotationTarget" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
 
+    <xs:simpleType name="annotationTarget">
+        <xs:restriction base="xs:string">
+			<xs:enumeration value="class" />
+			<xs:enumeration value="element" />
+			<xs:enumeration value="enum" />
+			<xs:enumeration value="enum-constant" />
+			<xs:enumeration value="enum-fromValue-method" />
+			<xs:enumeration value="enum-value-method" />
+			<xs:enumeration value="objectFactory" />
+			<xs:enumeration value="package" />
+			<xs:enumeration value="field" />
+			<xs:enumeration value="getter" />
+			<xs:enumeration value="setter" />
+			<xs:enumeration value="setter-parameter" />
+        </xs:restriction>
+    </xs:simpleType>
+	
+	<xs:element name="annotateClass" type="tns:annotateEponym" />
+	<xs:element name="annotateElement" type="tns:annotateEponym" />
+	<xs:element name="annotateEnum" type="tns:annotateEponym" />
+	<xs:element name="annotateEnumConstant" type="tns:annotateEponym" />
+	<xs:element name="annotateEnumFromValueMethod" type="tns:annotateEponym" />
+	<xs:element name="annotateEnumValueMethod" type="tns:annotateEponym" />
+	<xs:element name="annotateObjectFactory" type="tns:annotateEponym" />
+	<xs:element name="annotatePackage" type="tns:annotateEponym" />
+	<xs:element name="annotatePropertyField" type="tns:annotateEponym" />
+	<xs:element name="annotatePropertyGetter" type="tns:annotateEponym" />
+	<xs:element name="annotatePropertySetter" type="tns:annotateEponym" />
+	<xs:element name="annotatePropertySetterParameter" type="tns:annotateEponym" />
+	
+	<xs:complexType name="annotateEponym">
+		<xs:simpleContent>
+			<xs:extension base="xs:string" />
+		</xs:simpleContent>
+	</xs:complexType>
+	
 </xs:schema>
 <!-- vi:set tabstop=4 hardtabs=4 shiftwidth=4 noexpandtab:-->

@@ -11,30 +11,30 @@ import org.jvnet.basicjaxb_annox.reflect.AnnotatedElementFactory;
 import org.jvnet.basicjaxb_annox.reflect.DualAnnotatedElementFactory;
 import org.jvnet.basicjaxb_annox.reflect.ParameterizedAnnotatedElement;
 
-public class DemoClassTest {
-
+public class DemoClassTest
+{
 	@Test
-	public void testDemoClassAnnotations() throws Exception {
-
+	public void testDemoClassAnnotations() throws Exception
+	{
 		final AnnotatedElementFactory aef = new DualAnnotatedElementFactory();
 
-		final AnnotatedElement demoClass = aef
-				.getAnnotatedElement(DemoClass.class);
+		final AnnotatedElement demoClass =
+			aef.getAnnotatedElement(DemoClass.class);
 		assertNotNull(demoClass.getAnnotation(Comment.class).value());
 
-		final AnnotatedElement valueField = aef
-				.getAnnotatedElement(DemoClass.class.getDeclaredField("value"));
+		final AnnotatedElement valueField =
+			aef.getAnnotatedElement(DemoClass.class.getDeclaredField("value"));
 		assertNotNull(valueField.getAnnotation(Comment.class).value());
 
-		final AnnotatedElement defaultConstructor = aef
-				.getAnnotatedElement(DemoClass.class.getConstructor());
+		final AnnotatedElement defaultConstructor =
+			aef.getAnnotatedElement(DemoClass.class.getConstructor());
 		assertNotNull(defaultConstructor.getAnnotation(Comment.class).value());
 
-		final ParameterizedAnnotatedElement secondConstructor = aef
-				.getAnnotatedElement(DemoClass.class.getConstructor(int.class));
+		final ParameterizedAnnotatedElement secondConstructor =
+			aef.getAnnotatedElement(DemoClass.class.getConstructor(int.class));
 		assertNotNull(secondConstructor.getAnnotation(Comment.class).value());
+		
 		String t = ((Comment)secondConstructor.getParameterAnnotations()[0][0]).value();
 		assertNotNull(t);
 	}
-
 }

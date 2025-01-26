@@ -10,13 +10,13 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "method")
 @XmlType(name = "methodType")
-@XmlSeeAlso( { NParameter.class })
-public class NMethod {
+@XmlSeeAlso({ NParameter.class })
+public class NMethod
+{
 	@XmlAttribute
 	public String name;
 	@XmlAttribute
 	public String arguments;
 	@XmlAnyElement(lax = true)
 	public List<Object> content;
-
 }
