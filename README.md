@@ -1,6 +1,6 @@
 # HiSrc BasicJAXB Annox
 
-Parse XML Schema to find JAXB annotation declarations. [Annox][21] allows you to load JAXB annotations from XML resources instead of reading them directly from packages, classes, fields, constructors and methods. The Glassfish JAXB reference implementation provides a property to configure the `JAXBContext` to use the `AnnoxAnnotationReader` as an alternative to the built-in reader. It reads annotations from XML resources associated with classes and packages, when present; otherwise, it uses the standard parser to read the JAXB annotation. By default, the associated XML name is the class name with the `.ann.xml` suffix. The XML can be validated using [annox.xsd][3].
+[Annox][21] allows you to load JAXB annotations from XML resources instead of reading them directly from packages, classes, fields, constructors and methods. The Glassfish JAXB reference implementation provides a property to configure the `JAXBContext` to use the `AnnoxAnnotationReader` as an alternative to the built-in reader. It reads annotations from XML resources associated with classes and packages, when present; otherwise, it uses the standard parser to read the JAXB annotation. By default, the associated XML name is the class name with the `.ann.xml` suffix. The XML can be validated using [annox.xsd][3].
 
 **Configuration**
 ~~~
