@@ -8,7 +8,6 @@ import static org.jvnet.basicjaxb_annox.util.ReflectionUtils.getMethod;
 
 import org.junit.jupiter.api.Test;
 import org.jvnet.basicjaxb_annox.util.ClassUtils;
-import org.jvnet.basicjaxb_annox.util.ReflectionUtils;
 
 public class ReflectionUtilsTest
 {

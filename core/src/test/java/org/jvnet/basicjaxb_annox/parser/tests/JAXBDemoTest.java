@@ -5,7 +5,6 @@ import static org.jvnet.basicjaxb_annox.parser.XAnnotationParser.INSTANCE;
 
 import org.junit.jupiter.api.Test;
 import org.jvnet.basicjaxb_annox.model.XAnnotation;
-import org.jvnet.basicjaxb_annox.parser.XAnnotationParser;
 import org.jvnet.basicjaxb_annox.parser.exception.AnnotationExpressionParseException;
 import org.jvnet.basicjaxb_annox.parser.exception.AnnotationStringParseException;
 

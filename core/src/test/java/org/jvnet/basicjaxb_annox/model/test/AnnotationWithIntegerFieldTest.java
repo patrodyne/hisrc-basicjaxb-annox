@@ -7,7 +7,6 @@ import static org.jvnet.basicjaxb_annox.parser.XGenericFieldParser.GENERIC;
 import org.junit.jupiter.api.Test;
 import org.jvnet.basicjaxb_annox.model.XAnnotation;
 import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
-import org.jvnet.basicjaxb_annox.parser.XGenericFieldParser;
 
 public class AnnotationWithIntegerFieldTest
 {
