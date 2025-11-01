@@ -11,11 +11,11 @@
 	directly.
 -->
 <package
-	xmlns="http://jvnet.org/basicjaxb/xjc/annox"
-	xmlns:jaxb="http://jvnet.org/basicjaxb/xjc/annox/jakarta.xml.bind.annotation"
-	xmlns:adap="http://jvnet.org/basicjaxb/xjc/annox/jakarta.xml.bind.annotation.adapters"
+	xmlns="urn:jvnet.org:basicjaxb:xjc:annox"
+	xmlns:jaxb="urn:jvnet.org:basicjaxb:xjc:annox:jakarta.xml.bind.annotation"
+	xmlns:adap="urn:jvnet.org:basicjaxb:xjc:annox:jakarta.xml.bind.annotation.adapters"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://jvnet.org/basicjaxb/xjc/annox annox.xsd"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox annox.xsd"
 >
 
 	<adap:XmlJavaTypeAdapters>

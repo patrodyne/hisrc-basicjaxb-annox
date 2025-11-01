@@ -1,5 +1,5 @@
-<A	xmlns="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.parser.tests"
-	xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+<A	xmlns="urn:jvnet.org:basicjaxb:xjc:annox:org.jvnet.basicjaxb_annox.parser.tests"
+	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
 	booleanField="false"
 	byteField="0"
 	charField="a"

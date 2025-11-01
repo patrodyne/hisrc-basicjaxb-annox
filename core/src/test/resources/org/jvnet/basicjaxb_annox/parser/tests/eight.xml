@@ -1,2 +1,2 @@
-<annox:annotate xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+<annox:annotate xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
 	annox:class="org.jvnet.basicjaxb_annox.parser.tests.K">k kay</annox:annotate>

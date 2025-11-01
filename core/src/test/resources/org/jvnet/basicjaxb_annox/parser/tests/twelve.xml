@@ -1,4 +1,4 @@
-		<B xmlns="http://jvnet.org/basicjaxb/xjc/annox/org.jvnet.basicjaxb_annox.parser.tests" xmlns:annox="http://jvnet.org/basicjaxb/xjc/annox"
+		<B xmlns="urn:jvnet.org:basicjaxb:xjc:annox:org.jvnet.basicjaxb_annox.parser.tests" xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
 			booleanArrayField="false"
 			byteArrayField="0"
 			charArrayField="a"
