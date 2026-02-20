@@ -97,10 +97,10 @@
 		<activation-api.version>2.1.4</activation-api.version>
 		<activation-imp.version>2.0.0</activation-imp.version>
 		<commons-lang3.version>3.20.0</commons-lang3.version>
-		<hibernate-search.version>8.2.1.Final</hibernate-search.version>
+		<hibernate-search.version>8.2.2.Final</hibernate-search.version>
 		<javaparser.version>1.0.11</javaparser.version>
 		<jaxb-api.version>4.0.5</jaxb-api.version>
-		<jaxb-imp.version>4.0.5</jaxb-imp.version>
+		<jaxb-imp.version>4.0.6</jaxb-imp.version>
 		<junit-jupiter.version>6.0.3</junit-jupiter.version>
 		<junit-platform.version>6.0.3</junit-platform.version>
 		<maven.compiler.release>17</maven.compiler.release>
@@ -349,17 +349,6 @@
 									<version>.+[\.-](CR|RC)\d</version>
 								</ignoreVersion>
 							</ignoreVersions>
-							<rules>
-								<rule>
-									<groupId>org.glassfish.jaxb</groupId>
-									<ignoreVersions>
-										<ignoreVersion>
-											<type>exact</type>
-											<version>4.0.6</version>
-										</ignoreVersion>
-									</ignoreVersions>
-								</rule>
-							</rules>
 						</ruleSet>
 					</configuration>
 				</plugin>
