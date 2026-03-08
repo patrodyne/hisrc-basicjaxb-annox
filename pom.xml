@@ -48,8 +48,8 @@
 		<connection>scm:git:git@github.com:patrodyne/hisrc-basicjaxb-annox.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/patrodyne/hisrc-basicjaxb-annox.git</developerConnection>
 		<url>https://github.com/patrodyne/hisrc-basicjaxb-annox/tree/master</url>
-		<tag>HEAD</tag>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
@@ -69,7 +69,8 @@
 		<maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
 		<maven-install-plugin.version>3.1.4</maven-install-plugin.version>
 		<maven-invoker-plugin.version>3.9.1</maven-invoker-plugin.version>
-		<maven-jar-plugin.version>3.5.0</maven-jar-plugin.version>
+		<!-- Issue: v3.5.0; https://github.com/eclipse-m2e/m2e-core/issues/2091 -->
+		<maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
 		<maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
 		<maven-jxr-plugin.version>3.6.0</maven-jxr-plugin.version>
 		<maven-project-info-reports-plugin.version>3.9.0</maven-project-info-reports-plugin.version>
@@ -324,10 +325,10 @@
 							<ignoreVersions>
 								<ignoreVersion>
 									<type>regex</type>
-									<version>(.+\.Alpha\d|.+-alpha(\d|-\d+))</version>
+                                    <version>(.+\.Alpha\d|.+-alpha(\d|-\d+))</version>
 								</ignoreVersion>
-                                <ignoreVersion>
-                                    <type>regex</type>
+								<ignoreVersion>
+									<type>regex</type>
                                     <version>(.+\.Beta\d|.+-beta(\d|-\d+))</version>
                                 </ignoreVersion>
 								<ignoreVersion>
@@ -473,7 +474,7 @@
 									<message>Best Practice is to always define plugin versions!</message>
 									<banSnapshots>false</banSnapshots>
 								</requirePluginVersions>
-							</rules>
+							</rules>    
 						</configuration>
 					</execution>
 				</executions>
