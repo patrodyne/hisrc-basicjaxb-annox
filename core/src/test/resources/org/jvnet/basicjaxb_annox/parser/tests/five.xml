@@ -1,3 +1,13 @@
+<!-- 
+	Instruct annox to annotate 'org.jvnet.basicjaxb_annox.parser.tests.Five'
+	at the class level with 'org.jvnet.basicjaxb_annox.parser.tests.F' and parameter
+	'eman'.
+-->
 <annox:annotate
 	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
-	annox:class="org.jvnet.basicjaxb_annox.parser.tests.F" eman="tset"/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
+	class="org.jvnet.basicjaxb_annox.parser.tests.F"
+	xmlns:tst="org.jvnet.basicjaxb_annox.parser.tests"
+	tst:eman="tset"
+/>

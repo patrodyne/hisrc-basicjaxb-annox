@@ -1,4 +1,13 @@
+<!-- 
+	Instruct annox to annotate 'org.jvnet.basicjaxb_annox.parser.tests.FieldBridge'
+	at the class level with 'org.hibernate.search.annotations.FieldBridge' and parameter
+	'impl'.
+-->
 <annox:annotate
 	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
-	annox:class="org.hibernate.search.annotations.FieldBridge"
-	impl="java.lang.String1 [  ]   [    ]     [      ]       [        ]         "/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
+	class="org.hibernate.search.annotations.FieldBridge"
+	xmlns:hs="org.hibernate.search"
+	hs:impl="java.lang.String1 [  ]   [    ]     [      ]       [        ]         "
+/>

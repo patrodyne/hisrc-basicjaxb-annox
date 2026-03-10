@@ -1,4 +1,5 @@
-<A	xmlns="urn:jvnet.org:basicjaxb:xjc:annox:org.jvnet.basicjaxb_annox.parser.tests"
+<A
+	xmlns="urn:jvnet.org:basicjaxb:xjc:annox:org.jvnet.basicjaxb_annox.parser.tests"
 	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
 	booleanField="false"
 	byteField="0"
@@ -10,7 +11,8 @@
 	intField="4" 
 	longField="5" 
 	shortField="6"
-	stringField="7">
+	stringField="7"
+>
 	<annotationField>
 		<B
 			booleanArrayField="false true"

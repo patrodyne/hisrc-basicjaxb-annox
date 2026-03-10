@@ -76,13 +76,12 @@
 	<!-- HiSrc HyperJAXB Annox -->
 	
 	<xs:element name="annotate">
-		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:string">
-					<xs:attribute name="class" type="xs:string" />
-					<xs:attribute name="target" type="tns:annotationTarget" />
-				</xs:extension>
-			</xs:simpleContent>
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element ref="tns:annotate"  minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="class" type="xs:string" />
+			<xs:anyAttribute namespace="##other" processContents="skip"/>
 		</xs:complexType>
 	</xs:element>
 

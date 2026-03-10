@@ -51,7 +51,7 @@ public class XAnnotationParser {
 
 	/**
 	 * Constructor with a specified class loader.
-	 * 
+	 *
 	 * @param classLoader
 	 *            the class loader which should be used to get classes (like
 	 *            annotations)
@@ -96,8 +96,9 @@ public class XAnnotationParser {
 
 		final String name = annotationElement.getLocalName();
 
-		final String classAttribute = annotationElement.getAttributeNS(
-				Constants.NAMESPACE_URI, "class");
+		String classAttribute = annotationElement.getAttribute("class");
+		if ( classAttribute.isEmpty() )
+			classAttribute = annotationElement.getAttributeNS(Constants.NAMESPACE_URI, "class");
 
 		final String className;
 		if (!StringUtils.isEmpty(classAttribute)) {

@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.jvnet.basicjaxb_annox.Constants;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -16,12 +17,26 @@ public class AnnotationElementUtils {
 	}
 
 	public static String getFieldValue(final Element annotationElement,
-			final String name) {
+			final String name)
+	{
 		String value = null;
 
 		final String attribute = annotationElement.getAttribute(name);
-		if (!StringUtils.isEmpty(attribute)) {
+		if (!StringUtils.isEmpty(attribute))
 			value = attribute;
+		else
+		{
+			// Search for any namespace match
+			NamedNodeMap attrs = annotationElement.getAttributes();
+			for ( int index=0; index < attrs.getLength(); ++index )
+			{
+				Node node = attrs.item(index);
+				if ( name.equals(node.getLocalName()) )
+				{
+					value = node.getNodeValue();
+					break;
+				}
+			}
 		}
 
 		final NodeList nodes = annotationElement.getChildNodes();

@@ -1,3 +1,10 @@
+<!-- 
+	Instruct annox to annotate 'org.jvnet.basicjaxb_annox.parser.tests.H'
+	at the class level with 'org.jvnet.basicjaxb_annox.parser.tests.H'.
+-->
 <annox:annotate
 	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
-	annox:class="org.jvnet.basicjaxb_annox.parser.tests.H"/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
+	class="org.jvnet.basicjaxb_annox.parser.tests.H"
+/>

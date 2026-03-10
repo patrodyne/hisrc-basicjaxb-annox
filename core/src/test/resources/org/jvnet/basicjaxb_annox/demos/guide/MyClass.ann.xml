@@ -14,7 +14,7 @@
 	xmlns="urn:jvnet.org:basicjaxb:xjc:annox"
 	xmlns:g="urn:jvnet.org:basicjaxb:xjc:annox:org.jvnet.basicjaxb_annox.demos.guide"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/download/2.1.0/annox.xsd"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
 >
 	<!-- Just like @MyAnnotation(printName = "My annotated class") -->
 	<g:MyAnnotation printName="My annotated class"/>

@@ -1,5 +1,14 @@
+<!-- 
+	Instruct annox to annotate 'org.jvnet.basicjaxb_annox.parser.tests.Field'
+	at the class level with 'org.hibernate.search.annotations.Field' and parameters
+	'index' and 'store'.
+-->
 <annox:annotate
 	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
-	annox:class="org.hibernate.search.annotations.Field"
-	index="YES"
-	store="NO"/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
+	class="org.hibernate.search.annotations.Field"
+	xmlns:hs="org.hibernate.search"
+	hs:index="YES"
+	hs:store="NO"
+/>

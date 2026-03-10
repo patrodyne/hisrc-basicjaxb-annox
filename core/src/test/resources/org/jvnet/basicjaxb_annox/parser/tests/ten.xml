@@ -1,5 +1,14 @@
-<annox:annotate xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
-	annox:class="org.jvnet.basicjaxb_annox.parser.tests.M">
-	<annox:annotate annox:class="org.jvnet.basicjaxb_annox.parser.tests.K">k kay</annox:annotate>
-	<annox:annotate annox:class="org.jvnet.basicjaxb_annox.parser.tests.K">K KAY</annox:annotate>
+<!-- 
+	Instruct annox to annotate 'org.jvnet.basicjaxb_annox.parser.tests.Ten'
+	at the class level with 'org.jvnet.basicjaxb_annox.parser.tests.M' and
+	'K' content.
+-->
+<annox:annotate
+	xmlns:annox="urn:jvnet.org:basicjaxb:xjc:annox"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:jvnet.org:basicjaxb:xjc:annox ../../../../../../../main/resources/annox.xsd"
+	class="org.jvnet.basicjaxb_annox.parser.tests.M"
+>
+	<annox:annotate class="org.jvnet.basicjaxb_annox.parser.tests.K">k kay</annox:annotate>
+	<annox:annotate class="org.jvnet.basicjaxb_annox.parser.tests.K">K KAY</annox:annotate>
 </annox:annotate>
