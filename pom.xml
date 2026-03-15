@@ -414,6 +414,7 @@
 				<version>${maven-javadoc-plugin.version}</version>
 				<executions>
 					<execution>
+						<!-- TESTING: mvn clean javadoc:javadoc@attach-javadocs -->
 						<id>attach-javadocs</id>
 						<phase>verify</phase>
 						<goals>
@@ -423,7 +424,9 @@
 							<additionalOptions>
 								<additionalOption>--link-modularity-mismatch=info</additionalOption>
 							</additionalOptions>
-							<detectLinks>true</detectLinks>
+							<!-- Detection of Javadoc links of dependent projects; but, this -->
+							<!-- only works if the dependent project follows ${project.url}/apidocs -->
+							<detectLinks>false</detectLinks>
 							<doclint>all,-missing</doclint>
 							<failOnError>false</failOnError>
 							<offline>true</offline>
@@ -436,6 +439,8 @@
 								<link>https://javadoc.io/doc/com.google.code.javaparser/javaparser/${javaparser.version}/</link>
 								<link>https://javadoc.io/doc/org.hibernate.search/hibernate-search-mapper-orm/${hibernate-search.version}/</link>
 								<link>https://javadoc.io/doc/org.junit.jupiter/junit-jupiter-api/${junit-jupiter.version}/</link>
+								<!-- HiSrc BasicJAXB Annox link(s) -->
+								<link>https://javadoc.io/doc/org.patrodyne.jvnet/hisrc-basicjaxb-annox-parser/latest</link>
 							</links>
 							<quiet>false</quiet>
 						</configuration>
@@ -502,14 +507,24 @@
 	<profiles>
 
 		<profile>
-			<id>assembly</id>
+			<id>all</id>
+			<activation>
+				<property>
+					<name>all</name>
+				</property>
+			</activation>
 			<modules>
 				<module>assembly</module>
 			</modules>
 		</profile>
 
 		<profile>
-			<id>all</id>
+			<id>assembly</id>
+			<activation>
+				<property>
+					<name>assembly</name>
+				</property>
+			</activation>
 			<modules>
 				<module>assembly</module>
 			</modules>
