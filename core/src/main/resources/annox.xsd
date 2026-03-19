@@ -78,7 +78,7 @@
 	<xs:element name="annotate">
 		<xs:complexType mixed="true">
 			<xs:sequence>
-				<xs:element ref="tns:annotate"  minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="tns:annotate" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="class" type="xs:string" />
 			<xs:anyAttribute namespace="##other" processContents="skip"/>
@@ -92,8 +92,8 @@
 		</xs:complexType>
 	</xs:element>
 
-    <xs:simpleType name="annotationTarget">
-        <xs:restriction base="xs:string">
+	<xs:simpleType name="annotationTarget">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="class" />
 			<xs:enumeration value="element" />
 			<xs:enumeration value="enum" />
@@ -106,8 +106,8 @@
 			<xs:enumeration value="getter" />
 			<xs:enumeration value="setter" />
 			<xs:enumeration value="setter-parameter" />
-        </xs:restriction>
-    </xs:simpleType>
+		</xs:restriction>
+	</xs:simpleType>
 	
 	<xs:element name="annotateClass" type="tns:annotateEponym" />
 	<xs:element name="annotateElement" type="tns:annotateEponym" />
