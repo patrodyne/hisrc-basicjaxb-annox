@@ -50,6 +50,7 @@ repositories and to fix a conformance issue with the original
 
 #### GitHub Releases, Demonstrations
 
+* [HiSrc BasicJAXB Annox v3.0.0, Samples][35]
 * [HiSrc BasicJAXB Annox v2.2.1, Samples][34]
 * [HiSrc BasicJAXB Annox v2.2.0, Samples][33]
 * [HiSrc BasicJAXB Annox v2.1.1, Samples][32]
@@ -181,5 +182,6 @@ repositories and to fix a conformance issue with the original
   [32]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.1.1
   [33]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.2.0
   [34]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/2.2.1
+  [35]: https://github.com/patrodyne/hisrc-basicjaxb-annox/releases/tag/3.0.0
   [40]: https://javadoc.io/doc/org.patrodyne.jvnet/hisrc-basicjaxb-annox-parser/latest/index.html
 
