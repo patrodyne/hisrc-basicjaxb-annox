@@ -84,7 +84,7 @@
 
 		<activation-api.version>2.1.4</activation-api.version>
 		<commons-lang3.version>3.20.0</commons-lang3.version>
-		<hibernate-search.version>8.2.2.Final</hibernate-search.version>
+		<hibernate-search.version>8.3.0.Final</hibernate-search.version>
 		<javaparser.version>1.0.11</javaparser.version>
 		<jaxb-api.version>4.0.5</jaxb-api.version>
 		<jaxb-imp.version>4.0.7</jaxb-imp.version>
