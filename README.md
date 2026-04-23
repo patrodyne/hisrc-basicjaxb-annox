@@ -32,6 +32,8 @@ repositories and to fix a conformance issue with the original
 > GitHub personal account (i.e. 1 tab = 4 spaces) when viewing files in this
 > repository. [Here's how][5].
 
+> **See also:** [Code Style Guide][6].
+
 ### List of repositories in this family
 
 | Patrodyne                   | Highsource                  | Purpose                                                |
@@ -168,6 +170,7 @@ repositories and to fix a conformance issue with the original
   [3]: https://github.com/patrodyne/hisrc-basicjaxb-annox/blob/master/core/src/main/resources/annox.xsd
   [4]: https://xerces.apache.org/xml-commons/components/resolver/resolver-article.html
   [5]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-tab-size-rendering-preference
+  [6]: https://github.com/patrodyne/hisrc-hyperjaxb/blob/master/etc/CODE_STYLE_GUIDE.md
   [11]: https://github.com/patrodyne/hisrc-basicjaxb-annox#readme
   [12]: https://github.com/patrodyne/hisrc-basicjaxb#readme
   [13]: https://github.com/patrodyne/hisrc-higherjaxb#readme

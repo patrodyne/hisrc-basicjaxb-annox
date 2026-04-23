@@ -18,10 +18,10 @@ import org.jvnet.basicjaxb_annox.model.annotation.field.XAnnotationField;
 import org.jvnet.basicjaxb_annox.parser.XGenericFieldParser;
 
 /**
- * Defines an xannotation.
- * 
+ * An {@code XAnnotation} is a model of a Java annotation that has been
+ * parsed from an external source, such as a text string or an XML resource.
+ *
  * @author Aleksei Valikov
- * 
  */
 public class XAnnotation<A extends Annotation> {
 
@@ -52,7 +52,7 @@ public class XAnnotation<A extends Annotation> {
 
 	/**
 	 * Constructs an xannotation for the given annotation class.
-	 * 
+	 *
 	 * @param annotationClass
 	 *            annotation class, must not be <code>null</code>
 	 * @param fields
@@ -183,7 +183,7 @@ public class XAnnotation<A extends Annotation> {
 
 	/**
 	 * Returns the annotation class.
-	 * 
+	 *
 	 * @return annotation class.
 	 */
 	public Class<? extends Annotation> getAnnotationClass() {
@@ -196,7 +196,7 @@ public class XAnnotation<A extends Annotation> {
 
 	/**
 	 * Returns the list of the fields.
-	 * 
+	 *
 	 * @return list of the fields.
 	 */
 	public List<XAnnotationField<?>> getFieldsList() {
@@ -205,7 +205,7 @@ public class XAnnotation<A extends Annotation> {
 
 	/**
 	 * Returns the map of the fields.
-	 * 
+	 *
 	 * @return map of the fields.
 	 */
 	public Map<String, XAnnotationField<?>> getFieldsMap() {
@@ -253,7 +253,7 @@ public class XAnnotation<A extends Annotation> {
 
 	/**
 	 * Returns the instance of the annotation for this xannotation.
-	 * 
+	 *
 	 * @return Instance of the annotation for this xannotation.
 	 */
 	public A getResult() {
