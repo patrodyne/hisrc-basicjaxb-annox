@@ -37,7 +37,7 @@ else
   mvn ${JVM_SYS_PROPS} "$@"
 fi
 
-# Release to Maven Central via Sonatype Nexus Repository Manager
+# Release to Maven Central via Sonatype Central Portal (https://central.sonatype.com/)
 # 1) Set MVN_ARGS to "-T 1" and commit/push
 # 2) Exit mc, use the same TTY to reuse gpg signing daemon.
 # 3) To "prime" the GnuPG agent...............: echo "test" | gpg --clearsign
